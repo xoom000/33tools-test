@@ -1,0 +1,67 @@
+/* Font is now preloaded in HTML for better performance */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Performance-optimized CSS animations to replace heavy Framer Motion usage */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slide-in {
+  from { 
+    opacity: 0; 
+    transform: translateX(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+/* CSS Animation Classes */
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.2s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.2s ease-out forwards;
+}
+
+/* Performance hint: will-change for elements that will animate */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Critical performance optimization: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-in,
+  .animate-spin,
+  .animate-pulse,
+  .animate-bounce {
+    animation: none;
+  }
+  
+  .hover\:scale-105:hover,
+  .hover\:-translate-y-1:hover {
+    transform: none;
+  }
+}
