@@ -1,0 +1,71 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env-backup
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+master.db*
+
+# Logs
+*.log
+logs/
+frontend/frontend.log
+
+# Backups
+backups/
+*.backup
+*.QUARANTINE*
+
+# Development files
+.DS_Store
+*.tmp
+*.temp
+.vscode/
+.claude/
+
+# Transfer and temporary files
+transfer/
+dev-transfer.js
+
+# CSV data and documentation
+csv_data/
+docs/
+
+# Scripts and configurations that are environment-specific
+camping-manage.sh
+frontend-server.js
+*.sql
+
+# Old/archived files
+*.old
+*backup*
+POSTMAN_COLLECTION.json
+API_DOCS.md
+CONTEXT7_USAGE.md
+CURRENT_SCHEMA.sql
+
+# Frontend build artifacts
+route33-portal/build/
+route33-portal/dist/
+route33-portal/.next/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv
