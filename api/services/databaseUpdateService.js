@@ -222,11 +222,16 @@ class DatabaseUpdateService {
   }
 
   // APPLY UPDATES TO DATABASE
-  async applyUpdates(updateId, selectedChanges = null) {
+  async applyUpdates(updateId, selectedChanges = null, adminUser = null) {
     const updateInfo = this.pendingUpdates.get(updateId);
     if (!updateInfo) {
       throw new Error('Update not found or expired');
     }
+
+    // 🛡️ AUTO-BACKUP: Create backup before any database changes
+    console.log(`🛡️ Creating automatic backup before applying updates...`);
+    const backup = await this.createDatabaseBackup(`before_update_${updateId.substring(0, 8)}`);
+    console.log(`✅ Backup created: ${backup.backupPath}`);
 
     const db = new sqlite3.Database(this.dbPath);
     const changes = selectedChanges || updateInfo.changes;
@@ -247,12 +252,15 @@ class DatabaseUpdateService {
       
       await this.runQuery(db, 'COMMIT');
       
-      // Record in history
+      // Record in history with backup info for rollback
       this.updateHistory.push({
         ...updateInfo,
         status: 'completed',
         appliedChanges,
-        completedAt: new Date().toISOString()
+        completedAt: new Date().toISOString(),
+        backupPath: backup.backupPath, // 🔄 Store backup path for rollback
+        backupSize: backup.size,
+        adminUser: adminUser?.driver_name || 'system'
       });
       
       // Clean up
@@ -373,6 +381,168 @@ class DatabaseUpdateService {
 
   async getUpdateHistory(limit = 50) {
     return this.updateHistory.slice(-limit).reverse();
+  }
+
+  // 🔄 NIGEL'S ROLLBACK SYSTEM - Admin Only Database Backup & Restore
+  async createDatabaseBackup(reason = 'manual') {
+    try {
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const backupPath = path.join(__dirname, `../../database-backups/backup_${timestamp}_${reason}.db`);
+      
+      console.log(`Creating database backup: ${backupPath}`);
+      
+      // Create backup directory if it doesn't exist
+      const backupDir = path.dirname(backupPath);
+      await fs.mkdir(backupDir, { recursive: true });
+      
+      // Simple file copy backup (more reliable than SQLite .backup API)
+      await fs.copyFile(this.dbPath, backupPath);
+      
+      const stats = require('fs').statSync(backupPath);
+      console.log(`✅ Database backup created: ${backupPath} (${stats.size} bytes)`);
+      
+      return {
+        success: true,
+        backupPath,
+        timestamp,
+        reason,
+        size: stats.size
+      };
+      
+    } catch (error) {
+      console.error('Backup creation failed:', error);
+      throw error;
+    }
+  }
+
+  // 🔄 RESTORE DATABASE FROM BACKUP - Nigel Only!
+  async restoreFromBackup(backupPath, adminUser = null) {
+    try {
+      // Security check - only Nigel can restore
+      if (!adminUser || adminUser.route_number !== 33 || adminUser.driver_name !== 'Nigel Whaley') {
+        throw new Error('Unauthorized: Only Nigel can restore database backups');
+      }
+
+      console.log(`🚨 RESTORE INITIATED by ${adminUser.driver_name}: ${backupPath}`);
+      
+      // Verify backup file exists
+      const fullBackupPath = backupPath.startsWith('/') ? 
+        backupPath : 
+        path.join(__dirname, `../../database-backups/${backupPath}`);
+        
+      await fs.access(fullBackupPath);
+      
+      // Create a safety backup of current state before restore
+      const safetyBackup = await this.createDatabaseBackup('pre_restore_safety');
+      
+      // Perform restore by copying backup over current database
+      await fs.copyFile(fullBackupPath, this.dbPath);
+      
+      console.log(`✅ Database restored from: ${fullBackupPath}`);
+      console.log(`🛡️ Safety backup created: ${safetyBackup.backupPath}`);
+      
+      // Log the restore action
+      this.updateHistory.push({
+        id: uuidv4(),
+        action: 'database_restore',
+        timestamp: new Date().toISOString(),
+        admin: adminUser.driver_name,
+        backupPath: fullBackupPath,
+        safetyBackup: safetyBackup.backupPath,
+        success: true
+      });
+      
+      return {
+        success: true,
+        message: 'Database successfully restored',
+        restoredFrom: fullBackupPath,
+        safetyBackup: safetyBackup.backupPath,
+        timestamp: new Date().toISOString()
+      };
+      
+    } catch (error) {
+      console.error('Database restore failed:', error);
+      throw error;
+    }
+  }
+
+  // 📋 LIST AVAILABLE BACKUPS - Admin Only
+  async getAvailableBackups(adminUser = null) {
+    try {
+      // Security check - only Nigel can see backups
+      if (!adminUser || adminUser.route_number !== 33) {
+        throw new Error('Unauthorized: Only admin can view backups');
+      }
+
+      const backupDir = path.join(__dirname, '../../database-backups');
+      
+      try {
+        const files = await fs.readdir(backupDir);
+        const backups = [];
+        
+        for (const file of files) {
+          if (file.endsWith('.db')) {
+            const filePath = path.join(backupDir, file);
+            const stats = await fs.stat(filePath);
+            
+            // Parse filename for metadata
+            const match = file.match(/backup_(.+?)_(.+?)\.db$/);
+            const timestamp = match ? match[1].replace(/-/g, ':') : 'unknown';
+            const reason = match ? match[2] : 'unknown';
+            
+            backups.push({
+              filename: file,
+              fullPath: filePath,
+              timestamp,
+              reason,
+              size: stats.size,
+              created: stats.mtime.toISOString(),
+              ageMinutes: Math.round((Date.now() - stats.mtime.getTime()) / 60000)
+            });
+          }
+        }
+        
+        // Sort by creation time, newest first
+        return backups.sort((a, b) => new Date(b.created) - new Date(a.created));
+        
+      } catch (err) {
+        // Backup directory doesn't exist yet
+        return [];
+      }
+      
+    } catch (error) {
+      console.error('Failed to get backup list:', error);
+      throw error;
+    }
+  }
+
+  // 🔄 ROLLBACK SPECIFIC UPDATE - Now implemented!
+  async rollbackUpdates(updateId, adminUser = null) {
+    try {
+      // Security check - only Nigel can rollback
+      if (!adminUser || adminUser.route_number !== 33) {
+        throw new Error('Unauthorized: Only admin can rollback updates');
+      }
+
+      // Find the update in history
+      const update = this.updateHistory.find(u => u.id === updateId);
+      if (!update) {
+        throw new Error(`Update ${updateId} not found in history`);
+      }
+
+      if (!update.backupPath) {
+        throw new Error(`No backup available for update ${updateId}`);
+      }
+
+      console.log(`🔄 ROLLBACK requested by ${adminUser.driver_name} for update: ${updateId}`);
+      
+      // Restore from the backup that was created before this update
+      return await this.restoreFromBackup(update.backupPath, adminUser);
+      
+    } catch (error) {
+      console.error('Rollback failed:', error);
+      throw error;
+    }
   }
 }
 

@@ -26,67 +26,108 @@ export const AuthProvider = ({ children }) => {
   // Initialize authentication from stored data
   const initializeAuth = useCallback(async () => {
     try {
+      console.log('🔥 AUTH INIT START - Checking localStorage...');
       setIsLoading(true);
       setAuthError(null);
 
-      // Check for driver authentication first
+      // Check what's in localStorage
       const driverToken = localStorage.getItem('driverToken');
       const driverData = localStorage.getItem('driverData');
+      const customerData = localStorage.getItem('customerAuth');
+      const deviceToken = localStorage.getItem('deviceToken');
       
+      console.log('🔥 LOCALSTORAGE STATE:', {
+        hasDriverToken: !!driverToken,
+        hasDriverData: !!driverData,
+        hasCustomerData: !!customerData,
+        hasDeviceToken: !!deviceToken
+      });
+
+      // Check for driver authentication first
       if (driverToken && driverData) {
+        console.log('🔥 FOUND DRIVER DATA - Verifying token...');
         const driver = JSON.parse(driverData);
+        console.log('🔥 DRIVER OBJECT:', driver);
         
         // Verify driver token is still valid
         const isValid = await verifyDriverToken(driverToken);
+        console.log('🔥 DRIVER TOKEN VALID:', isValid);
+        
         if (isValid) {
           setCurrentUser(driver);
           setUserType('driver');
           setIsLoggedIn(true);
+          console.log('✅ DRIVER AUTH RESTORED:', { 
+            driver: driver.name, 
+            route: driver.route_number,
+            userType: 'driver',
+            isLoggedIn: true
+          });
           logger.info('Driver auth restored from storage', { 
             driver: driver.name, 
             route: driver.route_number 
           });
           return;
         } else {
+          console.log('❌ INVALID DRIVER TOKEN - Clearing data...');
           // Clear invalid driver data
           localStorage.removeItem('driverToken');
           localStorage.removeItem('driverData');
+          // Ensure state is reset
+          setCurrentUser(null);
+          setUserType(null);
+          setIsLoggedIn(false);
         }
       }
 
       // Check for customer authentication
-      const customerData = localStorage.getItem('customerAuth');
-      const deviceToken = localStorage.getItem('deviceToken');
-      
       if (customerData && deviceToken) {
+        console.log('🔥 FOUND CUSTOMER DATA - Verifying device...');
         const customer = JSON.parse(customerData);
+        console.log('🔥 CUSTOMER OBJECT:', customer);
         
         // Verify customer device token is still valid
         const isValid = await verifyCustomerDevice(deviceToken);
+        console.log('🔥 CUSTOMER TOKEN VALID:', isValid);
+        
         if (isValid) {
           setCurrentUser(customer);
           setUserType('customer');
           setIsLoggedIn(true);
+          console.log('✅ CUSTOMER AUTH RESTORED:', {
+            customer: customer.account_name,
+            customerNumber: customer.customer_number,
+            userType: 'customer',
+            isLoggedIn: true
+          });
           logger.info('Customer auth restored from storage', { 
             customer: customer.account_name,
             customerNumber: customer.customer_number
           });
           return;
         } else {
+          console.log('❌ INVALID CUSTOMER TOKEN - Clearing data...');
           // Clear invalid customer data
           localStorage.removeItem('customerAuth');
           localStorage.removeItem('deviceToken');
+          // Ensure state is reset
+          setCurrentUser(null);
+          setUserType(null);
+          setIsLoggedIn(false);
         }
       }
 
       // No valid authentication found
+      console.log('❌ NO VALID AUTH FOUND - User not logged in');
       logger.info('No valid authentication found in storage');
       
     } catch (error) {
+      console.error('🚨 AUTH INIT ERROR:', error);
       logger.error('Failed to initialize auth', { error: error.message });
       setAuthError('Failed to restore login session');
     } finally {
       setIsLoading(false);
+      console.log('🔥 AUTH INIT COMPLETE');
     }
   }, []); // Empty dependency array since it only uses setState functions
 
@@ -154,6 +195,7 @@ export const AuthProvider = ({ children }) => {
   // Driver login function
   const loginDriver = (driverData, token) => {
     try {
+      console.log('🔥 DRIVER LOGIN CALLED:', driverData);
       setCurrentUser(driverData);
       setUserType('driver');
       setIsLoggedIn(true);
@@ -163,6 +205,12 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('driverData', JSON.stringify(driverData));
       localStorage.setItem('driverToken', token);
       
+      console.log('✅ DRIVER LOGIN SUCCESS - State updated:', {
+        currentUser: driverData,
+        userType: 'driver', 
+        isLoggedIn: true
+      });
+      
       logger.info('Driver logged in', { 
         driver: driverData.name,
         route: driverData.route_number,
@@ -170,6 +218,7 @@ export const AuthProvider = ({ children }) => {
       });
       
     } catch (error) {
+      console.error('🚨 DRIVER LOGIN ERROR:', error);
       logger.error('Driver login failed', { error: error.message });
       setAuthError('Failed to save login session');
     }

@@ -103,7 +103,10 @@ router.post('/apply', async (req, res) => {
       return res.status(400).json({ error: 'Update ID required' });
     }
 
-    const result = await databaseUpdateService.applyUpdates(updateId, selectedChanges);
+    // Get admin user info for security and logging
+    const adminUser = req.user; // Assumes authentication middleware sets req.user
+    
+    const result = await databaseUpdateService.applyUpdates(updateId, selectedChanges, adminUser);
     
     res.json(result);
   } catch (error) {
@@ -124,7 +127,10 @@ router.post('/rollback', async (req, res) => {
       return res.status(400).json({ error: 'Update ID required' });
     }
 
-    const result = await databaseUpdateService.rollbackUpdates(updateId);
+    // Get admin user info for security check
+    const adminUser = req.user;
+    
+    const result = await databaseUpdateService.rollbackUpdates(updateId, adminUser);
     
     res.json(result);
   } catch (error) {
@@ -200,6 +206,76 @@ router.post('/route-optimization-compare', upload.single('file'), async (req, re
     console.error('RouteOptimization comparison failed:', error);
     res.status(500).json({ 
       error: 'RouteOptimization comparison failed',
+      details: error.message 
+    });
+  }
+});
+
+// 🔄 NIGEL'S BACKUP MANAGEMENT ENDPOINTS - Admin Only
+
+// CREATE MANUAL BACKUP
+router.post('/backup/create', async (req, res) => {
+  try {
+    const adminUser = req.user;
+    const { reason = 'manual' } = req.body;
+    
+    const backup = await databaseUpdateService.createDatabaseBackup(reason);
+    
+    res.json({
+      success: true,
+      message: 'Database backup created successfully',
+      ...backup
+    });
+    
+  } catch (error) {
+    console.error('Manual backup failed:', error);
+    res.status(500).json({ 
+      error: 'Backup creation failed',
+      details: error.message 
+    });
+  }
+});
+
+// LIST AVAILABLE BACKUPS
+router.get('/backups', async (req, res) => {
+  try {
+    const adminUser = req.user;
+    
+    const backups = await databaseUpdateService.getAvailableBackups(adminUser);
+    
+    res.json({
+      success: true,
+      backups,
+      count: backups.length
+    });
+    
+  } catch (error) {
+    console.error('Failed to list backups:', error);
+    res.status(500).json({ 
+      error: 'Failed to list backups',
+      details: error.message 
+    });
+  }
+});
+
+// RESTORE FROM SPECIFIC BACKUP
+router.post('/restore', async (req, res) => {
+  try {
+    const adminUser = req.user;
+    const { backupPath } = req.body;
+    
+    if (!backupPath) {
+      return res.status(400).json({ error: 'Backup path required' });
+    }
+    
+    const result = await databaseUpdateService.restoreFromBackup(backupPath, adminUser);
+    
+    res.json(result);
+    
+  } catch (error) {
+    console.error('Database restore failed:', error);
+    res.status(500).json({ 
+      error: 'Database restore failed',
       details: error.message 
     });
   }

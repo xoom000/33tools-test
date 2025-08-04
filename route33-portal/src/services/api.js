@@ -11,7 +11,13 @@ const apiCall = async (endpoint, options = {}) => {
     const routeNumber = window.location.pathname.match(/\/route\/(\d+)/) ? 
                        window.location.pathname.match(/\/route\/(\d+)/)[1] : '33';
     
-    console.log('API Call:', { endpoint, routeNumber, url: `${API_BASE}${endpoint}` });
+    console.log('🔥 API CALL START:', { 
+      endpoint, 
+      routeNumber, 
+      url: `${API_BASE}${endpoint}`,
+      method: options.method || 'GET',
+      hasBody: !!options.body
+    });
     
     const response = await fetch(`${API_BASE}${endpoint}`, {
       headers: {
@@ -22,21 +28,30 @@ const apiCall = async (endpoint, options = {}) => {
       ...options
     });
 
-    console.log('API Response:', { 
+    console.log('🔥 API RESPONSE:', { 
       endpoint, 
       status: response.status, 
-      ok: response.ok 
+      statusText: response.statusText,
+      ok: response.ok,
+      headers: Object.fromEntries(response.headers.entries())
     });
 
     if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
+      const errorText = await response.text();
+      console.error('🚨 API ERROR DETAILS:', { endpoint, status: response.status, errorText });
+      throw new Error(`API Error: ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
-    console.log('API Data:', { endpoint, count: data.count || data.length || 'no count' });
+    console.log('🔥 API SUCCESS DATA:', { 
+      endpoint, 
+      dataType: typeof data,
+      count: data.count || data.length || 'no count',
+      keys: Object.keys(data || {})
+    });
     return data;
   } catch (error) {
-    console.error('API call failed:', { endpoint, error: error.message });
+    console.error('🚨 API CALL FAILED:', { endpoint, error: error.message, stack: error.stack });
     throw error;
   }
 };

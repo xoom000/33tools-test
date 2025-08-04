@@ -11,7 +11,7 @@ export const useAdminData = (currentRoute) => {
   
   // EXTEND useAsyncOperation - COMPOSE, NEVER DUPLICATE! ⚔️
   const { loading, error, execute, clearError } = useAsyncOperation({
-    initialLoading: true,
+    initialLoading: false, // ✅ FIX: Don't start in loading state - let useEffect control this
     logContext: 'useAdminData'
   });
 
@@ -76,20 +76,30 @@ export const useAdminData = (currentRoute) => {
 
   // Load data when authentication is verified
   useEffect(() => {
-    console.log('useAdminData effect triggered:', { 
-      currentUser: !!currentUser, 
+    console.log('=== useAdminData DETAILED DEBUG ===');
+    console.log('Authentication State:', {
+      isLoggedIn,
+      isDriver: isDriver(),
+      isAdmin: isAdmin(),
+      currentUser: currentUser ? {
+        route_number: currentUser.route_number,
+        driver_name: currentUser.driver_name,
+        userType: currentUser.userType
+      } : null,
       userType,
       currentRoute
     });
     
     // Load data if any user is authenticated - API handles authorization
     if (currentUser) {
-      console.log('Loading admin data...');
+      console.log('✅ User authenticated - Loading admin data...');
       loadCustomers();
       loadOrderRequests();
     } else {
-      console.log('No currentUser - not loading data');
+      console.log('❌ No currentUser - not loading data');
+      console.log('Auth context values:', { isLoggedIn, userType });
     }
+    console.log('=== END DEBUG ===');
   }, [currentUser, currentRoute, userType]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return {

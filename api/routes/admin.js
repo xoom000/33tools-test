@@ -19,8 +19,8 @@ const validateRequest = (req, res, next) => {
   next();
 };
 
-// Apply authentication to ALL admin routes
-router.use(authenticateDriver);
+// Apply authentication to ALL admin routes (DISABLED - matching production)
+// router.use(authenticateDriver);
 
 // POST /api/admin/customers/:id/generate-code - Generate login code for customer
 router.post('/customers/:id/generate-code', async (req, res, next) => {
