@@ -46,7 +46,7 @@ const LoadListTab = ({
             <select
               value={selectedDay || ''}
               onChange={(e) => onDayChange(e.target.value)}
-              className="px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
             >
               {availableServiceDays.map(day => (
                 <option key={day} value={day}>
@@ -238,7 +238,7 @@ const LoadListTab = ({
                                 <span className="text-sm font-medium text-slate-800 truncate">
                                   {customer.name}
                                 </span>
-                                <span className="text-sm font-bold text-blue-600 ml-2">
+                                <span className="text-sm font-bold text-primary-600 ml-2">
                                   {customer.quantity}
                                 </span>
                               </div>

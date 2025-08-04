@@ -175,23 +175,23 @@ const DatabaseUpdateModal = ({ isOpen, onClose }) => {
   // RENDER PREVIEW RESULTS
   const renderPreview = () => (
     <div className="space-y-4">
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-        <h3 className="font-semibold text-blue-800 mb-2">📊 Preview Results</h3>
+      <div className="bg-primary-50 border border-primary-200 rounded-lg p-4">
+        <h3 className="font-semibold text-primary-800 mb-2">📊 Preview Results</h3>
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
-            <span className="text-blue-700">Total Changes:</span>
+            <span className="text-primary-700">Total Changes:</span>
             <span className="font-semibold ml-2">{previewData?.totalChanges || 0}</span>
           </div>
           <div>
-            <span className="text-blue-700">New Records:</span>
+            <span className="text-primary-700">New Records:</span>
             <span className="font-semibold ml-2">{previewData?.newRecords || 0}</span>
           </div>
           <div>
-            <span className="text-blue-700">Updates:</span>
+            <span className="text-primary-700">Updates:</span>
             <span className="font-semibold ml-2">{previewData?.updates || 0}</span>
           </div>
           <div>
-            <span className="text-blue-700">Conflicts:</span>
+            <span className="text-primary-700">Conflicts:</span>
             <span className="font-semibold ml-2">{previewData?.conflicts || 0}</span>
           </div>
         </div>

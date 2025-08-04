@@ -4,6 +4,7 @@ import { DashboardLayout } from '../components/layout';
 import { DashboardHeader, TabNavigation, TabContentRenderer } from '../components/features/dashboard';
 import { ModalRenderer } from '../components/features/modals';
 import { DatabaseUpdateModal } from '../components/features/database-update';
+import RouteOptimizationUpload from '../components/features/route-optimization/RouteOptimizationUpload';
 import { useAuth } from '../contexts/AuthContext';
 import { useLoadList } from '../hooks/useLoadList';
 import { useModalManager } from '../hooks/useModalManager';
@@ -58,6 +59,7 @@ const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('orders');
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [showDatabaseUpdate, setShowDatabaseUpdate] = useState(false);
+  const [showRouteOptimization, setShowRouteOptimization] = useState(false);
 
   // Load List custom hook - handles all Load List functionality
   const {
@@ -188,7 +190,8 @@ const AdminDashboard = () => {
           }}
           adminProps={{
             onShowSyncModal: () => openModal('syncModal'),
-            onShowDatabaseUpdate: () => setShowDatabaseUpdate(true)
+            onShowDatabaseUpdate: () => setShowDatabaseUpdate(true),
+            onShowRouteOptimization: () => setShowRouteOptimization(true)
           }}
         />
       </DashboardLayout>
@@ -232,6 +235,16 @@ const AdminDashboard = () => {
       <DatabaseUpdateModal
         isOpen={showDatabaseUpdate}
         onClose={() => setShowDatabaseUpdate(false)}
+      />
+
+      {/* RouteOptimization Upload Modal */}
+      <RouteOptimizationUpload
+        isOpen={showRouteOptimization}
+        onClose={() => setShowRouteOptimization(false)}
+        onSuccess={(data) => {
+          console.log('RouteOptimization comparison completed:', data);
+          // Could add toast notification here
+        }}
       />
     </>
   );

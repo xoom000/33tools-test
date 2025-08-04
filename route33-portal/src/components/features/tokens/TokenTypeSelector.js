@@ -6,7 +6,7 @@ const TokenTypeSelector = ({ onTypeSelect }) => {
       id: 'customer',
       title: 'Customer Token',
       description: 'Generate login codes for customers to access their portal',
-      hoverColor: 'hover:border-blue-300 hover:bg-blue-50'
+      hoverColor: 'hover:border-primary-300 hover:bg-primary-50'
     },
     {
       id: 'driver',

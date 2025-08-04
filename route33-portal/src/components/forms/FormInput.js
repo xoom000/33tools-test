@@ -75,9 +75,9 @@ const FormInput = ({
     } else if (validationState === 'invalid' || error) {
       classes += ' border-red-500 focus:ring-red-500';
     } else if (isFocused) {
-      classes += ' border-blue-500 focus:ring-blue-500';
+      classes += ' border-primary-500 focus:ring-primary-500';
     } else {
-      classes += ' border-slate-300 focus:ring-blue-500';
+      classes += ' border-slate-300 focus:ring-primary-500';
     }
     
     return classes;

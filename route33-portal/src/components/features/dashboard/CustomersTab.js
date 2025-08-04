@@ -72,7 +72,7 @@ const CustomersTab = ({
               <select
                 value={selectedDay || ''}
                 onChange={(e) => onSetSelectedDay(e.target.value || null)}
-                className="px-3 py-1.5 text-sm border border-slate-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="px-3 py-1.5 text-sm border border-slate-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="">All Days</option>
                 {availableServiceDays.map((day) => (

@@ -11,6 +11,8 @@ const apiCall = async (endpoint, options = {}) => {
     const routeNumber = window.location.pathname.match(/\/route\/(\d+)/) ? 
                        window.location.pathname.match(/\/route\/(\d+)/)[1] : '33';
     
+    console.log('API Call:', { endpoint, routeNumber, url: `${API_BASE}${endpoint}` });
+    
     const response = await fetch(`${API_BASE}${endpoint}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -20,13 +22,21 @@ const apiCall = async (endpoint, options = {}) => {
       ...options
     });
 
+    console.log('API Response:', { 
+      endpoint, 
+      status: response.status, 
+      ok: response.ok 
+    });
+
     if (!response.ok) {
       throw new Error(`API Error: ${response.status}`);
     }
 
-    return await response.json();
+    const data = await response.json();
+    console.log('API Data:', { endpoint, count: data.count || data.length || 'no count' });
+    return data;
   } catch (error) {
-    console.error('API call failed:', error);
+    console.error('API call failed:', { endpoint, error: error.message });
     throw error;
   }
 };

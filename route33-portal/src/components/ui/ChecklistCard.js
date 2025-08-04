@@ -28,7 +28,7 @@ const ChecklistCard = ({
           >
             <input 
               type="checkbox" 
-              className="h-4 w-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500" 
+              className="h-4 w-4 text-primary-600 rounded border-slate-300 focus:ring-primary-500" 
               onChange={(e) => onItemCheck?.(item, e.target.checked, index)}
             />
             <span className={`${TYPOGRAPHY.sizes.sm} text-slate-700`}>

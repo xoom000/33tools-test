@@ -69,3 +69,8 @@ env/
 venv/
 .env
 .venv
+
+# Personal notes (don't commit)
+*great_advice.md
+*notes.md
+*personal*.md

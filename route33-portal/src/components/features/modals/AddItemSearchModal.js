@@ -55,12 +55,12 @@ const AddItemSearchModal = ({
                 placeholder="Search items by name or number..."
                 value={searchTerm}
                 onChange={(e) => handleSearchChange(e.target.value)}
-                className="w-full px-3 py-2 pr-10 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                className="w-full px-3 py-2 pr-10 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
                 autoFocus
               />
               <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
                 {isSearching ? (
-                  <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-4 h-4 border-2 border-primary-500 border-t-transparent rounded-full animate-spin"></div>
                 ) : searchTerm ? (
                   <button
                     onClick={() => handleSearchChange('')}
@@ -138,7 +138,7 @@ const AddItemSearchModal = ({
                             In List
                           </span>
                         )}
-                        <div className="text-blue-600 font-medium">
+                        <div className="text-primary-600 font-medium">
                           {loadList.find(li => li.item_number === item.item_number) ? '+1' : 'Add'}
                         </div>
                       </div>
@@ -161,7 +161,7 @@ const AddItemSearchModal = ({
                     </div>
                     <button
                       onClick={() => handleSearchChange('')}
-                      className="mt-3 text-blue-600 hover:text-blue-700 text-sm font-medium"
+                      className="mt-3 text-primary-600 hover:text-primary-700 text-sm font-medium"
                     >
                       Clear search
                     </button>

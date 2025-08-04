@@ -54,7 +54,7 @@ export const COLORS = {
 // Typography Scale
 export const TYPOGRAPHY = {
   fonts: {
-    base: 'Inter, system-ui, sans-serif',
+    base: 'Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif',
     mono: 'JetBrains Mono, Consolas, monospace'
   },
   

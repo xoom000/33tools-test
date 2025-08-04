@@ -106,7 +106,7 @@ const CustomerSelectionCard = ({ customer, isSelected, onToggle }) => {
       animate={{ opacity: 1, y: 0 }}
       className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
         isSelected
-          ? 'border-blue-500 bg-blue-50 shadow-md'
+          ? 'border-primary-500 bg-primary-50 shadow-md'
           : 'border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-slate-100'
       }`}
       onClick={onToggle}

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '../../ui';
 
-const AdminTab = ({ onShowSyncModal, onShowDatabaseUpdate }) => {
+const AdminTab = ({ onShowSyncModal, onShowDatabaseUpdate, onShowRouteOptimization }) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -40,6 +40,14 @@ const AdminTab = ({ onShowSyncModal, onShowDatabaseUpdate }) => {
                 className="w-full"
               >
                 📊 CSV Database Sync
+              </Button>
+              <Button 
+                variant="accent" 
+                size="small"
+                onClick={onShowRouteOptimization}
+                className="w-full"
+              >
+                🚛 RouteOptimization Compare
               </Button>
             </div>
           </div>

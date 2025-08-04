@@ -25,7 +25,7 @@ const DemoContentCard = ({
       )}
       
       {showHelpHint && (
-        <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <div className="mb-6 p-4 bg-primary-50 border border-primary-200 rounded-lg">
           <div className="flex items-start gap-3">
             <div className="text-blue-500 text-lg">💡</div>
             <div className="text-sm text-blue-700">

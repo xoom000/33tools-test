@@ -5,7 +5,7 @@ import { useAsyncOperation } from './useAsyncOperation';
 
 // COMPOSE, NEVER DUPLICATE - Admin data management! ⚔️
 export const useAdminData = (currentRoute) => {
-  const { isLoggedIn, isDriver, currentUser } = useAuth();
+  const { isLoggedIn, isDriver, isAdmin, currentUser, userType } = useAuth();
   const [customers, setCustomers] = useState([]);
   const [orderRequests, setOrderRequests] = useState([]);
   
@@ -16,11 +16,17 @@ export const useAdminData = (currentRoute) => {
   });
 
   const loadCustomers = async () => {
-    if (loading) return; // Prevent duplicate requests
+    console.log('loadCustomers called for route:', currentRoute);
+    if (loading) {
+      console.log('Already loading, skipping...');
+      return; // Prevent duplicate requests
+    }
     
     return execute({
       operation: async () => {
+        console.log('Executing adminService.getCustomers...');
         const result = await adminService.getCustomers(currentRoute);
+        console.log('Customers API result:', { count: result?.customers?.length || 0 });
         setCustomers(result.customers || []);
         return result;
       },
@@ -70,11 +76,21 @@ export const useAdminData = (currentRoute) => {
 
   // Load data when authentication is verified
   useEffect(() => {
-    if (isLoggedIn && isDriver() && currentUser) {
+    console.log('useAdminData effect triggered:', { 
+      currentUser: !!currentUser, 
+      userType,
+      currentRoute
+    });
+    
+    // Load data if any user is authenticated - API handles authorization
+    if (currentUser) {
+      console.log('Loading admin data...');
       loadCustomers();
       loadOrderRequests();
+    } else {
+      console.log('No currentUser - not loading data');
     }
-  }, [isLoggedIn, currentUser, currentRoute]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [currentUser, currentRoute, userType]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return {
     customers,

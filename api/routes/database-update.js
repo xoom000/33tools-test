@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const { DatabaseUpdateService } = require('../services/databaseUpdateService');
+const { RouteOptimizationService } = require('../services/routeOptimizationService');
 
 const router = express.Router();
 
@@ -33,6 +34,7 @@ const upload = multer({
 });
 
 const databaseUpdateService = new DatabaseUpdateService();
+const routeOptimizationService = new RouteOptimizationService();
 
 // UPLOAD AND PREVIEW ENDPOINT
 router.post('/upload', upload.single('file'), async (req, res) => {
@@ -163,6 +165,41 @@ router.get('/status/:updateId', async (req, res) => {
     console.error('Status fetch failed:', error);
     res.status(500).json({ 
       error: 'Status fetch failed',
+      details: error.message 
+    });
+  }
+});
+
+// ROUTE OPTIMIZATION COMPARISON ENDPOINT
+router.post('/route-optimization-compare', upload.single('file'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No RouteOptimization CSV file uploaded' });
+    }
+
+    // Validate file type
+    const extension = path.extname(req.file.originalname).toLowerCase();
+    if (extension !== '.csv') {
+      return res.status(400).json({ 
+        error: 'RouteOptimization file must be in CSV format',
+        received: extension 
+      });
+    }
+
+    console.log('Processing RouteOptimization CSV:', req.file.originalname);
+    
+    const comparison = await routeOptimizationService.compareCustomerData(req.file.path);
+    
+    res.json({
+      success: true,
+      filename: req.file.originalname,
+      ...comparison
+    });
+    
+  } catch (error) {
+    console.error('RouteOptimization comparison failed:', error);
+    res.status(500).json({ 
+      error: 'RouteOptimization comparison failed',
       details: error.message 
     });
   }
