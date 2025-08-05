@@ -161,6 +161,234 @@ class DatabaseUpdateService {
     }
   }
 
+  // ===== NEW STAGING WORKFLOW METHODS =====
+
+  // STAGE CUSTOMER SHELLS - Stage customer additions for driver validation
+  async stageCustomerShells(file, options = {}) {
+    try {
+      const validation = this.validateFile(file);
+      if (!validation.isValid) {
+        throw new Error(validation.error);
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+      if (options.batchId) {
+        formData.append('batch_id', options.batchId);
+      }
+
+      const response = await fetch(`${this.API_BASE}/stage-customer-shells`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Route-Number': '33'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Customer shell staging failed: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Customer shell staging failed:', error);
+      throw error;
+    }
+  }
+
+  // STAGE CUSTOMER REMOVALS - Stage customer removals for driver validation
+  async stageCustomerRemovals(file, options = {}) {
+    try {
+      const validation = this.validateFile(file);
+      if (!validation.isValid) {
+        throw new Error(validation.error);
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+      if (options.batchId) {
+        formData.append('batch_id', options.batchId);
+      }
+
+      const response = await fetch(`${this.API_BASE}/stage-customer-removals`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Route-Number': '33'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Customer removal staging failed: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Customer removal staging failed:', error);
+      throw error;
+    }
+  }
+
+  // STAGE CUSTOMER UPDATES - Stage customer updates for driver validation
+  async stageCustomerUpdates(file, options = {}) {
+    try {
+      const validation = this.validateFile(file);
+      if (!validation.isValid) {
+        throw new Error(validation.error);
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+      if (options.batchId) {
+        formData.append('batch_id', options.batchId);
+      }
+
+      const response = await fetch(`${this.API_BASE}/stage-customer-updates`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Route-Number': '33'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Customer update staging failed: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Customer update staging failed:', error);
+      throw error;
+    }
+  }
+
+  // STAGE INVENTORY POPULATION - Stage inventory for existing customer shells
+  async stageInventoryPopulation(file, batchId, options = {}) {
+    try {
+      const validation = this.validateFile(file);
+      if (!validation.isValid) {
+        throw new Error(validation.error);
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('batch_id', batchId);
+
+      const response = await fetch(`${this.API_BASE}/stage-inventory-population`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Route-Number': '33'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Inventory staging failed: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Inventory staging failed:', error);
+      throw error;
+    }
+  }
+
+  // GET PENDING CHANGES - Get staged changes for a specific route
+  async getPendingChanges(routeNumber) {
+    try {
+      const response = await fetch(`${this.API_BASE}/pending-changes/${routeNumber}`, {
+        headers: {
+          'X-Route-Number': routeNumber.toString()
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to get pending changes: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Failed to get pending changes:', error);
+      throw error;
+    }
+  }
+
+  // VALIDATE/APPROVE CHANGES - Driver approves/rejects changes for their route
+  async validateChanges(routeNumber, approvedChangeIds, rejectedChangeIds = []) {
+    try {
+      const response = await fetch(`${this.API_BASE}/validate-changes/${routeNumber}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Route-Number': routeNumber.toString()
+        },
+        body: JSON.stringify({
+          approved_change_ids: approvedChangeIds,
+          rejected_change_ids: rejectedChangeIds
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to validate changes: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Failed to validate changes:', error);
+      throw error;
+    }
+  }
+
+  // GET VALIDATION STATUS - Get validation status for all routes
+  async getValidationStatus() {
+    try {
+      const response = await fetch(`${this.API_BASE}/validation-status`, {
+        headers: {
+          'X-Route-Number': '33'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to get validation status: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Failed to get validation status:', error);
+      throw error;
+    }
+  }
+
+  // COMPARE ROUTE OPTIMIZATION - Compare CSV against current database
+  async compareRouteOptimization(file) {
+    try {
+      const validation = this.validateFile(file);
+      if (!validation.isValid) {
+        throw new Error(validation.error);
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const response = await fetch(`${this.API_BASE}/route-optimization-compare`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Route-Number': '33'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Route optimization comparison failed: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Route optimization comparison failed:', error);
+      throw error;
+    }
+  }
+
   // FORMAT-SPECIFIC HELPERS
   getFormatIcon(filename) {
     const extension = filename.split('.').pop().toLowerCase();
@@ -182,6 +410,11 @@ class DatabaseUpdateService {
       { value: 'items', label: 'Rental Items', description: 'Update product catalog, pricing, categories' },
       { value: 'sales', label: 'Sales Data', description: 'Update sales records, transactions' },
       { value: 'inventory', label: 'Inventory Levels', description: 'Update stock levels, par levels' },
+      { value: 'route_optimization', label: 'RouteOptimization CSV', description: 'Compare RouteOptimization CSV against current database' },
+      { value: 'stage_customer_shells', label: 'Stage Customer Shells', description: 'Stage customer additions for driver validation (NEW WORKFLOW)' },
+      { value: 'stage_customer_removals', label: 'Stage Customer Removals', description: 'Stage customer removals for driver validation (NEW WORKFLOW)' },
+      { value: 'stage_customer_updates', label: 'Stage Customer Updates', description: 'Stage customer updates for driver validation (NEW WORKFLOW)' },
+      { value: 'stage_inventory_population', label: 'Stage Inventory Population', description: 'Stage inventory for customer shells (requires batch_id)' },
       { value: 'mixed', label: 'Mixed Data', description: 'Auto-detect and update multiple data types' }
     ];
   }

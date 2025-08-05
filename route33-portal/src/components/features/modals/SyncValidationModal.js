@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { Modal } from '../../ui';
-import { Button } from '../../ui';
+import { Modal, Button } from '../../ui';
+import { MODAL_CONFIGS } from '../../../config/modalConfigs';
+import { cn } from '../../../utils/classNames';
 
 const SyncValidationModal = ({ isOpen, onClose, validationData, onExecuteSync }) => {
   const [selectedChanges, setSelectedChanges] = useState({});
@@ -58,15 +59,32 @@ const SyncValidationModal = ({ isOpen, onClose, validationData, onExecuteSync })
     setSelectedChanges(prev => ({ ...prev, ...updates }));
   };
 
+  // Memoize selected counts for performance
+  const selectedCounts = useMemo(() => {
+    const counts = {};
+    Object.keys(changesByRoute).forEach(routeNum => {
+      counts[routeNum] = {};
+      ['additions', 'removals', 'updates'].forEach(changeType => {
+        counts[routeNum][changeType] = changesByRoute[routeNum][changeType]?.filter(change => {
+          const key = `${changeType}_${change.customer_number}`;
+          return selectedChanges[key];
+        }).length || 0;
+      });
+    });
+    return counts;
+  }, [changesByRoute, selectedChanges]);
+
   const getSelectedCount = (routeNum, changeType) => {
-    return changesByRoute[routeNum][changeType].filter(change => {
-      const key = `${changeType}_${change.customer_number}`;
-      return selectedChanges[key];
-    }).length;
+    return selectedCounts[routeNum]?.[changeType] || 0;
   };
 
-  const getTotalSelected = () => {
+  // Memoize total selected count
+  const totalSelected = useMemo(() => {
     return Object.values(selectedChanges).filter(Boolean).length;
+  }, [selectedChanges]);
+
+  const getTotalSelected = () => {
+    return totalSelected;
   };
 
   const renderRouteSection = (routeNum) => {
@@ -108,9 +126,11 @@ const SyncValidationModal = ({ isOpen, onClose, validationData, onExecuteSync })
             <div className="border border-slate-100 rounded">
               <div className="bg-slate-50 px-3 py-2 border-b border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-slate-600 font-medium">+</span>
+                  <span className="text-slate-600 font-medium">
+                    {MODAL_CONFIGS.syncValidation.stats.types.additions.icon}
+                  </span>
                   <span className="text-sm font-medium text-slate-700">
-                    New Customers ({route.additions.length})
+                    {MODAL_CONFIGS.syncValidation.stats.types.additions.label} ({route.additions.length})
                   </span>
                 </div>
                 <input
@@ -146,9 +166,11 @@ const SyncValidationModal = ({ isOpen, onClose, validationData, onExecuteSync })
             <div className="border border-slate-100 rounded">
               <div className="bg-slate-50 px-3 py-2 border-b border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-slate-600 font-medium">-</span>
+                  <span className="text-slate-600 font-medium">
+                    {MODAL_CONFIGS.syncValidation.stats.types.removals.icon}
+                  </span>
                   <span className="text-sm font-medium text-slate-700">
-                    Remove Customers ({route.removals.length})
+                    {MODAL_CONFIGS.syncValidation.stats.types.removals.label} ({route.removals.length})
                   </span>
                 </div>
                 <input
@@ -184,9 +206,11 @@ const SyncValidationModal = ({ isOpen, onClose, validationData, onExecuteSync })
             <div className="border border-slate-100 rounded">
               <div className="bg-slate-50 px-3 py-2 border-b border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="text-slate-600 font-medium">~</span>
+                  <span className="text-slate-600 font-medium">
+                    {MODAL_CONFIGS.syncValidation.stats.types.updates.icon}
+                  </span>
                   <span className="text-sm font-medium text-slate-700">
-                    Update Existing ({route.updates.length})
+                    {MODAL_CONFIGS.syncValidation.stats.types.updates.label} ({route.updates.length})
                   </span>
                 </div>
                 <input
@@ -228,47 +252,36 @@ const SyncValidationModal = ({ isOpen, onClose, validationData, onExecuteSync })
 
   if (!validationData) return null;
 
-  const totalSelected = getTotalSelected();
+  const finalTotalSelected = getTotalSelected();
 
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title="Database Sync Validation"
-      size="large"
-      className="max-h-[80vh]"
+      {...MODAL_CONFIGS.syncValidation}
+      title={MODAL_CONFIGS.syncValidation.title}
     >
       <div className="space-y-4">
         <p className="text-slate-600 text-sm">
-          Review changes before applying to database
+          {MODAL_CONFIGS.syncValidation.subtitle}
         </p>
 
-        {/* Summary Stats */}
-        <div className="grid grid-cols-3 gap-4 p-4 bg-slate-50 rounded-lg">
-          <div className="text-center">
-            <div className="text-xl font-semibold text-slate-800">
-              {Object.values(selectedChanges).filter((selected, i) => 
-                selected && Object.keys(selectedChanges)[i].startsWith('additions_')
-              ).length}
-            </div>
-            <div className="text-sm text-slate-600">New Customers</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xl font-semibold text-slate-800">
-              {Object.values(selectedChanges).filter((selected, i) => 
-                selected && Object.keys(selectedChanges)[i].startsWith('removals_')
-              ).length}
-            </div>
-            <div className="text-sm text-slate-600">Remove Customers</div>
-          </div>
-          <div className="text-center">
-            <div className="text-xl font-semibold text-slate-800">
-              {Object.values(selectedChanges).filter((selected, i) => 
-                selected && Object.keys(selectedChanges)[i].startsWith('updates_')
-              ).length}
-            </div>
-            <div className="text-sm text-slate-600">Updates</div>
-          </div>
+        {/* Summary Stats - Using Configuration */}
+        <div className={cn('grid gap-4 p-4 bg-slate-50 rounded-lg', `grid-cols-${MODAL_CONFIGS.syncValidation.stats.columns}`)}>
+          {Object.entries(MODAL_CONFIGS.syncValidation.stats.types).map(([type, config]) => {
+            const count = Object.entries(selectedChanges).filter(([key, selected]) => 
+              selected && key.startsWith(`${type}_`)
+            ).length;
+            
+            return (
+              <div key={type} className="text-center">
+                <div className="text-xl font-semibold text-slate-800">
+                  {count}
+                </div>
+                <div className="text-sm text-slate-600">{config.label}</div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Routes */}
@@ -281,18 +294,23 @@ const SyncValidationModal = ({ isOpen, onClose, validationData, onExecuteSync })
         {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-slate-200">
           <div className="text-sm text-slate-600">
-            {totalSelected} changes selected
+            {getTotalSelected()} changes selected
           </div>
           <div className="space-x-3">
-            <Button variant="secondary" onClick={onClose}>
-              Cancel
+            <Button 
+              variant={MODAL_CONFIGS.syncValidation.actions.cancel.variant}
+              onClick={onClose}
+            >
+              {MODAL_CONFIGS.syncValidation.actions.cancel.text}
             </Button>
             <Button 
-              variant="primary" 
+              variant={MODAL_CONFIGS.syncValidation.actions.apply.variant}
               onClick={() => onExecuteSync(selectedChanges)}
-              disabled={totalSelected === 0}
+              disabled={finalTotalSelected === 0}
             >
-              Apply Changes ({totalSelected})
+              {typeof MODAL_CONFIGS.syncValidation.actions.apply.text === 'function' 
+                ? MODAL_CONFIGS.syncValidation.actions.apply.text(finalTotalSelected)
+                : MODAL_CONFIGS.syncValidation.actions.apply.text}
             </Button>
           </div>
         </div>

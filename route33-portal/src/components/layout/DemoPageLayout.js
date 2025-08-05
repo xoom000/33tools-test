@@ -1,6 +1,7 @@
 import React from 'react';
 import { AnimatedContainer } from '../animations';
 import { LAYOUT } from '../../theme';
+import { cn } from '../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Demo/Onboarding Page Layout! ⚔️
 const DemoPageLayout = ({ 
@@ -12,8 +13,8 @@ const DemoPageLayout = ({
   const containerClass = LAYOUT.containers[maxWidth] || maxWidth;
   
   return (
-    <div className={`${LAYOUT.backgrounds.page} ${LAYOUT.padding.page}`}>
-      <div className={`${containerClass} mx-auto`}>
+    <div className={cn(LAYOUT.backgrounds.page, LAYOUT.padding.page)}>
+      <div className={cn(containerClass, 'mx-auto')}>
         <AnimatedContainer variant={animation} className={className}>
           {children}
         </AnimatedContainer>

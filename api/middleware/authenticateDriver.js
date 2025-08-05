@@ -35,7 +35,7 @@ const authenticateDriver = async (req, res, next) => {
       });
     }
 
-    // Check if route exists and is active
+    // Check if route exists and is active, also get driver info for relief driver check
     const db = require('../utils/database');
     const route = await db.get(
       'SELECT * FROM routes WHERE route_number = ? AND is_active = 1', 
@@ -50,12 +50,20 @@ const authenticateDriver = async (req, res, next) => {
       });
     }
 
+    // Get driver info to check for relief driver status
+    const driver = await db.get(
+      'SELECT * FROM drivers WHERE route_number = ? AND is_active = 1',
+      [routeNumber]
+    );
+
     // Set user info for route handlers
     req.user = {
       route_number: parseInt(routeNumber),
       driver_name: route.driver_name,
       role: 'driver',
-      is_admin: routeNumber == 33 // Route 33 is admin (Nigel)
+      is_admin: routeNumber == 33, // Route 33 is admin (Nigel)
+      is_relief_driver: driver ? driver.is_relief_driver : false,
+      driver_id: driver ? driver.driver_id : null
     };
 
     logger.info('Authentication successful', {
@@ -123,6 +131,16 @@ const requireRouteOwnership = (req, res, next) => {
 
   // Admin (Route 33) can access any route
   if (req.user.is_admin) {
+    return next();
+  }
+
+  // Relief drivers can access any route
+  if (req.user.is_relief_driver) {
+    logger.info('Relief driver accessing route', {
+      reliefDriverRoute: req.user.route_number,
+      requestedRoute: requestedRoute,
+      driver: req.user.driver_name
+    });
     return next();
   }
 

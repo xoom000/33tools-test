@@ -2,9 +2,10 @@ import { useState, useCallback } from 'react';
 
 // COMPOSE, NEVER DUPLICATE - Generic swipe gesture management! ⚔️
 const useSwipeGesture = (threshold = 50) => {
-  const [swipeState, setSwipeState] = useState({});
-  const [swipeOffset, setSwipeOffset] = useState({});
-  const [animatingItems, setAnimatingItems] = useState(new Set());
+  // Optimized state initialization with initializer functions
+  const [swipeState, setSwipeState] = useState(() => ({}));
+  const [swipeOffset, setSwipeOffset] = useState(() => ({}));
+  const [animatingItems, setAnimatingItems] = useState(() => new Set());
 
   const handleSwipeStart = useCallback((itemId, touch) => {
     setSwipeState(prev => ({

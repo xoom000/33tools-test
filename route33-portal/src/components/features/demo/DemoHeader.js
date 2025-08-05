@@ -3,6 +3,7 @@ import { AnimatedHeader } from '../../animations';
 import { ButtonGroup } from '../../ui';
 import { TYPOGRAPHY } from '../../../theme';
 import { DEMO_VIEWS } from '../../../constants/demo';
+import { cn } from '../../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Demo Header extends DashboardHeader pattern! ⚔️
 const DemoHeader = ({
@@ -14,15 +15,15 @@ const DemoHeader = ({
     <AnimatedHeader className={className}>
       <div className="flex items-center justify-between">
         <div>
-          <h1 className={`${TYPOGRAPHY.sizes.xl} ${TYPOGRAPHY.weights.semibold} text-slate-800`}>
+          <h1 className={cn(TYPOGRAPHY.sizes.xl, TYPOGRAPHY.weights.semibold, 'text-slate-800')}>
             {demoView === DEMO_VIEWS.DRIVER ? 'Route 33 Dashboard' : 'Customer Portal'}
           </h1>
-          <p className={`${TYPOGRAPHY.sizes.sm} text-slate-500`}>Demo Environment</p>
+          <p className={cn(TYPOGRAPHY.sizes.sm, 'text-slate-500')}>Demo Environment</p>
         </div>
         
         <div className="flex items-center gap-3">
           <div className="bg-slate-100 px-3 py-1 rounded-full">
-            <span className={`${TYPOGRAPHY.sizes.xs} ${TYPOGRAPHY.weights.medium} text-slate-600`}>
+            <span className={cn(TYPOGRAPHY.sizes.xs, TYPOGRAPHY.weights.medium, 'text-slate-600')}>
               DEMO MODE
             </span>
           </div>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import OrderCardList from './OrderCardList';
 import CustomerManagementGrid from './CustomerManagementGrid';
 import { ANIMATIONS } from '../../../theme';
+import { cn } from '../../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Demo Driver Dashboard View! ⚔️
 const DemoDriverView = ({
@@ -14,7 +15,7 @@ const DemoDriverView = ({
   className = ""
 }) => {
   return (
-    <div className={`space-y-8 ${className}`}>
+    <div className={cn('space-y-8', className)}>
       {/* Order Requests Section */}
       <motion.div {...ANIMATIONS.slideUp}>
         <OrderCardList

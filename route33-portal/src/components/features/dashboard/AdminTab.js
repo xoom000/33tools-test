@@ -1,56 +1,71 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../../ui';
+import { TAB_CONFIGS, TAB_STYLES } from '../../../config/tabConfigs';
+import { GRID_SYSTEMS } from '../../../config/layoutConfigs';
+import { cn } from '../../../utils/classNames';
+import { PerformanceTester } from '../../profiler';
 
-const AdminTab = ({ onShowSyncModal, onShowDatabaseUpdate, onShowRouteOptimization }) => {
+// COMPOSE, NEVER DUPLICATE - Admin Tab with Configuration! ⚔️
+const AdminTab = ({ 
+  onShowStagingWorkflow,
+  onManageDrivers,
+  onViewReports
+}) => {
+  const config = TAB_CONFIGS.admin;
+  const actionHandlers = {
+    staging: onShowStagingWorkflow,
+    drivers: onManageDrivers,
+    reports: onViewReports
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      className="space-y-6"
+      {...TAB_STYLES.content.animation}
+      className={TAB_STYLES.content.container}
     >
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
-        <h2 className="text-xl font-semibold text-slate-800 mb-4">System Administration</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-slate-50 rounded-xl">
-            <h4 className="font-semibold text-slate-800 mb-2">Driver Management</h4>
-            <p className="text-sm text-slate-600 mb-3">Manage all 6 route drivers and their access</p>
-            <Button variant="primary" size="small">Manage Drivers</Button>
-          </div>
-          <div className="p-4 bg-slate-50 rounded-xl">
-            <h4 className="font-semibold text-slate-800 mb-2">System Reports</h4>
-            <p className="text-sm text-slate-600 mb-3">View cross-route analytics and usage</p>
-            <Button variant="secondary" size="small">View Reports</Button>
-          </div>
-          <div className="p-4 bg-slate-50 rounded-xl">
-            <h4 className="font-semibold text-slate-800 mb-2">Data Management</h4>
-            <p className="text-sm text-slate-600 mb-3">Database updates and sync operations</p>
-            <div className="space-y-2">
+      <div className={TAB_STYLES.panel.withPadding}>
+        <h2 className="text-xl font-semibold text-slate-800 mb-4">
+          {config.header.title}
+        </h2>
+        {config.header.subtitle && (
+          <p className="text-sm text-slate-600 mb-6">
+            {config.header.subtitle}
+          </p>
+        )}
+        
+        <div className={cn(GRID_SYSTEMS.content.container, 'grid-cols-1 md:grid-cols-3')}>
+          {config.content.sections.map((section, index) => (
+            <div 
+              key={index}
+              className={cn(
+                'p-4 bg-slate-50 rounded-xl',
+                {
+                  'md:col-span-1 ring-2 ring-primary-100': section.featured
+                }
+              )}
+            >
+              <h4 className="font-semibold text-slate-800 mb-2">
+                {section.title}
+              </h4>
+              <p className="text-sm text-slate-600 mb-3">
+                {section.description}
+              </p>
               <Button 
-                variant="primary" 
-                size="small"
-                onClick={onShowDatabaseUpdate}
-                className="w-full"
+                variant={section.action.variant} 
+                size={section.action.size}
+                onClick={actionHandlers[section.action.key]}
+                className={section.action.className}
               >
-                🗄️ Database Update System
-              </Button>
-              <Button 
-                variant="outline" 
-                size="small"
-                onClick={onShowSyncModal}
-                className="w-full"
-              >
-                📊 CSV Database Sync
-              </Button>
-              <Button 
-                variant="accent" 
-                size="small"
-                onClick={onShowRouteOptimization}
-                className="w-full"
-              >
-                🚛 RouteOptimization Compare
+                {section.action.label}
               </Button>
             </div>
-          </div>
+          ))}
+        </div>
+        
+        {/* Performance Testing Panel */}
+        <div className="mt-8">
+          <PerformanceTester />
         </div>
       </div>
     </motion.div>

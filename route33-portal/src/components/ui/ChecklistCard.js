@@ -1,37 +1,38 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { cn } from '../../utils/classNames';
 import { AnimatedContainer } from '../animations';
-import { VARIANTS, TYPOGRAPHY } from '../../theme';
+import { CARD_CONFIGS } from '../../config/cardConfigs';
 
 // COMPOSE, NEVER DUPLICATE - Reusable checklist component! ⚔️
-const ChecklistCard = ({ 
+const ChecklistCard = memo(function ChecklistCard({ 
   title,
   items = [],
   icon,
   className = '',
   onItemCheck
-}) => {
+}) {
   return (
     <AnimatedContainer 
-      variant="slideUp" 
-      className={`${VARIANTS.card.elevated} p-6 ${className}`}
+      variant={CARD_CONFIGS.checklist.animation} 
+      className={cn(CARD_CONFIGS.checklist.container, className)}
     >
-      <h2 className={`${TYPOGRAPHY.sizes.xl} ${TYPOGRAPHY.weights.semibold} mb-4 flex items-center`}>
-        {icon && <span className="mr-2">{icon}</span>}
+      <h2 className={CARD_CONFIGS.checklist.header.typography}>
+        {icon && <span className={CARD_CONFIGS.checklist.header.iconSpacing}>{icon}</span>}
         {title}
       </h2>
       
-      <div className="space-y-2">
+      <div className={CARD_CONFIGS.checklist.list.container}>
         {items.map((item, index) => (
           <label 
             key={index} 
-            className="flex items-center space-x-3 p-2 hover:bg-slate-50 rounded transition-colors cursor-pointer"
+            className={CARD_CONFIGS.checklist.list.item.container}
           >
             <input 
               type="checkbox" 
-              className="h-4 w-4 text-primary-600 rounded border-slate-300 focus:ring-primary-500" 
+              className={CARD_CONFIGS.checklist.list.item.checkbox} 
               onChange={(e) => onItemCheck?.(item, e.target.checked, index)}
             />
-            <span className={`${TYPOGRAPHY.sizes.sm} text-slate-700`}>
+            <span className={CARD_CONFIGS.checklist.list.item.label}>
               {typeof item === 'string' ? item : item.label || item}
             </span>
           </label>
@@ -39,6 +40,6 @@ const ChecklistCard = ({
       </div>
     </AnimatedContainer>
   );
-};
+});
 
 export default ChecklistCard;

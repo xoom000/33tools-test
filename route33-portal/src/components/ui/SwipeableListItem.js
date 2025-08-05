@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
+import { cn } from '../../utils/classNames';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { FLEX_LAYOUTS, SPACING_PATTERNS } from '../../config/layoutConfigs';
+import { ANIMATION_PRESETS } from '../../config/animations';
 
 // COMPOSE, NEVER DUPLICATE - Universal Swipeable List Item! ⚔️
 // Eliminates ALL swipe gesture duplication across tabs
-const SwipeableListItem = ({
+const SwipeableListItem = memo(function SwipeableListItem({
   // Core Props
   item,
   isExpanded = false,
@@ -24,7 +27,7 @@ const SwipeableListItem = ({
   // Styling
   className = '',
   contentClassName = ''
-}) => {
+}) {
   const [showLeftAction, setShowLeftAction] = useState(false);
   const [showRightAction, setShowRightAction] = useState(false);
   
@@ -91,11 +94,16 @@ const SwipeableListItem = ({
     
     return (
       <div 
-        className={`absolute inset-0 flex items-center ${
-          isLeft ? 'justify-end pr-4' : 'justify-start pl-4'
-        } ${isLeft ? 'bg-red-500' : 'bg-green-500'} rounded-lg`}
+        className={cn(
+          'absolute inset-0 items-center rounded-lg',
+          FLEX_LAYOUTS.content.horizontal,
+          {
+            'justify-end pr-4 bg-red-500': isLeft,
+            'justify-start pl-4 bg-green-500': !isLeft
+          }
+        )}
       >
-        <div className="text-white font-semibold flex items-center gap-2">
+        <div className={cn('text-white font-semibold', FLEX_LAYOUTS.buttonGroup.horizontal)}>
           <span className="text-xl">{action.icon}</span>
           <span>{action.label}</span>
         </div>
@@ -104,7 +112,7 @@ const SwipeableListItem = ({
   };
 
   return (
-    <div className={`relative overflow-hidden rounded-lg ${className}`}>
+    <div className={cn('relative overflow-hidden rounded-lg', className)}>
       {/* Swipe Feedback Overlay */}
       {renderSwipeOverlay()}
       
@@ -116,14 +124,15 @@ const SwipeableListItem = ({
         dragElastic={0.1}
         onDrag={handleDrag}
         onDragEnd={handleDragEnd}
-        className={`
-          relative z-10 border rounded-lg transition-colors duration-200
-          ${getStatusStyling()} ${contentClassName}
-        `}
+        className={cn(
+          'relative z-10 border rounded-lg transition-colors duration-200',
+          getStatusStyling(),
+          contentClassName
+        )}
       >
         {/* Item Content */}
         <div 
-          className="p-4 cursor-pointer"
+          className={cn(SPACING_PATTERNS.padding.normal, 'cursor-pointer')}
           onClick={onToggleExpanded}
         >
           {renderContent(item)}
@@ -132,10 +141,10 @@ const SwipeableListItem = ({
         {/* Expanded Content */}
         {isExpanded && renderExpanded && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
+            {...ANIMATION_PRESETS.slideDown}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-t border-slate-200 p-4 bg-slate-50"
+            className={cn('border-t border-slate-200 bg-slate-50', SPACING_PATTERNS.padding.normal)}
           >
             {renderExpanded(item)}
           </motion.div>
@@ -143,6 +152,6 @@ const SwipeableListItem = ({
       </motion.div>
     </div>
   );
-};
+});
 
 export default SwipeableListItem;

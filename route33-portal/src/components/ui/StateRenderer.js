@@ -1,8 +1,10 @@
 import React from 'react';
+import { cn } from '../../utils/classNames';
 import { AnimatedContainer } from '../animations';
 import { DashboardLayout } from '../layout';
 import LoadingSkeleton from './LoadingSkeleton';
 import Button from './Button';
+import { STYLE_PRESETS } from '../../config/styleConfigs';
 
 // COMPOSE, NEVER DUPLICATE - Ultimate State Management System! ⚔️
 // Eliminates ALL loading/error/empty state duplication
@@ -42,7 +44,7 @@ const StateRenderer = ({
   // Loading State Renderer
   const renderLoading = () => {
     const content = (
-      <div className={`${contentClassName}`}>
+      <div className={cn(contentClassName)}>
         <LoadingSkeleton 
           variant={loadingVariant}
           lines={loadingLines}
@@ -65,10 +67,10 @@ const StateRenderer = ({
   // Error State Renderer
   const renderError = () => {
     const content = (
-      <AnimatedContainer variant="fadeIn" className={`text-center py-12 ${contentClassName}`}>
-        <div className="text-red-600 text-6xl mb-4">{errorIcon}</div>
-        <div className="text-red-600 text-xl mb-4">{errorTitle}</div>
-        <p className="text-slate-600 mb-6 max-w-md mx-auto">
+      <AnimatedContainer variant="fadeIn" className={cn(STYLE_PRESETS.errorState.container, contentClassName)}>
+        <div className={STYLE_PRESETS.errorState.icon}>{errorIcon}</div>
+        <div className={STYLE_PRESETS.errorState.title}>{errorTitle}</div>
+        <p className={STYLE_PRESETS.errorState.message}>
           {error || 'An unexpected error occurred. Please try again.'}
         </p>
         {onRetry && (
@@ -93,10 +95,10 @@ const StateRenderer = ({
   // Empty State Renderer
   const renderEmpty = () => {
     const content = (
-      <AnimatedContainer variant="fadeIn" className={`text-center py-12 ${contentClassName}`}>
-        <div className="text-slate-400 text-6xl mb-4">{emptyIcon}</div>
-        <h3 className="text-slate-700 text-xl font-semibold mb-2">{emptyTitle}</h3>
-        <p className="text-slate-500 mb-6 max-w-md mx-auto">{emptyMessage}</p>
+      <AnimatedContainer variant="fadeIn" className={cn(STYLE_PRESETS.emptyState.container, contentClassName)}>
+        <div className={STYLE_PRESETS.emptyState.icon}>{emptyIcon}</div>
+        <h3 className={STYLE_PRESETS.emptyState.title}>{emptyTitle}</h3>
+        <p className={cn(STYLE_PRESETS.emptyState.message, 'mb-6 max-w-md mx-auto')}>{emptyMessage}</p>
         {emptyAction}
       </AnimatedContainer>
     );
@@ -135,7 +137,7 @@ const StateRenderer = ({
   // Container with Layout
   const containerClasses = layout === 'inline' ? 
     className : 
-    `${className}`;
+    cn(className);
 
   return (
     <div className={containerClasses}>

@@ -530,14 +530,27 @@ Upload and process files for database updates with automatic backup creation.
 - `customers` - Customer master data updates
 - `routes` - Route and driver assignments
 - `items` - Item catalog updates
+- `route_optimization` - Full database update from RouteOptimization CSV
+- `customer_shells` - Create blank customer records for inventory population
+- `sales` - Sales data updates  
+- `inventory` - Inventory level updates
+- `mixed` - Auto-detect and update multiple data types
 
 **Request:**
 ```bash
 curl -X POST /api/admin/database-update/upload \
   -F "file=@customers.csv" \
   -F "updateType=customers" \
-  -F "options={\"hasHeaders\":true,\"validateData\":true}"
+  -F "options={\"hasHeaders\":true,\"validateData\":true,\"requireDriverValidation\":false,\"excludeRoutes\":[1,3]}"
 ```
+
+**Advanced Options:**
+- `hasHeaders` - CSV file includes header row (default: true)
+- `validateData` - Perform data integrity checks (default: true)
+- `requireDriverValidation` - Require each driver to validate changes to their route (default: false)
+- `excludeRoutes` - Array of route numbers to exclude from updates (e.g., [1,3])
+- `testMode` - Use testing database instead of staging (default: false)
+- `backupFirst` - Create automatic backup before changes (default: true)
 
 **Response:**
 ```json
@@ -723,10 +736,263 @@ curl -X POST /api/admin/database-update/rollback \
 
 ---
 
-### 🎯 RouteOptimization CSV Comparison
+## 🎯 Staged Driver Validation System (NEW!)
+
+### Base Endpoint: `/api/admin/database-update`
+
+**🛡️ Revolutionary Workflow:**
+- **Stage changes** instead of direct database writes
+- **Route-specific validation** - each driver validates their own changes
+- **Independent approval** - no waiting on other routes
+- **Automatic backups** before applying validated changes
+
+---
+
+### 📤 Stage Customer Changes for Validation
+
+#### POST /api/admin/database-update/stage-customer-shells
+Stage customer additions for driver validation instead of direct database writes.
+
+**Request:**
+```bash
+curl -X POST /api/admin/database-update/stage-customer-shells \
+  -F "file=@RouteOptimization.csv"
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "filename": "RouteOptimization.csv",
+  "batch_id": "batch_1733000000_abc123",
+  "shells_staged": 42,
+  "staged_shells": [
+    {
+      "customer_number": 244653,
+      "account_name": "Institute Of Tech - Garments",
+      "route_number": 1,
+      "status": "staged_for_validation"
+    }
+  ],
+  "message": "Successfully staged 42 customer shells for driver validation",
+  "next_step": "Drivers must validate changes before they are applied to database"
+}
+```
+
+#### POST /api/admin/database-update/stage-customer-removals
+Stage customer removals for driver validation instead of direct database writes.
+
+**Request:**
+```bash
+curl -X POST /api/admin/database-update/stage-customer-removals \
+  -F "file=@RouteOptimization.csv"
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "filename": "RouteOptimization.csv",
+  "batch_id": "batch_1733000000_def456",
+  "removals_staged": 60,
+  "staged_removals": [
+    {
+      "customer_number": 170617,
+      "account_name": "S.C.P.",
+      "route_number": 5,
+      "status": "staged_for_removal_validation"
+    }
+  ],
+  "message": "Successfully staged 60 customer removals for driver validation",
+  "next_step": "Drivers must validate changes before customers are removed from database"
+}
+```
+
+#### POST /api/admin/database-update/stage-customer-updates
+Stage customer information updates for driver validation instead of direct database writes.
+
+**Request:**
+```bash
+curl -X POST /api/admin/database-update/stage-customer-updates \
+  -F "file=@RouteOptimization.csv"
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "filename": "RouteOptimization.csv", 
+  "batch_id": "batch_1733000000_ghi789",
+  "updates_staged": 50,
+  "staged_updates": [
+    {
+      "customer_number": 170686,
+      "account_name": "Wolfgang",
+      "route_number": 5,
+      "differences_count": 1,
+      "status": "staged_for_update_validation"
+    }
+  ],
+  "message": "Successfully staged 50 customer updates for driver validation",
+  "next_step": "Drivers must validate changes before customer information is updated in database"
+}
+```
+
+### 📦 Stage Inventory Population for Validation
+
+#### POST /api/admin/database-update/stage-inventory-population
+Stage inventory population for driver validation instead of direct database writes.
+
+**Request:**
+```bash
+curl -X POST /api/admin/database-update/stage-inventory-population \
+  -F "file=@CustomerMasterAnalysisReport.csv" \
+  -F "batch_id=batch_1733000000_abc123"
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "filename": "CustomerMasterAnalysisReport.csv", 
+  "batch_id": "batch_1733000000_abc123",
+  "empty_shells_found": 241,
+  "staged_for_validation": 218,
+  "staged_changes": [
+    {
+      "customer_number": 169619,
+      "account_name": "Mineral Lodge - Seasonal",
+      "route_number": 75,
+      "items_to_add": 9,
+      "status": "staged_for_validation"
+    }
+  ],
+  "message": "Successfully staged inventory for 218 customer shells",
+  "next_step": "Drivers must validate changes before inventory is added to database"
+}
+```
+
+---
+
+### 🚛 Driver Validation Endpoints
+
+#### GET /api/admin/database-update/pending-changes/:routeNumber
+Get pending changes for a specific route that need driver validation.
+
+**Request:**
+```bash
+curl -X GET /api/admin/database-update/pending-changes/33
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "route_number": 33,
+  "total_pending_changes": 15,
+  "batches": 2,
+  "changes_by_batch": {
+    "batch_1733000000_abc123": [
+      {
+        "id": 1,
+        "change_type": "add_customer",
+        "customer_number": 171294,
+        "customer_name": "In & Out Market",
+        "change_data": {
+          "customer_number": 171294,
+          "account_name": "In & Out Market",
+          "address": "123 Main St",
+          "route_number": 33,
+          "service_days": "F"
+        },
+        "batch_id": "batch_1733000000_abc123",
+        "created_at": "2025-08-04T18:45:00Z"
+      },
+      {
+        "id": 2,
+        "change_type": "add_items", 
+        "customer_number": 171294,
+        "customer_name": "In & Out Market",
+        "change_data": {
+          "customer_number": 171294,
+          "items": [
+            {
+              "item_number": "11281619",
+              "description": "Uniforms Heavy Soil",
+              "quantity": 25,
+              "item_type": "rental",
+              "frequency": "Weekly"
+            }
+          ]
+        },
+        "batch_id": "batch_1733000000_abc123", 
+        "created_at": "2025-08-04T18:46:00Z"
+      }
+    ]
+  }
+}
+```
+
+#### POST /api/admin/database-update/validate-changes/:routeNumber
+Validate/approve pending changes for a specific route.
+
+**Request:**
+```json
+{
+  "approved_change_ids": [1, 2, 5, 7],
+  "rejected_change_ids": [3, 6]
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "route_number": 33,
+  "approved_changes": 4,
+  "rejected_changes": 2,
+  "database_changes_applied": 15,
+  "message": "Successfully validated changes for Route 33"
+}
+```
+
+#### GET /api/admin/database-update/validation-status
+Get validation status for all routes with pending changes.
+
+**Response:**
+```json
+{
+  "success": true,
+  "validation_status": [
+    {
+      "route_number": 5,
+      "total_changes": 8,
+      "validated_changes": 8,
+      "pending_changes": 0,
+      "earliest_change": "2025-08-04T18:45:00Z",
+      "latest_change": "2025-08-04T18:50:00Z"
+    },
+    {
+      "route_number": 33,
+      "total_changes": 15,
+      "validated_changes": 0,
+      "pending_changes": 15,
+      "earliest_change": "2025-08-04T18:45:00Z",
+      "latest_change": "2025-08-04T18:50:00Z"
+    }
+  ],
+  "total_routes_with_changes": 2
+}
+```
+
+---
+
+### 🎯 RouteOptimization System (Legacy)
 
 #### POST /api/admin/database-update/route-optimization-compare
 Compare RouteOptimization CSV against current customer database.
+
+**Automatic Route Filtering:** Excludes routes 1 and 3 by default.
 
 **Request:**
 ```bash
@@ -739,15 +1005,56 @@ curl -X POST /api/admin/database-update/route-optimization-compare \
 {
   "success": true,
   "filename": "RouteOptimization.csv",
-  "totalCustomers": 120,
-  "matches": 110,
-  "missing": 10,
-  "newCustomers": 5,
-  "details": {
-    "matchingCustomers": ["170449", "170450"],
-    "missingFromDatabase": ["170999"],
-    "newInCSV": ["171000"]
-  }
+  "summary": {
+    "csv_customers": 758,
+    "database_customers": 776,
+    "matching_customers": 716,
+    "customers_to_add": 42,
+    "customers_to_remove": 60,
+    "potential_updates": 256
+  },
+  "customers_to_add": [
+    {
+      "customer_number": 244653,
+      "account_name": "Institute Of Tech - Garments",
+      "address": "1755 Hilltop Dr",
+      "city": "Redding",
+      "state": "CA",
+      "territory": "2502-01",
+      "service_days": "M"
+    }
+  ],
+  "customers_to_remove": [
+    {
+      "customer_number": 170617,
+      "account_name": "S.C.P.",
+      "address": "6959 Eastside Rd",
+      "city": "Redding",
+      "is_active": 1
+    }
+  ],
+  "potential_updates": [
+    {
+      "customer_number": 170686,
+      "differences": [
+        {"field": "Zip Code", "database": "96001", "csv": "96001-3203"}
+      ]
+    }
+  ]
+}
+```
+
+#### POST /api/admin/database-update/create-customer-shells ⚠️ DEPRECATED
+**DEPRECATED**: Direct customer shell creation no longer supported.
+
+**Error Response:**
+```json
+{
+  "error": "DEPRECATED: Direct customer shell creation is no longer supported",
+  "message": "Use /stage-customer-shells for driver validation workflow",
+  "redirect": "/api/admin/database-update/stage-customer-shells",
+  "deprecated_since": "2025-08-04",
+  "reason": "All customer changes must go through driver validation"
 }
 ```
 
@@ -928,5 +1235,5 @@ const loginDriver = async (username, password) => {
 
 *Last Updated: August 4, 2025*  
 *Environment: Staging (Port 2210)*  
-*Version: 3.1.0 - Added Automatic Backup & Rollback System*  
-*New Features: Admin-only database rollback, automatic backups, restore functionality*
+*Version: 4.0.0 - Staged Driver Validation System*  
+*New Features: Staged validation workflow, independent route approval, pending changes system, driver-specific validation modals*

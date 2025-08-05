@@ -1,0 +1,4 @@
+customer_number,account_name,address,city,state,zip_code,route_number,service_frequency,service_days
+999001,Test Customer A,123 Test St,Test City,CA,96001,33,Weekly,M
+999002,Test Customer B,456 Demo Ave,Demo Town,CA,96002,33,Bi-Weekly,W
+999003,Test Customer C,789 Sample Rd,Sample City,CA,96003,33,Weekly,F

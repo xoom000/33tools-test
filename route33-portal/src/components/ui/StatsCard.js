@@ -1,40 +1,34 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { cn } from '../../utils/classNames';
 import { AnimatedContainer } from '../animations';
-import { TYPOGRAPHY } from '../../theme';
+import { CARD_CONFIGS } from '../../config/cardConfigs';
 
 // COMPOSE, NEVER DUPLICATE - Reusable stats card component! ⚔️
-const StatsCard = ({ 
+const StatsCard = memo(function StatsCard({ 
   title,
   value,
   icon,
   color = 'blue',
   className = ''
-}) => {
-  const colorVariants = {
-    blue: 'bg-blue-50 text-blue-600',
-    green: 'bg-green-50 text-green-600',
-    purple: 'bg-purple-50 text-purple-600',
-    yellow: 'bg-yellow-50 text-yellow-600',
-    red: 'bg-red-50 text-red-600',
-    slate: 'bg-slate-50 text-slate-600'
-  };
+}) {
+  const colorVariants = CARD_CONFIGS.stats.colorSchemes;
 
   return (
     <AnimatedContainer 
-      variant="scaleIn" 
-      className={`text-center p-4 ${colorVariants[color]} rounded-lg ${className}`}
+      variant={CARD_CONFIGS.stats.animation} 
+      className={cn(CARD_CONFIGS.stats.container, colorVariants[color], className)}
     >
       {icon && (
-        <div className="text-2xl mb-2">{icon}</div>
+        <div className={cn(CARD_CONFIGS.stats.icon.size, CARD_CONFIGS.stats.icon.spacing)}>{icon}</div>
       )}
-      <div className={`${TYPOGRAPHY.sizes['2xl']} ${TYPOGRAPHY.weights.bold} ${color === 'yellow' ? 'text-yellow-600' : color === 'blue' ? 'text-blue-600' : color === 'green' ? 'text-green-600' : color === 'purple' ? 'text-purple-600' : 'text-slate-600'}`}>
+      <div className={cn(CARD_CONFIGS.stats.value.typography, CARD_CONFIGS.stats.value.colorMapping[color])}>
         {value}
       </div>
-      <div className={`${TYPOGRAPHY.sizes.sm} text-slate-600`}>
+      <div className={CARD_CONFIGS.stats.title.typography}>
         {title}
       </div>
     </AnimatedContainer>
   );
-};
+});
 
 export default StatsCard;

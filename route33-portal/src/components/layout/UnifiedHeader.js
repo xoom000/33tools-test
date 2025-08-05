@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui';
 import { LAYOUT, ANIMATIONS, VARIANTS } from '../../theme';
+import { cn } from '../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Ultimate Header System! ⚔️
 // Eliminates 90% duplication across 5 header components
@@ -39,9 +40,9 @@ const UnifiedHeader = ({
   const getVariantStyles = () => {
     switch (variant) {
       case 'sticky':
-        return `${LAYOUT.backgrounds.header} sticky top-0 z-10`;
+        return cn(LAYOUT.backgrounds.header, 'sticky top-0 z-10');
       case 'card':
-        return `${VARIANTS.card.base} mb-6`;
+        return cn(VARIANTS.card.base, 'mb-6');
       case 'simple':
         return 'text-center py-6';
       default:
@@ -161,7 +162,7 @@ const UnifiedHeader = ({
     
     // Two-column layout for sticky/card variants
     const containerClass = responsive ? 
-      `${LAYOUT.containers.base} mx-auto ${LAYOUT.padding.page}` :
+      cn(LAYOUT.containers.base, 'mx-auto', LAYOUT.padding.page) :
       'px-4 py-3';
       
     return (
@@ -197,7 +198,7 @@ const UnifiedHeader = ({
   return (
     <HeaderElement
       {...animationProps}
-      className={`${getVariantStyles()} ${className}`}
+      className={cn(getVariantStyles(), className)}
     >
       {renderHeaderContent()}
     </HeaderElement>

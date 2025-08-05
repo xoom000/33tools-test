@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Modal } from '../ui';
 import { useBaseFormLogic } from './BaseFormLogic';
 import { FieldRenderer } from './FieldRenderer';
+import { FORM_BUTTONS } from '../../config';
 
 // COMPOSE, NEVER DUPLICATE - Single form modal for all types!
 const BaseFormModal = ({ 
@@ -43,7 +44,7 @@ const BaseFormModal = ({
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {fields.map(renderField)}
+          {fields && Array.isArray(fields) ? fields.map(renderField) : null}
         </div>
         
         {error && (
@@ -52,17 +53,17 @@ const BaseFormModal = ({
           </div>
         )}
         
-        <div className="flex gap-3 pt-4">
+        <div className={FORM_BUTTONS.layouts.horizontal}>
           <Button
-            variant="outline"
+            {...FORM_BUTTONS.actions.cancel}
             onClick={onClose}
             className="flex-1"
           >
-            Cancel
+            {FORM_BUTTONS.actions.cancel.label}
           </Button>
           <Button
+            {...FORM_BUTTONS.actions.submit.primary}
             type="submit"
-            variant="primary"
             loading={loading}
             className="flex-1"
           >

@@ -1,14 +1,17 @@
 import React from 'react';
 import { AnimatedHeader } from '../../animations';
-import { Button, DevTransferButton } from '../../ui';
+import { Button, DevTransferButton, Badge } from '../../ui';
+import { usePendingChanges } from '../../../hooks/usePendingChanges';
 
 const DashboardHeader = ({ 
   currentRoute, 
   currentUser, 
   customerCount,
   onShowTokenGenerator,
+  onShowDriverValidation,
   onLogout 
 }) => {
+  const { totalPending, hasPendingChanges } = usePendingChanges(currentRoute);
   return (
     <AnimatedHeader className="bg-white/80 backdrop-blur-sm border-b border-slate-200/60 sticky top-0 z-10">
       <div className="px-3 py-3 sm:px-4 sm:py-4 lg:px-6 lg:py-4 xl:px-8 xl:py-5">
@@ -22,6 +25,21 @@ const DashboardHeader = ({
             </p>
           </div>
           <div className="flex items-center gap-2 flex-wrap">
+            {hasPendingChanges && (
+              <Button 
+                variant="primary" 
+                size="xs"
+                onClick={onShowDriverValidation}
+                className="relative"
+              >
+                <span className="flex items-center gap-1">
+                  🔔 Validate Changes
+                  <Badge variant="solid" className="bg-red-500 text-white text-xs px-1.5 py-0.5 min-w-[20px]">
+                    {totalPending}
+                  </Badge>
+                </span>
+              </Button>
+            )}
             {currentRoute === 33 && (
               <Button 
                 variant="primary" 

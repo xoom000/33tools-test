@@ -1,17 +1,17 @@
-import { DASHBOARD_TABS } from '../utils/constants';
+import { TAB_NAVIGATION_CONFIGS } from '../config/tabConfigs';
 
+// COMPOSE, NEVER DUPLICATE - Admin Tabs with Configuration! ⚔️
 export const useAdminTabs = (currentRoute) => {
-  // Base tabs for all routes
-  const baseTabs = DASHBOARD_TABS;
-
-  // Add admin tab only for Route 33 (Nigel's route)
-  const tabs = currentRoute === 33 
-    ? [...baseTabs, { id: 'admin', label: 'System Admin' }]
-    : baseTabs;
+  const navigation = TAB_NAVIGATION_CONFIGS.dashboard;
+  
+  // Get tabs with admin access based on route
+  const tabs = navigation.withAdmin(currentRoute);
+  const baseTabs = navigation.base;
+  const hasAdminAccess = currentRoute === 33;
 
   return {
     tabs,
     baseTabs,
-    hasAdminAccess: currentRoute === 33
+    hasAdminAccess
   };
 };

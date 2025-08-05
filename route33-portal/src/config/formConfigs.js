@@ -1,283 +1,248 @@
-// Form field configurations - COMPOSE, NEVER DUPLICATE!
-export const FORM_CONFIGS = {
-  orderConfiguration: {
-    title: () => 'Configure Customer Ordering',
-    description: 'Select which customers can place orders through PowerApps',
-    submitText: 'Save Configuration',
-    cancelText: 'Cancel',
-    size: 'xlarge',
-    fields: [] // Custom component will handle customer selection
-  },
-  customer: {
-    title: (isEditing) => isEditing ? 'Edit Customer' : 'Add New Customer',
-    submitText: 'Add Customer',
-    editingText: 'Update Customer',
-    fields: [
-      {
-        name: 'account_name',
-        label: 'Business Name',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter business name'
-      },
-      {
-        name: 'address',
-        label: 'Address',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter street address'
-      },
-      {
-        name: 'city',
-        label: 'City',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter city'
-      },
-      {
-        name: 'state',
-        label: 'State',
-        type: 'select',
-        defaultValue: 'CA',
-        required: true,
-        options: [
-          { value: 'CA', label: 'California' },
-          { value: 'NV', label: 'Nevada' },
-          { value: 'AZ', label: 'Arizona' },
-          { value: 'OR', label: 'Oregon' },
-          { value: 'WA', label: 'Washington' }
-        ]
-      },
-      {
-        name: 'zip_code',
-        label: 'ZIP Code',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter ZIP code'
-      },
-      {
-        name: 'service_frequency',
-        label: 'Service Frequency',
-        type: 'select',
-        defaultValue: 'Weekly',
-        required: true,
-        options: [
-          { value: 'Weekly', label: 'Weekly' },
-          { value: 'Bi-weekly', label: 'Bi-weekly' },
-          { value: 'Monthly', label: 'Monthly' },
-          { value: 'As needed', label: 'As needed' }
-        ]
-      },
-      {
-        name: 'service_days',
-        label: 'Service Days',
-        type: 'text',
-        placeholder: 'e.g., Monday, Wednesday'
-      },
-      {
-        name: 'route_number',
-        label: 'Route Number',
-        type: 'number',
-        defaultValue: 33,
-        required: true
-      }
-    ]
-  },
+// COMPOSE, NEVER DUPLICATE - Form Configuration System! ⚔️
 
-  item: {
-    title: (isEditing) => isEditing ? 'Edit Item' : 'Add New Item',
-    submitText: 'Add Item',
-    editingText: 'Update Item',
-    fields: [
-      {
-        name: 'item_name',
-        label: 'Item Name',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter item name'
-      },
-      {
-        name: 'item_type',
-        label: 'Item Type',
-        type: 'select',
-        defaultValue: 'rental',
-        required: true,
-        options: [
-          { value: 'rental', label: 'Rental' },
-          { value: 'purchase', label: 'Purchase' },
-          { value: 'service', label: 'Service' },
-          { value: 'supply', label: 'Supply' }
-        ]
-      },
-      {
-        name: 'quantity',
-        label: 'Quantity',
-        type: 'number',
-        defaultValue: 1,
-        required: true,
-        min: 1
-      },
-      {
-        name: 'unit_price',
-        label: 'Unit Price',
-        type: 'number',
-        defaultValue: 0,
-        step: '0.01',
-        min: 0,
-        placeholder: '0.00'
-      },
-      {
-        name: 'frequency',
-        label: 'Frequency',
-        type: 'select',
-        defaultValue: 'weekly',
-        required: true,
-        options: [
-          { value: 'weekly', label: 'Weekly' },
-          { value: 'monthly', label: 'Monthly' },
-          { value: 'quarterly', label: 'Quarterly' },
-          { value: 'one-time', label: 'One-time' }
-        ]
-      },
-      {
-        name: 'description',
-        label: 'Description',
-        type: 'textarea',
-        rows: 3,
-        placeholder: 'Enter item description'
-      }
-    ]
-  },
+import { BUTTON_VARIANTS, BUTTON_SIZES } from '../constants/ui';
+import { FORM_CONFIG } from './ui';
 
-  // LOGIN FORMS - COMPOSE, NEVER DUPLICATE! ♻️
-  customerLogin: {
-    title: 'Customer Login',
-    submitText: 'Login',
-    size: 'medium',
-    fields: [
+// Form field type configurations (alias to unified config)
+export const FIELD_TYPES = FORM_CONFIG.fieldTypes;
+
+// Input styling configurations (alias to unified config)
+export const INPUT_STYLES = FORM_CONFIG.styles;
+
+// Form validation configurations (alias to unified config)
+export const VALIDATION_CONFIGS = FORM_CONFIG.validation;
+
+// Form button configurations
+// Button configurations (alias for FORM_BUTTONS)
+export const BUTTON_CONFIGS = {
+  // Common button patterns
+  submit: {
+    label: 'Submit',
+    variant: 'primary',
+    size: 'md',
+    type: 'submit'
+  },
+  cancel: {
+    label: 'Cancel', 
+    variant: 'outline',
+    size: 'md',
+    type: 'button'
+  },
+  save: {
+    label: 'Save',
+    variant: 'primary',
+    size: 'md',
+    type: 'submit'
+  },
+  delete: {
+    label: 'Delete',
+    variant: 'danger',
+    size: 'md',
+    type: 'button'
+  },
+  
+  // Login options configuration
+  loginOptions: {
+    title: 'Or choose an option',
+    buttons: [
       {
-        name: 'customerNumber',
-        label: 'Customer Number',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter your customer number'
+        key: 'driver',
+        label: 'Driver Login',
+        variant: BUTTON_VARIANTS.SECONDARY,
+        size: BUTTON_SIZES.MD,
+        icon: '🚛'
       },
       {
-        name: 'loginCode',
-        label: 'Login Code',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter your login code'
-      }
-    ]
-  },
-
-  driverLogin: {
-    title: 'Driver Login',
-    submitText: 'Login',
-    size: 'medium',
-    fields: [
-      {
-        name: 'username',
-        label: 'Username',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter your username'
-      },
-      {
-        name: 'password',
-        label: 'Password',
-        type: 'password',
-        required: true,
-        placeholder: 'Enter your password'
-      }
-    ]
-  },
-
-  tokenSetup: {
-    title: 'Setup Driver Token',
-    submitText: 'Validate Token',
-    size: 'medium',
-    fields: [
-      {
-        name: 'token',
-        label: 'Driver Token',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter your driver token'
-      }
-    ]
-  },
-
-  accountSetup: {
-    title: 'Setup Your Account',
-    submitText: 'Create Account',
-    size: 'medium',
-    fields: [
-      {
-        name: 'username',
-        label: 'Username',
-        type: 'text',
-        required: true,
-        placeholder: 'Choose a username'
-      },
-      {
-        name: 'password',
-        label: 'Password',
-        type: 'password',
-        required: true,
-        placeholder: 'Choose a password'
-      },
-      {
-        name: 'confirmPassword',
-        label: 'Confirm Password',
-        type: 'password',
-        required: true,
-        placeholder: 'Confirm your password'
-      }
-    ]
-  },
-
-  demoSetup: {
-    title: 'Demo Access',
-    submitText: 'Access Demo',
-    size: 'medium',
-    fields: [
-      {
-        name: 'demoToken',
-        label: 'Demo Token',
-        type: 'text',
-        required: true,
-        placeholder: 'Enter demo token'
+        key: 'guest',
+        label: 'Continue as Guest',
+        variant: BUTTON_VARIANTS.OUTLINE,
+        size: BUTTON_SIZES.MD,
+        icon: '👤'
       }
     ]
   }
 };
 
-// BUTTON GROUP CONFIGS - COMPOSE, NEVER DUPLICATE! ⚔️
-export const BUTTON_CONFIGS = {
-  loginOptions: {
-    title: 'Driver access?',
-    size: 'small',
-    buttons: [
+export const FORM_BUTTONS = {
+  // Standard form actions
+  actions: {
+    submit: {
+      primary: {
+        label: 'Save',
+        variant: BUTTON_VARIANTS.PRIMARY,
+        size: BUTTON_SIZES.MD,
+        type: 'submit'
+      }
+    },
+    cancel: {
+      label: 'Cancel',
+      variant: BUTTON_VARIANTS.OUTLINE,
+      size: BUTTON_SIZES.MD,
+      type: 'button'
+    }
+  },
+  
+  // Button layouts
+  layouts: {
+    horizontal: 'flex gap-3 pt-4',
+    center: 'flex justify-center gap-3 pt-4'
+  }
+};
+
+// Complete form configurations
+export const FORM_CONFIGS = {
+  // Customer forms
+  addCustomer: {
+    title: 'Add Customer',
+    fields: [
       {
-        key: 'driver-login',
-        text: 'Driver Dashboard',
-        variant: 'outline',
-        className: 'border-slate-300 text-slate-700 hover:bg-slate-50'
+        name: 'account_name',
+        label: 'Account Name',
+        type: FIELD_TYPES.TEXT,
+        required: true,
+        placeholder: 'Enter customer name'
       },
       {
-        key: 'setup-token',
-        text: 'I have a setup token',
-        variant: 'ghost',
-        className: 'text-slate-500 hover:text-slate-700'
+        name: 'customer_number',
+        label: 'Customer Number',
+        type: FIELD_TYPES.TEXT,
+        required: true,
+        placeholder: 'e.g., 1001'
       },
       {
-        key: 'demo-access',
-        text: 'Demo Access',
-        variant: 'secondary',
-        className: 'text-slate-600 hover:text-slate-800'
+        name: 'address',
+        label: 'Address',
+        type: FIELD_TYPES.TEXTAREA,
+        required: true,
+        placeholder: 'Enter full address',
+        rows: 3
       }
     ]
+  },
+  
+  // Login forms
+  customerLogin: {
+    title: 'Customer Login',
+    fields: [
+      {
+        name: 'customer_number',
+        label: 'Customer Number',
+        type: FIELD_TYPES.TEXT,
+        required: true,
+        placeholder: 'Enter your customer number'
+      }
+    ],
+    submitButton: {
+      label: 'Login',
+      variant: BUTTON_VARIANTS.PRIMARY,
+      size: BUTTON_SIZES.MD
+    }
+  },
+  
+  driverLogin: {
+    title: 'Driver Login',
+    fields: [
+      {
+        name: 'token',
+        label: 'Driver Token',
+        type: FIELD_TYPES.TEXT,
+        required: true,
+        placeholder: 'Enter your driver token'
+      }
+    ],
+    submitButton: {
+      label: 'Login',
+      variant: BUTTON_VARIANTS.PRIMARY,
+      size: BUTTON_SIZES.MD
+    }
+  },
+  
+  // Customer modal configuration
+  customer: {
+    title: (isEditing) => isEditing ? 'Edit Customer' : 'Add Customer',
+    fields: [
+      {
+        name: 'account_name',
+        label: 'Account Name',
+        type: FIELD_TYPES.TEXT,
+        required: true,
+        placeholder: 'Enter customer name'
+      },
+      {
+        name: 'customer_number',
+        label: 'Customer Number',
+        type: FIELD_TYPES.TEXT,
+        required: true,
+        placeholder: 'e.g., 1001'
+      },
+      {
+        name: 'address',
+        label: 'Address',
+        type: FIELD_TYPES.TEXTAREA,
+        required: true,
+        placeholder: 'Enter full address',
+        rows: 3
+      }
+    ],
+    submitText: 'Add Customer',
+    editingText: 'Update Customer'
+  },
+  
+  // Item modal configuration
+  item: {
+    title: (isEditing) => isEditing ? 'Edit Item' : 'Add Item',
+    fields: [
+      {
+        name: 'item_name',
+        label: 'Item Name',
+        type: FIELD_TYPES.TEXT,
+        required: true,
+        placeholder: 'Enter item name'
+      },
+      {
+        name: 'item_number',
+        label: 'Item Number',
+        type: FIELD_TYPES.TEXT,
+        required: true,
+        placeholder: 'e.g., 2001'
+      },
+      {
+        name: 'description',
+        label: 'Description',
+        type: FIELD_TYPES.TEXTAREA,
+        required: false,
+        placeholder: 'Enter item description',
+        rows: 2
+      },
+      {
+        name: 'quantity',
+        label: 'Quantity',
+        type: FIELD_TYPES.NUMBER,
+        required: true,
+        placeholder: '0',
+        defaultValue: 1
+      }
+    ],
+    submitText: 'Add Item',
+    editingText: 'Update Item'
+  },
+  
+  // Order configuration modal
+  orderConfiguration: {
+    title: () => 'Configure Customer Ordering',
+    size: 'large',
+    description: 'Select customers and configure their service days for route optimization.',
+    actions: {
+      primary: {
+        label: 'Save Configuration',
+        variant: BUTTON_VARIANTS.PRIMARY,
+        size: BUTTON_SIZES.MD
+      },
+      secondary: {
+        label: 'Cancel',
+        variant: BUTTON_VARIANTS.OUTLINE,
+        size: BUTTON_SIZES.MD
+      }
+    }
   }
 };

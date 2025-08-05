@@ -1,5 +1,6 @@
 import UnifiedHeader from '../../layout/UnifiedHeader';
 import { BRAND } from '../../../theme';
+import { cn } from '../../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Now using UnifiedHeader! ⚔️
 const LoginHeader = ({
@@ -14,7 +15,7 @@ const LoginHeader = ({
       title={title}
       subtitle={subtitle}
       animated={false}
-      className={`mb-6 ${className}`}
+      className={cn('mb-6', className)}
       {...props}
     />
   );

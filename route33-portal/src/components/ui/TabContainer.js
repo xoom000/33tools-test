@@ -1,6 +1,11 @@
 import React from 'react';
+import { cn } from '../../utils/classNames';
 import { AnimatedContainer } from '../animations';
-import { Button, EmptyState, LoadingSkeleton } from './';
+import Button from './Button';
+import EmptyState from './EmptyState';
+import LoadingSkeleton from './LoadingSkeleton';
+import { FLEX_LAYOUTS, SPACING_PATTERNS } from '../../config/layoutConfigs';
+import { VARIANTS } from '../../theme';
 
 // COMPOSE, NEVER DUPLICATE - Universal Tab Container! ⚔️
 // Eliminates 60%+ duplication across 6 tab components
@@ -29,7 +34,7 @@ const TabContainer = ({
     if (actions.length === 0) return null;
     
     return (
-      <div className="flex gap-2 flex-wrap">
+      <div className={cn(FLEX_LAYOUTS.buttonGroup.horizontal, 'flex-wrap')}>
         {actions.map((action, index) => (
           <Button
             key={index}
@@ -52,7 +57,7 @@ const TabContainer = ({
     if (!title && actions.length === 0) return null;
     
     return (
-      <div className="flex items-center justify-between mb-4">
+      <div className={cn(FLEX_LAYOUTS.header.between, 'mb-4')}>
         <div>
           {title && (
             <h2 className="text-lg font-semibold text-slate-800">
@@ -96,9 +101,9 @@ const TabContainer = ({
   return (
     <AnimatedContainer 
       variant={variant} 
-      className={`bg-white rounded-2xl shadow-sm border border-slate-100 ${className}`}
+      className={cn(VARIANTS?.card?.base || 'bg-white rounded-2xl shadow-sm border border-slate-100', className)}
     >
-      <div className={`p-4 sm:p-6 ${contentClassName}`}>
+      <div className={cn(SPACING_PATTERNS.padding.card, contentClassName)}>
         {renderHeader()}
         {renderContent()}
       </div>

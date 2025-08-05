@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Button } from '../../ui';
 import { VARIANTS, LAYOUT, TYPOGRAPHY } from '../../../theme';
+import { cn } from '../../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Customer Management Grid! ⚔️
-const CustomerManagementGrid = ({
+const CustomerManagementGrid = memo(function CustomerManagementGrid({
   customers = [],
   onEditCustomer,
   onGenerateToken,
   className = ""
-}) => {
+}) {
   return (
-    <div className={`${VARIANTS.card.base} ${className}`}>
+    <div className={cn(VARIANTS.card.base, className)}>
       <div className={LAYOUT.padding.card}>
-        <h2 className={`${TYPOGRAPHY.sizes.lg} ${TYPOGRAPHY.weights.semibold} text-slate-800 mb-6`}>
+        <h2 className={cn(TYPOGRAPHY.sizes.lg, TYPOGRAPHY.weights.semibold, 'text-slate-800 mb-6')}>
           Customer Management
         </h2>
         
@@ -21,10 +22,10 @@ const CustomerManagementGrid = ({
             <div key={index} className="bg-slate-50 rounded-xl p-4 border border-slate-200">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <h4 className={`${TYPOGRAPHY.weights.semibold} text-slate-800`}>
+                  <h4 className={cn(TYPOGRAPHY.weights.semibold, 'text-slate-800')}>
                     {customer.name}
                   </h4>
-                  <p className={`${TYPOGRAPHY.sizes.xs} text-slate-600`}>
+                  <p className={cn(TYPOGRAPHY.sizes.xs, 'text-slate-600')}>
                     #{customer.number}
                   </p>
                 </div>
@@ -37,7 +38,7 @@ const CustomerManagementGrid = ({
                   <Button 
                     variant="ghost" 
                     size="small" 
-                    className={`${TYPOGRAPHY.sizes.xs} px-2 py-1`}
+                    className={cn(TYPOGRAPHY.sizes.xs, 'px-2 py-1')}
                     onClick={() => onGenerateToken && onGenerateToken(customer)}
                   >
                     Token
@@ -45,7 +46,7 @@ const CustomerManagementGrid = ({
                   <Button 
                     variant="secondary" 
                     size="small" 
-                    className={`${TYPOGRAPHY.sizes.xs} px-2 py-1`}
+                    className={cn(TYPOGRAPHY.sizes.xs, 'px-2 py-1')}
                     onClick={() => onEditCustomer && onEditCustomer(customer)}
                   >
                     Edit
@@ -53,7 +54,7 @@ const CustomerManagementGrid = ({
                   <Button 
                     variant="outline" 
                     size="small" 
-                    className={`${TYPOGRAPHY.sizes.xs} px-2 py-1`}
+                    className={cn(TYPOGRAPHY.sizes.xs, 'px-2 py-1')}
                   >
                     Items
                   </Button>
@@ -65,6 +66,6 @@ const CustomerManagementGrid = ({
       </div>
     </div>
   );
-};
+});
 
 export default CustomerManagementGrid;

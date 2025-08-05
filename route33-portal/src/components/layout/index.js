@@ -4,3 +4,4 @@ export { default as DashboardLayout } from './DashboardLayout';
 export { default as DashboardSkeleton } from './DashboardSkeleton';
 export { default as PageContainer } from './PageContainer';
 export { default as DemoPageLayout } from './DemoPageLayout';
+export { default as UnifiedHeader } from './UnifiedHeader';

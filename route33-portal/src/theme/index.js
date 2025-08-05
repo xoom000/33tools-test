@@ -9,45 +9,72 @@ export const BRAND = {
   version: '2.0.0'
 };
 
-// Color System - Single source for all colors
+// FULL MONOCHROME Color System - Synced with tailwind.config.js
 export const COLORS = {
-  // Primary Brand Colors
+  // Primary Brand Colors (matching tailwind.config.js exactly)
   primary: {
-    50: '#f8fafc',
-    100: '#f1f5f9', 
-    200: '#e2e8f0',
-    300: '#cbd5e1',
-    400: '#94a3b8',
-    500: '#64748b',
-    600: '#475569',
-    700: '#334155',
-    800: '#1e293b',
-    900: '#0f172a'
+    25: '#fdfdfe',    // Ultra-light - glass effects, overlays
+    50: '#f9fafb',    // Whisper - subtle card backgrounds
+    100: '#f3f4f6',   // Ghost - disabled states, skeleton loading
+    200: '#e5e7eb',   // Mist - borders, dividers, input outlines
+    300: '#d1d5db',   // Fog - placeholders, secondary borders
+    400: '#9ca3af',   // Steel - secondary text, icons
+    500: '#6b7280',   // Charcoal - body text, default state
+    600: '#4b5563',   // Slate - headings, emphasized text
+    700: '#374151',   // Graphite - primary buttons, strong emphasis
+    800: '#1f2937',   // Obsidian - headers, navigation, dark surfaces
+    900: '#111827',   // Void - maximum contrast, rare emphasis
+    950: '#030712'    // Abyss - ultimate depth, shadows
   },
   
-  // Semantic Colors
+  // Accent Colors - Synced with tailwind.config.js accent system
+  accent: {
+    success: {
+      50: '#ecfdf5',
+      100: '#d1fae5', 
+      500: '#10b981',
+      600: '#059669',
+      700: '#047857'
+    },
+    danger: {
+      50: '#fef2f2',
+      100: '#fee2e2',
+      500: '#ef4444', 
+      600: '#dc2626',
+      700: '#b91c1c'
+    },
+    warning: {
+      50: '#fffbeb',
+      100: '#fef3c7',
+      500: '#f59e0b',
+      600: '#d97706', 
+      700: '#b45309'
+    }
+  },
+
+  // Semantic Colors - For backwards compatibility, using monochrome approach
   success: {
-    light: '#10b981',
-    DEFAULT: '#059669',
-    dark: '#047857'
+    light: '#6b7280',   // primary-500 (softer)
+    DEFAULT: '#4b5563', // primary-600 (medium)
+    dark: '#374151'     // primary-700 (stronger)
   },
   
   error: {
-    light: '#f87171',
-    DEFAULT: '#ef4444', 
-    dark: '#dc2626'
+    light: '#9ca3af',   // primary-400 (lighter for errors)
+    DEFAULT: '#6b7280', // primary-500 (medium error)
+    dark: '#4b5563'     // primary-600 (strong error)
   },
   
   warning: {
-    light: '#fbbf24',
-    DEFAULT: '#f59e0b',
-    dark: '#d97706'
+    light: '#d1d5db',   // primary-300 (very light)
+    DEFAULT: '#9ca3af', // primary-400 (medium warning)
+    dark: '#6b7280'     // primary-500 (stronger warning)
   },
   
   info: {
-    light: '#60a5fa',
-    DEFAULT: '#3b82f6',
-    dark: '#2563eb'
+    light: '#e5e7eb',   // primary-200 (very light)
+    DEFAULT: '#d1d5db', // primary-300 (light info)
+    dark: '#9ca3af'     // primary-400 (medium info)
   }
 };
 
@@ -86,13 +113,13 @@ export const SPACING = {
   '2xl': '3rem'
 };
 
-// Component Variants
+// Component Variants - FULL MONOCHROME
 export const VARIANTS = {
   button: {
     primary: `bg-slate-800 hover:bg-slate-900 text-white shadow-lg hover:shadow-xl focus:ring-slate-500`,
     secondary: `bg-white hover:bg-slate-50 text-slate-700 border-2 border-slate-200 hover:border-slate-300 shadow-sm focus:ring-slate-500`,
-    success: `bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl focus:ring-emerald-500`,
-    danger: `bg-red-600 hover:bg-red-700 text-white shadow-lg hover:shadow-xl focus:ring-red-500`,
+    success: `bg-slate-600 hover:bg-slate-700 text-white shadow-lg hover:shadow-xl focus:ring-slate-500`,
+    danger: `bg-slate-500 hover:bg-slate-600 text-white shadow-lg hover:shadow-xl focus:ring-slate-500`,
     ghost: `text-slate-600 hover:text-slate-800 hover:bg-slate-100 focus:ring-slate-500`,
     outline: `border-2 border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white bg-transparent focus:ring-slate-500`
   },
@@ -105,7 +132,7 @@ export const VARIANTS = {
   
   input: {
     base: `w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-slate-500 focus:border-slate-500`,
-    error: `w-full border border-red-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-500 focus:border-red-500`
+    error: `w-full border border-slate-400 rounded-lg px-3 py-2 focus:ring-2 focus:ring-slate-600 focus:border-slate-600`
   }
 };
 

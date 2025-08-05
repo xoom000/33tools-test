@@ -19,11 +19,11 @@ const validateRequest = (req, res, next) => {
   next();
 };
 
-// Apply authentication to ALL admin routes (DISABLED - matching production)
-// router.use(authenticateDriver);
+// Apply authentication to ALL admin routes
+router.use(authenticateDriver);
 
 // POST /api/admin/customers/:id/generate-code - Generate login code for customer
-router.post('/customers/:id/generate-code', async (req, res, next) => {
+router.post('/customers/:id/generate-code', requireAdmin, async (req, res, next) => {
   try {
     const customerId = req.params.id;
     
@@ -52,7 +52,7 @@ router.post('/customers/:id/generate-code', async (req, res, next) => {
 });
 
 // GET /api/admin/customers - Get customers for admin (same as regular customers endpoint)
-router.get('/customers', async (req, res, next) => {
+router.get('/customers', requireAdmin, async (req, res, next) => {
   try {
     const { route_number = 33 } = req.query; // Default to Route 33
     const filters = { route_number };
@@ -84,7 +84,7 @@ router.get('/customers', async (req, res, next) => {
  * POST /api/admin/driver-tokens
  * Generate driver setup token for account creation
  */
-router.post('/driver-tokens', [
+router.post('/driver-tokens', requireAdmin, [
   body('routeNumber')
     .isInt({ min: 1, max: 99 })
     .withMessage('Route number must be between 1 and 99'),

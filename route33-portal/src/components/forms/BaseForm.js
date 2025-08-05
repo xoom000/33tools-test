@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback, memo } from 'react';
 import { Button } from '../ui';
 import BaseInput from './BaseInput';
+import { cn } from '../../utils/classNames';
 
-// COMPOSE, NEVER DUPLICATE - Embedded form (no modal wrapper)! ♻️
-const BaseForm = ({ 
+// COMPOSE, NEVER DUPLICATE - Embedded form (no modal wrapper) - Memoized for Performance ⚔️
+const BaseForm = memo(({ 
   title,
   fields,
   initialData = {},
@@ -14,24 +15,27 @@ const BaseForm = ({
   showTitle = true,
   className = ""
 }) => {
-  const [formData, setFormData] = useState(() => {
-    // Initialize with defaults + existing data
+  // Memoize initial form data calculation
+  const initialFormData = useMemo(() => {
     const initial = {};
     fields.forEach(field => {
       initial[field.name] = initialData[field.name] || field.defaultValue || '';
     });
     return { ...initial, ...initialData };
-  });
+  }, [fields, initialData]);
+
+  const [formData, setFormData] = useState(initialFormData);
   
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (field, value) => {
+  // Memoized event handlers for performance
+  const handleChange = useCallback((field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     if (error) setError(''); // Clear error on change
-  };
+  }, [error]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -43,9 +47,10 @@ const BaseForm = ({
     } finally {
       setLoading(false);
     }
-  };
+  }, [onSave, formData]);
 
-  const renderField = (field) => {
+  // Memoized field rendering function for performance
+  const renderField = useCallback((field) => {
     const commonProps = {
       key: field.name,
       label: field.label,
@@ -98,10 +103,10 @@ const BaseForm = ({
       default:
         return <BaseInput {...commonProps} />;
     }
-  };
+  }, [formData, handleChange]);
 
   return (
-    <div className={className}>
+    <div className={cn('', className)}>
       {showTitle && title && (
         <h2 className="text-lg font-semibold text-slate-800 mb-4">{title}</h2>
       )}
@@ -128,6 +133,6 @@ const BaseForm = ({
       </form>
     </div>
   );
-};
+});
 
 export default BaseForm;

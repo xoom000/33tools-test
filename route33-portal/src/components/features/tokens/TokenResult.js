@@ -1,8 +1,10 @@
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../../ui';
 import logger from '../../../utils/logger';
+import { ANIMATION_PRESETS } from '../../../config/animationConfigs';
 
-const TokenResult = ({ generatedToken, onGenerateAnother, onClose }) => {
+const TokenResult = memo(function TokenResult({ generatedToken, onGenerateAnother, onClose }) {
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text).then(() => {
       logger.info('Token copied to clipboard');
@@ -13,8 +15,7 @@ const TokenResult = ({ generatedToken, onGenerateAnother, onClose }) => {
   return (
     <motion.div
       key="result"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      {...ANIMATION_PRESETS.slideUp}
       className="space-y-6"
     >
       <div className="text-center">
@@ -108,6 +109,6 @@ const TokenResult = ({ generatedToken, onGenerateAnother, onClose }) => {
       </div>
     </motion.div>
   );
-};
+});
 
 export default TokenResult;

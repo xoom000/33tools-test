@@ -10,9 +10,12 @@ export const useBaseFormLogic = ({
   const [formData, setFormData] = useState(() => {
     // Initialize with defaults + existing data
     const initial = {};
-    fields.forEach(field => {
-      initial[field.name] = initialData[field.name] || field.defaultValue || '';
-    });
+    // Safety check: ensure fields is an array before calling forEach
+    if (fields && Array.isArray(fields)) {
+      fields.forEach(field => {
+        initial[field.name] = initialData[field.name] || field.defaultValue || '';
+      });
+    }
     return { ...initial, ...initialData };
   });
   

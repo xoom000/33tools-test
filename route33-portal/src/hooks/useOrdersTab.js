@@ -13,9 +13,9 @@ export const useOrdersTab = (orderRequests, setOrderRequests, toast) => {
     handleSwipeEnd
   } = useSwipeGesture(100); // Higher threshold for orders
 
-  // Orders tab state
-  const [expandedItems, setExpandedItems] = useState(new Set());
-  const [loadedItems, setLoadedItems] = useState(new Set());
+  // Orders tab state - optimized with initializer functions
+  const [expandedItems, setExpandedItems] = useState(() => new Set());
+  const [loadedItems, setLoadedItems] = useState(() => new Set());
 
   const toggleExpanded = (orderId) => {
     const newExpanded = new Set(expandedItems);

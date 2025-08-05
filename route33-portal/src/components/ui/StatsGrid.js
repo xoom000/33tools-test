@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { cn } from '../../utils/classNames';
 import { AnimatedContainer } from '../animations';
 import StatsCard from './StatsCard';
+import { GRID_SYSTEMS } from '../../config/layoutConfigs';
 
 // COMPOSE, NEVER DUPLICATE - Reusable stats grid component! ⚔️
-const StatsGrid = ({ 
+const StatsGrid = memo(function StatsGrid({ 
   stats = [],
   columns = 4,
   className = ''
-}) => {
-  const gridCols = {
-    2: 'grid-cols-2',
-    3: 'grid-cols-3', 
-    4: 'grid-cols-2 md:grid-cols-4'
+}) {
+  // Use centralized grid system instead of hardcoded classes
+  const getGridClass = () => {
+    if (columns === 2) return cn(GRID_SYSTEMS.stats.container, 'grid-cols-2');
+    if (columns === 3) return cn(GRID_SYSTEMS.stats.container, 'grid-cols-3');
+    return cn(GRID_SYSTEMS.stats.container, GRID_SYSTEMS.stats.responsive);
   };
 
   return (
     <AnimatedContainer 
       variant="slideUp" 
-      className={`grid ${gridCols[columns]} gap-4 ${className}`}
+      className={cn(getGridClass(), className)}
     >
       {stats.map((stat, index) => (
         <StatsCard
@@ -30,6 +33,6 @@ const StatsGrid = ({
       ))}
     </AnimatedContainer>
   );
-};
+});
 
 export default StatsGrid;

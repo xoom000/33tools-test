@@ -13,11 +13,12 @@ export const useLoadList = (customers, selectedDay, toast) => {
     handleSwipeEnd
   } = useSwipeGesture(50);
 
+  // Optimized useState with initializer functions for performance
   const [loadList, setLoadList] = useState([]);
   const [availableItems, setAvailableItems] = useState([]);
-  const [customQuantities, setCustomQuantities] = useState({});
-  const [expandedItems, setExpandedItems] = useState(new Set());
-  const [loadedItems, setLoadedItems] = useState(new Set());
+  const [customQuantities, setCustomQuantities] = useState(() => ({}));
+  const [expandedItems, setExpandedItems] = useState(() => new Set());
+  const [loadedItems, setLoadedItems] = useState(() => new Set());
   const [editingQuantity, setEditingQuantity] = useState(null);
   const [showAddItemSearch, setShowAddItemSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');

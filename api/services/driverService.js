@@ -11,7 +11,7 @@ class DriverService {
   async authenticateDriver(routeNumber, password) {
     try {
       const query = `
-        SELECT driver_id, name, email, route_number, role, is_active, password_hash
+        SELECT driver_id, name, email, route_number, role, is_active, password_hash, is_relief_driver
         FROM drivers 
         WHERE route_number = ? AND is_active = 1
       `;
@@ -39,7 +39,8 @@ class DriverService {
       logger.info('Driver authenticated successfully', { 
         driverId: driver.driver_id,
         routeNumber: driver.route_number,
-        role: driver.role
+        role: driver.role,
+        isReliefDriver: driver.is_relief_driver
       });
 
       // Don't return sensitive data
@@ -60,7 +61,7 @@ class DriverService {
   async authenticateDriverByUsername(username, password) {
     try {
       const query = `
-        SELECT driver_id, name, email, username, route_number, role, is_active, password_hash
+        SELECT driver_id, name, email, username, route_number, role, is_active, password_hash, is_relief_driver
         FROM drivers 
         WHERE username = ? AND is_active = 1
       `;
@@ -89,7 +90,8 @@ class DriverService {
         driverId: driver.driver_id,
         username: driver.username,
         routeNumber: driver.route_number,
-        role: driver.role
+        role: driver.role,
+        isReliefDriver: driver.is_relief_driver
       });
 
       // Don't return sensitive data
@@ -187,6 +189,7 @@ class DriverService {
       driver_id: driverData.driver_id,
       route_number: driverData.route_number,
       role: driverData.role,
+      is_relief_driver: driverData.is_relief_driver || false,
       timestamp
     };
     
@@ -368,6 +371,144 @@ class DriverService {
       logger.error('Error validating demo token', { 
         error: error.message,
         token: token.substring(0, 4) + '***'
+      });
+      throw error;
+    }
+  }
+
+  /**
+   * Create relief driver token (admin only)
+   */
+  async createReliefDriverToken(driverId, expirationHours = 168) { // Default 1 week
+    try {
+      // Generate unique token
+      const token = require('crypto').randomBytes(32).toString('hex');
+      
+      // Calculate expiration date
+      const expiresAt = new Date();
+      expiresAt.setHours(expiresAt.getHours() + expirationHours);
+      
+      const query = `
+        INSERT INTO relief_driver_tokens (token, driver_id, expires_at)
+        VALUES (?, ?, ?)
+      `;
+      
+      const result = await db.run(query, [token, driverId, expiresAt.toISOString()]);
+      
+      logger.info('Relief driver token created', {
+        tokenId: result.lastID,
+        driverId,
+        expiresAt: expiresAt.toISOString()
+      });
+      
+      return {
+        token,
+        expires_at: expiresAt.toISOString(),
+        token_id: result.lastID
+      };
+    } catch (error) {
+      logger.error('Error creating relief driver token', {
+        error: error.message,
+        driverId
+      });
+      throw error;
+    }
+  }
+
+  /**
+   * Validate relief driver token and set relief driver status
+   */
+  async validateReliefDriverToken(token) {
+    try {
+      const query = `
+        SELECT rdt.*, d.name, d.username, d.route_number, d.driver_id
+        FROM relief_driver_tokens rdt
+        JOIN drivers d ON rdt.driver_id = d.driver_id
+        WHERE rdt.token = ? 
+          AND rdt.is_active = 1 
+          AND rdt.expires_at > datetime('now')
+          AND rdt.used_at IS NULL
+      `;
+      
+      const tokenData = await db.get(query, [token]);
+      
+      if (!tokenData) {
+        logger.warn('Invalid or expired relief driver token', {
+          token: token.substring(0, 4) + '***'
+        });
+        return null;
+      }
+
+      // Mark token as used and set driver as relief driver
+      await db.run('BEGIN TRANSACTION');
+      
+      // Mark token as used
+      await db.run(
+        'UPDATE relief_driver_tokens SET used_at = datetime("now") WHERE token = ?',
+        [token]
+      );
+      
+      // Set driver as relief driver
+      await db.run(
+        'UPDATE drivers SET is_relief_driver = 1 WHERE driver_id = ?',
+        [tokenData.driver_id]
+      );
+      
+      await db.run('COMMIT');
+
+      logger.info('Relief driver token validated and activated', {
+        driverId: tokenData.driver_id,
+        driverName: tokenData.name,
+        tokenUsed: new Date().toISOString()
+      });
+
+      return {
+        driver_id: tokenData.driver_id,
+        name: tokenData.name,
+        username: tokenData.username,
+        route_number: tokenData.route_number,
+        is_relief_driver: true
+      };
+    } catch (error) {
+      await db.run('ROLLBACK');
+      logger.error('Error validating relief driver token', {
+        error: error.message,
+        token: token.substring(0, 4) + '***'
+      });
+      throw error;
+    }
+  }
+
+  /**
+   * Deactivate relief driver status (admin only)
+   */
+  async deactivateReliefDriver(driverId) {
+    try {
+      const query = `
+        UPDATE drivers 
+        SET is_relief_driver = 0 
+        WHERE driver_id = ?
+      `;
+      
+      const result = await db.run(query, [driverId]);
+      
+      if (result.changes === 0) {
+        throw new Error('Driver not found');
+      }
+
+      // Deactivate any active relief driver tokens for this driver
+      await db.run(
+        'UPDATE relief_driver_tokens SET is_active = 0 WHERE driver_id = ? AND is_active = 1',
+        [driverId]
+      );
+
+      logger.info('Relief driver status deactivated', { driverId });
+      
+      return { success: true, message: 'Relief driver status deactivated' };
+    } catch (error) {
+      logger.error('Error deactivating relief driver', {
+        error: error.message,
+        driverId
       });
       throw error;
     }

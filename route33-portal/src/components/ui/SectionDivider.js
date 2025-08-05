@@ -1,20 +1,21 @@
 import React from 'react';
-import { TYPOGRAPHY } from '../../theme';
+import { cn } from '../../utils/classNames';
+import { STYLE_PRESETS } from '../../config/styleConfigs';
 
 // COMPOSE, NEVER DUPLICATE - Consistent section breaks using theme! ⚔️
 const SectionDivider = ({ 
   children,
   title,
   centered = true,
-  spacing = 'mt-6 pt-4',
-  borderStyle = 'border-t border-slate-100',
-  titleStyle = `${TYPOGRAPHY.sizes.sm} text-slate-600 mb-3`,
+  spacing = STYLE_PRESETS.sectionDivider.spacing,
+  borderStyle = STYLE_PRESETS.sectionDivider.border,
+  titleStyle = STYLE_PRESETS.sectionDivider.title,
   className = ''
 }) => {
   const alignmentClass = centered ? 'text-center' : '';
   
   return (
-    <div className={`${spacing} ${borderStyle} ${className}`}>
+    <div className={cn(spacing, borderStyle, className)}>
       <div className={alignmentClass}>
         {title && (
           <p className={titleStyle}>

@@ -1,7 +1,38 @@
-// COMPOSE, NEVER DUPLICATE - Utility for conditional classes!
+/**
+ * COMPOSE, NEVER DUPLICATE - Enhanced className utility
+ * Based on React best practices for conditional styling
+ * 
+ * Handles multiple input types:
+ * - Strings: 'class-name'
+ * - Objects: { 'class-name': boolean }
+ * - Arrays: ['class1', 'class2']
+ * - Mixed: cn('base', { active: isActive }, someClass)
+ */
+export const cn = (...inputs) => {
+  const classes = [];
 
-export const cn = (...classes) => {
-  return classes.filter(Boolean).join(' ');
+  for (const input of inputs) {
+    if (!input) continue;
+
+    const inputType = typeof input;
+
+    if (inputType === 'string') {
+      classes.push(input);
+    } else if (inputType === 'object') {
+      if (Array.isArray(input)) {
+        // Handle arrays recursively
+        const arrayResult = cn(...input);
+        if (arrayResult) classes.push(arrayResult);
+      } else {
+        // Handle objects: { 'class-name': boolean }
+        for (const [key, value] of Object.entries(input)) {
+          if (value) classes.push(key);
+        }
+      }
+    }
+  }
+
+  return classes.join(' ');
 };
 
 // Common class combinations - COMPOSE, NEVER DUPLICATE!
@@ -58,3 +89,34 @@ export const buildCardClasses = (interactive = false, elevated = false) => {
   
   return cn(baseClasses, shadowClasses, interactiveClasses);
 };
+
+/**
+ * Variant-specific className utility for consistent component styling
+ * Optimized for your existing component patterns
+ * 
+ * @param {string} base - Base classes (always applied)
+ * @param {Object} variants - Variant mapping object
+ * @param {string} selectedVariant - Current variant key
+ * @param {Object|string} states - State-based classes or className string
+ * @param {string} className - Additional classes for override
+ * @returns {string} Combined class names
+ */
+export const variant = (base, variants, selectedVariant, states = {}, className = '') => {
+  return cn(
+    base,
+    variants[selectedVariant],
+    states,
+    className
+  );
+};
+
+/**
+ * Size-based className utility for responsive components
+ * Perfect for buttons, inputs, cards with size variants
+ */
+export const size = (sizes, selectedSize, className = '') => {
+  return cn(sizes[selectedSize], className);
+};
+
+// Export enhanced cn as default for widespread usage
+export default cn;

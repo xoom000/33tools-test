@@ -5,6 +5,7 @@ import NextServiceCard from '../customer-portal/NextServiceCard';
 import ItemsGrid from '../customer-portal/ItemsGrid';
 import { MORNING_CHECKLIST } from '../../../utils/constants';
 import { VARIANTS } from '../../../theme';
+import { cn } from '../../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Morning Workspace Content Renderer! ⚔️
 const MorningWorkspaceContentRenderer = ({
@@ -52,7 +53,7 @@ const MorningWorkspaceContentRenderer = ({
         />
 
         {/* EXTEND StatsGrid + ProgressBar - COMPOSE, NEVER DUPLICATE! ⚔️ */}
-        <div className={`${VARIANTS.card.elevated} p-6 lg:col-span-2`}>
+        <div className={cn(VARIANTS.card.elevated, 'p-6 lg:col-span-2')}>
           <h2 className="text-xl font-semibold mb-4">🎯 Preparation Status</h2>
           
           <StatsGrid stats={stats} columns={4} className="mb-6" />

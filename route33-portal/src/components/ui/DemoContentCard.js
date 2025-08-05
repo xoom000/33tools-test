@@ -1,6 +1,7 @@
 import React from 'react';
+import { cn } from '../../utils/classNames';
 import { AnimatedContainer } from '../animations';
-import { VARIANTS, TYPOGRAPHY } from '../../theme';
+import { CARD_CONFIGS } from '../../config/cardConfigs';
 
 // COMPOSE, NEVER DUPLICATE - Demo Content Card with helpful hints! ⚔️
 const DemoContentCard = ({ 
@@ -11,25 +12,25 @@ const DemoContentCard = ({
   showHelpHint = true 
 }) => {
   return (
-    <AnimatedContainer variant="scaleIn" className={`${VARIANTS.card.elevated} p-8 ${className}`}>
+    <AnimatedContainer variant={CARD_CONFIGS.demo.animation} className={cn(CARD_CONFIGS.demo.container, className)}>
       {title && (
-        <h1 className={`${TYPOGRAPHY.heading.h2} text-slate-800 mb-4`}>
+        <h1 className={CARD_CONFIGS.demo.header.title}>
           {title}
         </h1>
       )}
       
       {description && (
-        <p className={`${TYPOGRAPHY.body.large} text-slate-600 mb-6`}>
+        <p className={CARD_CONFIGS.demo.header.description}>
           {description}
         </p>
       )}
       
       {showHelpHint && (
-        <div className="mb-6 p-4 bg-primary-50 border border-primary-200 rounded-lg">
-          <div className="flex items-start gap-3">
-            <div className="text-blue-500 text-lg">💡</div>
-            <div className="text-sm text-blue-700">
-              <strong>Onboarding Tip:</strong> This demo shows how our components work together. 
+        <div className={CARD_CONFIGS.demo.helpHint.container}>
+          <div className={CARD_CONFIGS.demo.helpHint.layout}>
+            <div className={CARD_CONFIGS.demo.helpHint.icon}>💡</div>
+            <div className={CARD_CONFIGS.demo.helpHint.content}>
+              <span className={CARD_CONFIGS.demo.helpHint.title}>Onboarding Tip:</span> This demo shows how our components work together. 
               Feel free to explore and test the functionality!
             </div>
           </div>

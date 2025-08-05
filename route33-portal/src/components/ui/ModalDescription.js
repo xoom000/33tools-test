@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Modal description component! ⚔️
 const ModalDescription = ({ 
@@ -14,7 +15,7 @@ const ModalDescription = ({
   };
 
   return (
-    <div className={`${variants[variant]} ${className}`}>
+    <div className={cn(variants[variant], className)}>
       <p className="leading-relaxed">
         {children}
       </p>

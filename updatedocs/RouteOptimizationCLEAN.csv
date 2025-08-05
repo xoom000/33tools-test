@@ -1,0 +1,765 @@
+﻿customer_number,route_number,account_name,address,city,state,zip_code,service_days,avg_wkly_volume,latitude,longitude,uniform_customer
+244653,2502-01,Institute Of Tech - Garments,1755 Hilltop Dr,Redding,CA,96002-0250,M,$0 ,40.58141,-122.357773,0
+291365,2502-01,SC-AG Dept,3179 Bechelli Ln Ste 210,Redding,CA,96002,M,$7 ,40.62812,-122.38913,0
+285128,2502-01,Simpson U Nursing,2211 College View Dr,Redding,CA,96003,MWF,$0 ,40.61817,-122.32935,0
+274952,2502-03,Vibra - Housekeeping,2801 Eureka Way,Redding,CA,960010222,MWF,$581 ,40.585765,-122.413179,0
+273930,2502-03,Vibra Hospital of Northern Calif,2801 Eureka Way,Redding,CA,960010222,MWF,"$2,117 ",40.585765,-122.413179,220
+274954,2502-03,Vibra - Dietary,2801 Eureka Way,Redding,CA,960010222,MWF,$124 ,40.585765,-122.413179,0
+257401,2502-05,COR Fire Station #4 Rdg,2605 S Bonnyview Rd,Redding,CA,960014516,T,$37 ,40.530819,-122.376823,0
+170671,2502-05,Redding Oil Co. Pinegrove,2725 Cascade Blvd,Shasta Lake City,CA,96019,R,$39 ,40.66351,-122.35695,0
+170686,2502-05,Wolfgang,1117 Parkview Ave,Redding,CA,96001-3203,M,$14 ,40.573238,-122.385948,0
+170696,2502-05,COR Building Maintenance rdg,"20055 Viking Way, Bldg 4",Redding,CA,960038295,F,$3 ,40.578331,-122.312401,0
+256387,2502-05,Kevin Kay Restorations,1530 Charles Dr,Redding,CA,960031459,R,$101 ,40.62999,-122.374817,2
+242166,2502-05,PG&E Redding,3600 Meadow View Dr,Redding,CA,96002-9701,W,$63 ,40.498379,-122.304672,0
+293382,2502-05,Kilby Equipment Repair,2650 Larkspur Lane,Redding,CA,96002,R,$37 ,40.56839,-122.35634,6
+315176,2502-05,Integrity Heating & Air,5213 Industrial Way,Anderson,CA,96007,W,$130 ,40.46887,-122.32099,110
+317106,2502-05,Shasta Lake Middle School - Cafeteria,4620 Vallecito Street,Shasta Lake,CA,96019,R,$37 ,40.67346,-122.36323,0
+320902,2502-05,Cinders and Taste & See,2820 Freeman Street,Anderson,CA,96007,W,$65 ,40.44911,-122.29744,0
+321459,2502-05,Poinsett's Machine Shop,2486 Progress Drive #3,Redding,CA,96001,M,$28 ,40.55705,-122.38473,1
+201377,2502-05,Monarch Learning Crt,5307 Cedars Rd,Redding,CA,96001-4102,T,$79 ,40.53756,-122.389107,0
+274378,2502-05,Kaleidoscope Coffee,2258 North St,Anderson,CA,960073437,W,$27 ,40.45355,-122.29792,0
+291462,2502-05,Shasta Lake City Community Center,4499 Main Street,Shasta Lake,CA,96019,R,$0 ,40.682083,-122.365047,0
+303441,2502-05,California Dance Company,2150 Marx Way #1,Anderson,CA,96007,W,$52 ,40.4416,-122.29026,0
+317098,2502-05,Buckeye School of Arts,3407 Hiatt Drive,Redding,CA,96003,F,$80 ,40.63004,-122.40314,0
+257302,2502-05,COR Solid Waste Admin ,2255 Abernathy Ln,Redding,CA,960038057,F,$10 ,40.575298,-122.314789,0
+257303,2502-05,COR Wastewater Collection Rdg,"20005 Viking Way, Bldg 3",Redding,CA,960038295,F,$7 ,40.578348,-122.314354,0
+247562,2502-05,Shasta Lake W/Water, Tibitts Road,Shasta Lake,CA,96019,R,$15 ,40.659879,-122.38991,0
+171474,2502-05,Seco Manufacturing  Co.,4155 Oasis Rd,Redding,CA,96003-0859,R,$104 ,40.633289,-122.391144,12
+272996,2502-05,Torr Industries - D/S,4564 Caterpillar Rd,Redding,CA,96003-1418,M,$0 ,40.6271,-122.38258,0
+283613,2502-05,Shasta Lake Shell,1725 Cascade Blvd,Shast Lake,CA,96019,R,$22 ,40.6795,-122.35089,0
+287458,2502-05,A-1 Smog & Auto Repair,513 North Market Street,Redding,CA,96003,T,$132 ,40.59902,-122.38382,80
+291132,2502-05,SC-Corp Yard - Shop,4413 Eastside Rd,Redding,CA,96001,T,$73 ,40.55154,-122.38678,92
+295194,2502-05,Big O Tires,377 E. Cypress,Redding,CA,96002,M,$359 ,40.57053,-122.36573,277
+318368,2502-05,Dan Palmer Trucking,7211 Sands Lane,Anderson,CA,96007,T,$157 ,40.49594,-122.37584,30
+319476,2502-05,Shasta Lake Electric,3570 Iron Court,Shasta Lake,CA,96019,R,$14 ,40.65733,-122.38433,0
+257247,2502-05,COR Solid Waste Lunch Rm,2255 Abernathy Ln,Redding,CA,960038057,F,$22 ,40.575298,-122.314789,0
+170691,2502-05,Good News - Kitchen,2842 S Market St,Redding,CA,96001-3215,M,$142 ,40.570068,-122.388138,0
+170698,2502-05,Outdoor Creations,2270 Barney Rd,Anderson,CA,96007-4305,W,$266 ,40.442768,-122.289993,40
+209405,2502-05,PG&E Rdg Gc Line,3600 Meadow View Dr,Redding,CA,960029701,W,$50 ,40.498389,-122.304417,0
+257379,2502-05,COR Stillwater Treatmentrdg,6475 Airport Road,Anderson,CA,96007,W,$41 ,40.475469,-122.286801,33
+171215,2502-05,Cascade Un Em Trans,1645 Mill St,Anderson,CA,96007-3226,W,$53 ,40.447774,-122.306804,30
+291130,2502-05,SC-Corp Yard - Roads,4363 Eastside Rd,Redding,CA,96001,T,$196 ,40.55106,-122.38625,289
+298852,2502-05,Portside Fish & Chips,1804 State Highway 273,Anderson,CA,96007,W,$28 ,40.43747,-122.29052,0
+300828,2502-05,SC- Mental Health,2640 Breslauer Way,Redding,CA,96001,T,$109 ,40.54979,-122.38167,0
+313829,2502-05,Shasta College Food Services,11555 Old Oregon Trail,Redding,CA,96003,F,$5 ,40.62346,-122.3196,0
+314701,2502-05,Mike's Heating and Air,19833 Riverside Avenue,Anderson,CA,96007,T,$54 ,40.46968,-122.31929,40
+317105,2502-05,Grand Oaks Elementary - Cafeteria,5309 Grand Avenue,Shasta Lake,CA,96019,R,$5 ,40.68285,-122.35134,0
+202242,2502-05,Redding Drywall,1410 Beltline Rd,Redding,CA,96003-1410,M,$17 ,40.625992,-122.388344,0
+257245,2502-05,COR Clear Crk Treat Plant Rdg,2220 Metz Rd,Redding,CA,960079478,T,$79 ,40.50024,-122.371219,122
+212636,2502-05,Antler's Resort - Seasonal,20679 Antlers Rd,Lakehead,CA,96051,R,$51 ,40.892093,-122.376253,0
+200421,2502-05,BPS Supply Group,5040 Mountain Lakes Blvd,Redding,CA,96003-1457,M,$22 ,40.629082,-122.37394,5
+265021,2502-05,APEX Automotive,19841 Hirsch Ct,Anderson,CA,960074910,T,$136 ,40.466728,-122.317749,30
+265578,2502-05,Big Valley Sanitation,5551 Eastside Rd,Redding,CA,96001,M,$201 ,40.53491,-122.38366,11
+271698,2502-05,Steve Manning Construction,4977 Mountain Lakes Blvd,Redding,CA,960031456,M,$87 ,40.62944,-122.376488,17
+273691,2502-05,FN - IPS Oak Mesa,1870 Oak Mesa Ln,Redding,CA,960039610,F,$384 ,40.58081,-122.33042,0
+279644,2502-05,7 Eleven,3100 North Street,Anderson,CA,96007,W,$36 ,40.46709,-122.29529,0
+284030,2502-05,Premier Towing,6076 CA - 273,Anderson,CA,96007,W,$17 ,40.46425,-122.32275,0
+288196,2502-05,Gold Hills Golf Club,"1950 Gold Hills Dr,",Redding,CA,96003,F,$95 ,40.63589,-122.35572,6
+313946,2502-05,Mittry Construction,4850 Caterpillar Road,Redding,CA,96003,R,$37 ,40.62601,-122.37812,0
+317008,2502-05,Voorwood,2350 Barney Road,Anderson,CA,96007,W,$88 ,40.44341,-122.29155,0
+317097,2502-05,Gateway Unified School District,4411 Mountain Lakes Boulevard,Redding,CA,96003,R,$29 ,40.63066,-122.38787,0
+257359,2502-05,COR Solid Waste Hazard Rdg,2255 Abernathy Ln,Redding,CA,960038057,F,$5 ,40.575298,-122.314789,5
+247561,2502-05,Shasta Lake Motor Pool,4448 Red Bluff Street,Shasta Lake,CA,96019,R,$30 ,40.683894,-122.366326,5
+257021,2502-05,Hansens Pressure Washer,3035 Twin View Blvd,Shasta Lake,CA,960192324,R,$62 ,40.659119,-122.357117,10
+189813,2502-05,Clear Creek Grocery,7036 Westside Rd,Redding,CA,96001-5217,T,$34 ,40.513111,-122.381203,0
+262271,2502-05,Nor Cal Rewinding,4773 Mountain Lakes Blvd,Redding,CA,960031452,M,$37 ,40.632141,-122.379356,10
+275549,2502-05,SCOE Transportation Bus Maintenance,3169 S Market St,Redding,CA,960013533,M,$64 ,40.567318,-122.38784,30
+285690,2502-05,Grocery Outlet,1981 Hwy 273,Anderson,CA,96007,W,$100 ,40.43903,-122.29141,0
+316069,2502-05,Tierra Oaks Golf Club,19700 La Crescenta Drive,Redding,CA,96003,F,$158 ,40.67124,-122.3265,0
+317104,2502-05,Grand Oaks Elementary,5309 Grand Avenue,Shasta Lake,CA,96019,R,$82 ,40.68285,-122.35134,0
+252235,2502-05,Good News - D/S,2842 S Market St,Redding,CA,960013215,M,$0 ,40.570324,-122.388094,0
+227908,2502-05,Panda Express#1522,5000 Rhonda Rd,Anderson,CA,960070000,W,$40 ,40.4315,-122.29007,0
+171779,2502-05,Giff's Restaurant,2827 Bechelli Ln,Redding,CA,96002-1922,M,$18 ,40.566219,-122.362694,0
+279042,2502-05,COR Elect. Tech C.Creek,2220 Metz Rd,Redding,CA,96001,T,$5 ,40.50335,-122.36777,5
+280322,2502-05,V F W Post 9650,3210 W. Center Street,Anderson,CA,96007,W,$23 ,40.45172,-122.30364,0
+313288,2502-05,Plumas Bank,2727 Ventura Street,Anderson,CA,96007,W,$30 ,40.4517,-122.2924,0
+320233,2502-05,Club Tucker,6241 Churn Creek Road,Redding,CA,96002,W,$32 ,40.48184,-122.30251,0
+324443,2502-05,Vic Hannan Landscape Materials,7086 CA-273,Anderson,CA,96007,T,$18 ,40.490897,-122.361359,0
+325240,2502-05,Cal Fire,875 Cypress Avenue,Redding,CA,96001,M,$0 ,40.57446,-122.383377,49
+325484,2502-05,Waffle Bite,6400 Westside Road,Redding,CA,96001,T,$0 ,40.521436,-122.382591,0
+218696,2502-05,Shasta Gateway Center,1699 State Highway 273,Anderson,CA,96007-4282,W,$28 ,40.436154,-122.289558,0
+257244,2502-05,COR West Central Landfill Rdg,14095 Clear Creek Rd,Redding,CA,96047,T,$53 ,40.490304,-122.539254,50
+257361,2502-05,COR Solid Waste Welding Rdg,2255 Abernathy Ln,Redding,CA,960038057,F,$153 ,40.575298,-122.314789,217
+257362,2502-05,COR Rdg Power Plant Maint,17120 Clear Creek Rd,Redding,CA,960015107,T,$21 ,40.503159,-122.422958,7
+170857,2502-05,Dr.S Schalo & Bigelow,2315 Bechelli Ln,Redding,CA,96002-0120,M,$83 ,40.573399,-122.362793,1
+222251,2502-05,Mission Square Poa,2827 Bechelli Ln,Redding,CA,96002-1922,M,$33 ,40.566278,-122.36269,0
+171161,2502-05,Fedex Ground,1497 George Dr,Redding,CA,96003-1461,M,$50 ,40.62859,-122.372994,0
+266971,2502-05,Northern CA Charging System,1410 Beltline Rd,Redding,CA,960031410,M,$26 ,40.625992,-122.388344,15
+272700,2502-05,Lake Shasta FS - D/S Seasonal Hold,20359 Shasta Caverns Rd,Lakehead,CA,960519677,R,$0 ,40.804392,-122.304218,0
+275550,2502-05,SCOE Transportation Office,3169 S Market St,Redding,CA,960013533,M,$25 ,40.567318,-122.38784,0
+288421,2502-05,Shasta Baptist,6600 Westside Rd,Redding,CA,96001,T,$23 ,40.51912,-122.38329,0
+291360,2502-05,Sierra Pacific Industries,19794 Riverside Drive,Anderson,CA,96007,W,$71 ,40.46913,-122.28826,0
+317103,2502-05,Shasta Lake Middle School,4620 Vallecito Street,Shasta Lake,CA,96019,R,$125 ,40.67346,-122.36323,0
+319710,2502-05,Singh Mobile Services,6100 State Highway 273,Anderson,CA,96007,T,$30 ,40.46553,-122.32453,4
+257625,2502-05,Lake Shasta Cruise - Seasonal hold,20359 Shasta Caverns Rd,Lakehead,CA,960519677,R,$142 ,40.804394,-122.304215,0
+225428,2502-05,Tri Co. Bank  #481,2686 Gateway Dr,Anderson,CA,96007-3530,W,$37 ,40.452572,-122.288773,0
+171122,2502-05,Miniature Precision,4488 Mountain Lakes Blvd Ste A,Redding,CA,96003-1445,M,$48 ,40.63137,-122.386169,9
+171235,2502-05,Canned Food Co.,2235 Churn Creek Rd,Redding,CA,96002-0731,M,$72 ,40.574994,-122.353094,0
+171309,2502-05,Leckey,4963 Mountain Lakes Blvd,Redding,CA,96003-1456,M,$41 ,40.629822,-122.376869,8
+279039,2502-05,COR Elect. Tech BLD 3,20055 Viking Way Building #4,Redding,CA,96003,F,$36 ,40.57742,-122.31244,30
+322069,2502-05,Bettendorf Trucking,20943 Bettendorf Way,Anderson,CA,96007,W,$105 ,40.42561,-122.27615,45
+257624,2502-05,Lake Shasta Caverns - Seasonal hold,20359 Shasta Caverns Rd,Lakehead,CA,960519677,R,$55 ,40.804394,-122.304215,0
+257246,2502-05,COR Municipal Utilities Rdg,"20055 Viking Way, Bldg 3",Redding,CA,960038295,F,$8 ,40.578331,-122.312401,0
+257360,2502-05,COR Fleet Shop City Redding,20055 Viking Way,Redding,CA,960038295,F,$159 ,40.578331,-122.312401,176
+257250,2502-05,COR Redding Power Plant,17120 Clear Creek Rd,Redding,CA,960015107,T,$27 ,40.503159,-122.422958,11
+251546,2502-05,Shasta Lake Law Enforce,4448 Red Bluff Street,Shasta Lake,CA,96019,R,$52 ,40.683894,-122.366326,0
+170870,2502-05,Antler's Resort - Seasonal,20679 Antlers Rd,Lakehead,CA,96051,R,$510 ,40.892093,-122.376253,0
+257411,2502-05,Commercial Landscapeserv,2780 Tarmac Rd,Redding,CA,96003-9307,F,$70 ,40.571041,-122.318581,60
+271765,2502-05,COR Electric Utility,"20055 Viking Way, Bldg 2",Redding,CA,960038295,F,$58 ,40.578339,-122.312401,12
+299393,2502-05,EZ Auto Care,2778 Tarmac Road,Redding,CA,96003,F,$40 ,40.5714,-122.31903,10
+314459,2502-05,Crafco,2300 Barney Road,Anderson,CA,96007,W,$57 ,40.44302,-122.29134,31
+316033,2502-05,White Rock Trucking Inc.,7065 Aviator Lane,Redding,CA,96002,W,$125 ,40.49359,-122.28645,30
+325439,2502-05,Happy Valley Fire Center, Canyon Road,Redding,CA,96001,T,$0 ,40.505663,-122.379485,5
+170657,2502-05,Columbia School Kitchen ,10142 Old Oregon Trl,Redding,CA,96003-7995,F,$36 ,40.582458,-122.307338,0
+247367,2502-05,Shasta Lake - D/S,4777 Main Street,Shasta Lake,CA,96019,R,$0 ,40.68207,-122.360256,0
+257402,2502-05,COR Fire Dept Headquarterdg,777 Cypress Ave,Redding,CA,960012718,M,$24 ,40.57415,-122.379921,0
+274314,2502-05,Shasta Lake Pizza Factory,4432 Shasta Dam Blvd,Shasta Lake,CA,960199418,R,$40 ,40.68055,-122.36596,0
+300204,2502-05,Coburn's Asphalt,6100 State Highway 273,Anderson,CA,96007,T,$48 ,40.465532,-122.324534,30
+307256,2502-05,Cascade Comfort,5203 Industrial Way,Anderson,CA,96007,T,$32 ,40.46701,-122.32067,36
+309166,2502-05,Mulligans Bar & Grill,6241 Churn Creek Road,Redding,CA,96002,W,$42 ,40.48184,-122.30251,0
+317099,2502-05,Mountain Lakes High School,17752  Shasta Dam Boulevard,Shasta Lake,CA,96019,R,$48 ,40.68005,-122.35075,0
+317168,2502-05,Freightliner Northwest,4991 Caterpillar Road,Redding,CA,96003,R,$344 ,40.6251,-122.37565,157
+317564,2502-05,Pizza Factory,536 North Market Street,Redding,CA,96003,M,$37 ,40.59805,-122.38579,0
+248056,2502-05,Clayton's Towing,6100 CA-273,Anderson,CA,96007,W,$13 ,40.46566,-122.323807,8
+237369,2502-05,Institute Of Tech,1755 Hilltop Dr,Redding,CA,96002-0250,M,$54 ,40.58141,-122.357773,0
+171138,2502-05,Lanny's Engines,10085 Limerick Ln,Redding,CA,96003-7979,F,$33 ,40.580988,-122.316044,3
+257334,2502-05,COR Fire Station #6 Rdg,4201 Oasis Rd,Redding,CA,96003,F,$50 ,40.633499,-122.39077,0
+264236,2502-05,Anderson Automotive,2966 Oak St,Anderson,CA,960073588,W,$144 ,40.45319,-122.296562,80
+267518,2502-05,Institute Of Tech - D/S,1755 Hilltop Dr,Redding,CA,960020250,M,$0 ,40.581322,-122.35778,0
+300994,2502-05,SC- Mental Heath DS,2640 Breslauer Way,Redding,CA,96001,T,$0 ,40.54979,-122.38167,0
+311254,2502-05,RSM,5934 Brenda Lane,Anderson,CA,96007,W,$23 ,40.45962,-122.26753,15
+317108,2502-05,Buckeye School of Arts - Cafeteria,3407 Hiatt Drive,Redding,CA,96003,F,$20 ,40.63004,-122.40314,0
+317516,2502-05,Rental Guys,4055 Eastside Road,Redding,CA,96001,M,$120 ,40.55722,-122.38724,20
+170640,2502-05,Phil's Propeller,3037 Twin View Blvd,Shasta Lake,CA,96019-2324,R,$34 ,40.65871,-122.357323,4
+247560,2502-05,Shasta Lake Public Works,4332 Vallecito Street,Shasta Lake,CA,96019,R,$11 ,40.673196,-122.36745,0
+257332,2502-05,COR Civic Center,777 Cypress Ave,Redding,CA,960012718,M,$21 ,40.57415,-122.379921,0
+214607,2502-05,Powerdraulics,4828 Mountain Lakes Blvd,Redding,CA,96003-1453,M,$63 ,40.631902,-122.379022,0
+276430,2502-05,SNL Group ,9818 Holton Way,Redding,CA,96003,F,$59 ,40.5722,-122.32036,11
+295409,2502-05,BARTEL'S,2311 North Street,Anderson,CA,96007,W,$12 ,40.45381,-122.29713,0
+306381,2502-05,Absolute Lash and Skin,2775 Ventura St,Anderson,CA,96007,T,$26 ,40.5826,-122.39046,0
+306489,2502-05,Jeff's California Cattle Co.,400 East Cypress Avenue,Redding,CA,96002,M,$48 ,40.57128,-122.36467,0
+313697,2502-05,Absolute Machine,5020 Mountain Lakes Boulevard,Redding,CA,96003,F,$31 ,40.62944,-122.37443,0
+317107,2502-05,Central Valley High School - Cafeteria,4066 La Mesa Avenue,Shasta Lake,CA,96019,R,$21 ,40.67751,-122.37391,0
+318289,2502-05,Wrenchers,1954 Ferry Street,Anderson,CA,96007,W,$38 ,40.44944,-122.3009,20
+209005,2502-05,Mountain View School ,675 Shasta View Dr,Redding,CA,96003-8287,F,$25 ,40.60181,-122.3265,0
+191360,2502-05,Becca's Cafe,2083 Balls Ferry Rd,Anderson,CA,96007-3403,W,$122 ,40.448769,-122.295723,0
+244762,2502-05,Miller Trucking,4650 Mountain Lakes Blvd,Redding,CA,96003-1449,F,$16 ,40.63203,-122.382912,5
+244894,2502-05,Shasta Lake City Hall,4477 Main Street,Shasta Lake,CA,96019,R,$27 ,40.68208,-122.36536,0
+170864,2502-05,Wilgus Fire/Safeguard,4544 Mountain Lakes Boulevard,Redding,CA,96003,M,$41 ,40.63176,-122.38567,0
+171069,2502-05,Youngman Trucking,6895 Eastside Rd,Anderson,CA,96007-9406,T,$63 ,40.485512,-122.3517,3
+274895,2502-05,250 Hemsted LP,250 Hemsted Dr,Redding,CA,960020911,M,$40 ,40.57267,-122.36615,0
+289017,2502-05,Panda Express D/S,5000 Rhonda Rd,Anderson,CA,96007,W,$0 ,40.4315,-122.29007,0
+290906,2502-05,Ridgeview Residential Center,2096 Cascade Blvd.,Shasta Lake,CA,96019,R,$124 ,40.67376,-122.35457,0
+291133,2502-05,SC-Shasta County Fire,875 Cypress Ave,Redding,CA,96001,M,$33 ,40.57446,-122.38338,10
+291135,2502-05,SC-Sheriff / Coronor's Office,4555 Veteran Lane,Redding,CA,96001,T,$95 ,40.54851,-122.38276,24
+294828,2502-05,Spec-Rite,2175 Kenyon Dr,Redding,CA,96001,T,$25 ,40.54327,-122.38844,0
+314174,2502-05,Mongoose Trucking,17850 Construction Way,Redding,CA,96003,R,$25 ,40.66492,-122.39585,6
+314951,2502-05,SRMC - Anderson,2830 East Street,Anderson,CA,96007,W,$51 ,40.45061,-122.29671,0
+317298,2502-05,Automotive Service Center,2800 West Center Street,Anderson,CA,96007,W,$19 ,40.44838,-122.29921,10
+317878,2502-05,Tune it Up,3025-A Twin View Boulevard,Shasta Lake,CA,96019,R,$14 ,40.65912,-122.35636,0
+319411,2502-05,Safari RV,3145 Twin View Boulevard,Shasta Lake,CA,96019,R,$38 ,40.65735,-122.35694,6
+323795,2502-05,Shasta College Culinary Department,11555 Old Oregon Trail,Redding,CA,96003,F,$0 ,40.623461,-122.3196,0
+257249,2502-05,COR St Division Bldg #3 Rdg,"20055 Viking Way, Bldg 3",Redding,CA,960038295,F,$18 ,40.578331,-122.312401,0
+170898,2502-05,Shasta Lake Fires ,4126 Ashby Ct,Shasta Lake,CA,960199215,R,$34 ,40.680694,-122.371815,0
+171159,2502-05,Systems Plus,1800 S Barney Rd,Anderson,CA,96007-9703,W,$15 ,40.440645,-122.287017,0
+171730,2502-05,FCCC - Shasta Col Smg Refer,11155 Old Oregon Trl,Redding,CA,96003-7684,F,$16 ,40.612193,-122.316936,0
+297844,2502-05,Sierra Pacific D/S,19794 Riverside Dr.,Anderson,CA,96007,W,$0 ,40.46913,-122.28826,0
+302083,2502-05,Alvarez Auto Care,4610 Shasta Dam Boulevard,Shasta Lake,CA,96019,R,$13 ,40.6803,-122.3632,0
+308981,2502-05,PGE Fleet - Redding,3600 Meadow View Drive,Redding,CA,96002,W,$51 ,40.49843,-122.30648,163
+317102,2502-05,Central Valley High School,4066 La Mesa Avenue,Shasta Lake,CA,96019,R,$126 ,40.67751,-122.37391,0
+226078,2502-05,Tri Co. Bank  #691,4715 Shasta Dam Blvd,Shasta Lake,CA,96019-9415,R,$35 ,40.680408,-122.361641,0
+257331,2502-05,COR Police Department Rdg,855 Cypress Ave,Redding,CA,96001-2719,T,$67 ,40.574921,-122.382072,0
+195599,2502-05,North State Towing,7010 Danyeur Rd,Redding,CA,96001-5358,T,$28 ,40.514381,-122.37796,0
+171410,2502-05,SC-Public Health Lab,2650 Breslauer Way,Redding,CA,96001-4246,T,$19 ,40.549648,-122.379128,15
+245380,2502-05,Seco - D/S,4155 Oasis Rd,Redding,CA,96003-0859,R,$0 ,40.633289,-122.391144,0
+271451,2502-05,California Welcome Center DS,1699 State Highway 273,Anderson,CA,960074282,W,$0 ,40.436155,-122.289558,0
+283647,2502-05,Torr Industries,4564 Catapillar,Redding,CA,96003,M,$55 ,40.61714,-122.35662,0
+297617,2502-05,SC- Corp Yard Fall River,24665 Glenburn,Fall River Mills,CA,96028,T,$58 ,41.00538,-121.45117,97
+298782,2502-05,Big Time Pest Control,19905 Hirsch Court,Anderson,CA,96007,T,$286 ,40.46766,-122.31601,398
+300102,2502-05,Shasta Mosquito & Vector Control District,19200 Latona Road,Anderson,CA,96007,T,$259 ,40.48679,-122.33989,237
+301010,2502-05,Bureau of Reclamation - Shasta,16349 Shasta Dam Boulevard,Shasta Lake,CA,96019,R,$52 ,40.68955,-122.38962,55
+324133,2502-05,Lakeshore Inn Resort,20483 Lakeshore Drive,Lakehead,CA,96051,R,$236 ,40.87912,-122.388381,0
+213368,2502-09,North Redding Valero,1191 Prestige Way,Redding,CA,96003-1465,F,$45 ,40.625431,-122.372452,0
+170891,2502-09,SC-SHASCOM,3101 South St,Redding,CA,96001-2379,F,$11 ,40.575298,-122.413208,0
+265978,2502-09,Lassen Municipal Utility,65 S Roop St,Susanville,CA,961304335,T,$32 ,40.418312,-120.663441,0
+268785,2502-09,Showboat Lounge,"105 Hartnell Ave, Ste A",Redding,CA,960021841,W,$25 ,40.569279,-122.369438,0
+278085,2502-09,TLC Dermatology Medical Center,375 Smile Place Suite B,Redding,CA,96001,W,$62 ,40.56941,-122.3774,0
+285622,2502-09,Giouann's Hair Affair,30 North McDow Street,Susanville,CA,96130,T,$29 ,40.41493,-120.64607,0
+320827,2502-09,Susanville Supermarket - Meat Dept.,50 Grand Avenue,Susanville,CA,96130,T,$50 ,40.41731,-120.65304,38
+171567,2502-09,Mazatlan Grill,55 N Lassen St,Susanville,CA,96130,T,$68 ,40.419161,-120.661652,0
+171574,2502-09,Lassen Tire,2955 Johnstonville Rd,Susanville,CA,96130-4736,T,$34 ,40.408831,-120.633943,14
+171633,2502-09,Kentucky Fried Chicken,3010 Riverside Dr,Susanville,CA,96130-4570,T,$32 ,40.406101,-120.631653,0
+170775,2502-09,Holiday Mkt 59 Line,3315 Placer St,Redding,CA,96001-2364,F,$165 ,40.574928,-122.416061,0
+266010,2502-09,Lassen Municipal Service,1605 Chestnut St,Susanville,CA,961303774,T,$62 ,40.42395,-120.646629,7
+296457,2502-09,Angelo's European Specialty,1870 Keystone Ct.,Redding,CA,96003,W,$19 ,40.57935,-122.33345,10
+299765,2502-09,Wayside Inn Market,718 710 Hwy 395,Standish,CA,96128,T,$13 ,40.36523,-120.42042,0
+318321,2502-09,SETI Institute,42231 Bidwell Road,Hat Creek,CA,96040,T,$128 ,40.82655,-121.46092,0
+319868,2502-09,Bings Steak & Sushi Bar,1600 Main Street,Susanville,CA,96130,T,$36 ,40.41557,-120.65021,0
+320742,2502-09,Peery Chiropractic,3075 Victor Avenue,Redding,CA,96002,W,$5 ,40.56278,-122.33943,0
+323109,2502-09,Lassen College - Custodial ,478-200 CA - 139,Susanville,CA,96130,T,$122 ,40.443162,-120.627166,28
+171353,2502-09,Comfort Inn & Suites - Susanville,3015 Riverside Dr,Susanville,CA,96130-4569,T,$26 ,40.406288,-120.631027,0
+233643,2502-09,Janesville Payless,463-770 Main St,Janesville,CA,96114,T,$12 ,40.295991,-120.523531,0
+242634,2502-09, Susanville Police Department - D/S,1801 Main St,Susanville,CA,96130-4518,T,$0 ,40.415076,-120.647254,0
+171622,2502-09,Idaho Grocery,2120 Main St,Susanville,CA,96130-4702,T,$20 ,40.414162,-120.643303,0
+271040,2502-09,Pit Stop Tire Depot,658 N Market St,Redding,CA,960033608,F,$24 ,40.597229,-122.38662,12
+294476,2502-09,Umpqua Bank,1951 Churn Creek Rd,Redding,CA,96002,W,$54 ,40.57907,-122.3535,0
+296187,2502-09,Plumas Bank,192 Hartnell Ave.,Redding,CA,96002,W,$30 ,40.56801,-122.3693,0
+299003,2502-09,New York Saloon,533 Main Street,Weaverville,CA,96093,R,$14 ,40.73337,-122.94042,0
+300482,2502-09,Trinity River Lumber Maint. Shop,1121 Main Street,Weaverville,CA,96093,R,$83 ,40.72673,-122.93468,42
+317649,2502-09,Clear View Auto Glass,1600 East Cypress Avenue #5,Redding,CA,96002,W,$30 ,40.57135,-122.34219,10
+323107,2502-09,Lassen College - Automotive ,478-200 CA -139,Susanville,CA,96130,T,$8 ,40.443162,-120.627166,0
+323722,2502-09,Trinity County Department of Transportation, 31820 CA-3,Weaverville,CA,96093,R,$56 ,40.73456,-122.934624,38
+261201,2502-09, Value Inn & Suites,533 N Market St,Redding,CA,960033611,F,$207 ,40.598702,-122.384804,0
+315175,2502-09,Fire House Grill,463-760 Main Street,Janesville,CA,96114,T,$15 ,40.29604,-120.52321,0
+315825,2502-09,Raliberto's - Weaverville,120 Nugget Lane,Weaverville,CA,96093,R,$24 ,40.72105,-122.92908,0
+320635,2502-09,SEMSA,1545 Bunyan Road,Susanville,CA,96130,T,$29 ,40.4224,-120.64825,10
+322380,2502-09,Stelters HVAC Service,2335 Larkspur Lane Suite A,Redding,CA,96002,W,$56 ,40.57321,-122.35512,53
+323103,2502-09,New Life Discovery Project,1205 Placer Street,Redding,CA,96001,F,$14 ,40.582799,-122.387914,0
+325188,2502-09,Northeastern Rural Health Clinics,1850 Spring Ridge Drive,Susanville,CA,96130,T,$54 ,40.437674,-120.625913,0
+231683,2502-09,S.V. Sewer Treatmentwwtp,200 Russell Ave,Susanville,CA,96130-4218,T,$41 ,40.414351,-120.63621,0
+170777,2502-09,Holiday Mkt #59 Groc,3315 Placer St,Redding,CA,96001-2364,F,$90 ,40.574928,-122.416061,0
+225430,2502-09,Tri Co. Bank   #331,880 E Cypress Ave,Redding,CA,96002-1004,W,$34 ,40.571041,-122.355873,0
+299451,2502-09,Cascade Eye Care,1751 Hartnell Avenue,Redding,CA,96002,W,$10 ,40.5634,-122.33886,0
+318794,2502-09,Community Behavioral Health,415 Knollcrest Drive,Redding,CA,96002,W,$57 ,40.57251,-122.36453,0
+323101,2502-09,Stardust Motel,1200 Pine Street,Redding,CA,96001,F,$328 ,40.58777,-122.391167,8
+324967,2502-09,Pizza Factory,464-420 Church Street,Janesville,CA,96114,T,$25 ,40.3016,-120.524103,0
+246580,2502-09,High Sierra Collision,472-635 Johnstonville Rd,Susanville,CA,96130-8775,T,$33 ,40.382516,-120.585869,0
+256879,2502-09,Don's Sandwich Shop,3034 Bechelli Ln,Redding,CA,960022009,W,$50 ,40.562952,-122.362617,0
+277796,2502-09,USA Tires,2251 Hartnell Ave # 1,Redding,CA,96002,W,$20 ,40.5633,-122.32888,14
+282984,2502-09,Superior Auto Body,2201 Main Street,Susanville,CA,96130,T,$52 ,40.4143,-120.64272,0
+290083,2502-09,Susanville Chevron,1530 Main Street,Susanville,CA,93450,T,$13 ,40.41557,-120.65053,0
+294158,2502-09,Old Station Fill - Up,13413 State Hwy 89,Old Station,CA,96071,T,$20 ,40.67783,-121.42718,0
+320181,2502-09,Sierra Cascade Nursery Kitchen - SEASONAL,472-715 Johnson Road,Susanville,CA,96130,T,$110 ,40.3719,-120.46382,0
+218695,2502-09,Womens Health Specialists - Redding,1901 Victor Ave,Redding,CA,96002-0412,W,$61 ,40.57851,-122.338692,15
+229548,2502-09,Priya Indian Cuisine,2937 Churn Creek Rd,Redding,CA,96002-1120,W,$19 ,40.565023,-122.353109,0
+288386,2502-09,California Highway Patrol,472-400 Diamond Crest Rd,Susanville,CA,961305001,T,$55 ,40.37514,-120.59189,6
+289444,2502-09,Super 8,2975 Johnston Ville Rd,Susanville,CA,96130,T,$26 ,40.40971,-120.63422,0
+300732,2502-09,Northern Trailer,2577 Victor Avenue,Redding,CA,96002,W,$84 ,40.56972,-122.33839,50
+303839,2502-09,D & H Automotive,1270 Hartnell Avenue #C,Redding,CA,96002,W,$29 ,40.56459,-122.34778,0
+308043,2502-09,Main St Lube,1719 Main Street,Susanville,CA,96130,T,$36 ,40.41546,-120.64757,22
+315612,2502-09,Vintage Glamour,1790 California St,Redding,CA,96001,F,$3 ,40.56382,-122.34985,0
+317904,2502-09,T&A Restaurant & Lounge,2101 Main Street,Susanville,CA,96130,T,$28 ,40.41457,-120.64373,5
+318143,2502-09,Courthouse Cafe,2455 Main Street,Susanville,CA,96130,T,$43 ,40.41359,-120.63987,0
+253749,2502-09,C&S Waste Solutions,471-825 Diane Dr,Susanville,CA,96130,T,$266 ,40.372543,-120.584591,92
+223803,2502-09,Tri Co. Bank  #989,836 E Cypress Ave,Redding,CA,960021004,W,$23 ,40.571054,-122.357014,0
+257380,2502-09,COR Fire Station #2 Redding,3491 Placer St,Redding,CA,960012335,F,$25 ,40.574478,-122.41774,0
+277874,2502-09,Sundial Lodge,1055 N. Market Street,Redding,CA,96001,F,$37 ,40.58965,-122.39284,0
+288141,2502-09,Holiday Mkt #64 Linen,1301 Main Street,Weaverville,CA,96093,R,$128 ,40.72117,-122.92823,38
+296107,2502-09,Summers Massage,1465 Victor Ave # A,Redding,CA,96002,W,$26 ,40.58649,-122.33828,0
+296940,2502-09,Tangle Blue,160 Nugget Lane,Weaverville,CA,96093,R,$40 ,40.72039,-122.92874,0
+307436,2502-09,California Maternal Fetal Medicine,3328 Churn Creek Road #B,Redding,CA,96002,W,$50 ,40.55931,-122.35405,0
+311302,2502-09,Redding Rancheria Trinity Mats,81 Arbuckle Court,Weaverville,CA,96093,R,$122 ,40.71148,-122.9265,0
+311916,2502-09,32 Below,5136 Caterpillar Road,Redding,CA,96003,F,$32 ,40.62591,-122.36956,0
+314094,2502-09,Plumas Bank,330 Hartnell Avenue,Redding,CA,96002,W,$17 ,40.56597,-122.3691,0
+320180,2502-09,Sierra Cascade Nursery,472-715 Johnson Road,Susanville,CA,96130,T,$79 ,40.3719,-120.46382,18
+320726,2502-09,Underhood Automotive Inc,1236 Hartnell Avenue,Redding,CA,96002,W,$54 ,40.56414,-122.34882,28
+322116,2502-09,Susanville Transmission,2117 Main Street,Susanville,CA,96130,T,$40 ,40.41437,-120.64328,20
+322236,2502-09,Lori Barclay - Special Events,1600 East Cypress Avenue,Redding,CA,96002,W,$0 ,40.57135,-122.34219,0
+323100,2502-09,Travel Inn,1040 Market Street,Redding,CA,96001,F,$312 ,40.589661,-122.393304,8
+324966,2502-09,Pizza Factory,2975 Main Street,Susanville,CA,96130,T,$23 ,40.406201,-120.632927,0
+171355,2502-09,Susanville Trk/Auto,911 Cottage St,Susanville,CA,96130-4402,T,$11 ,40.41682,-120.659027,0
+237322,2502-09,Susanville Valero,1001 Main St,Susanville,CA,96130-4418,T,$13 ,40.41758,-120.657623,0
+286457,2502-09,Maruti Oil,31540 Street Hwy 3,Weaverville,CA,96093,R,$9 ,40.6952,-122.92886,0
+301569,2502-09,Rod's Radiator,3110 Bechelli Lane,Redding,CA,96002,W,$20 ,40.562,-122.36265,0
+320605,2502-09,Paratransit Services,701-980 Johnstonville Road,Susanville,CA,96130,T,$51 ,40.40362,-120.62273,19
+320826,2502-09,Susanville Supermarket - Grocery,50 Grand Avenue,Susanville,CA,96130,T,$49 ,40.41731,-120.65304,0
+323655,2502-09,Anderson's Landscape & Irrigation Repair,2648 Yana Avenue,Redding,CA,96002,W,$17 ,40.568749,-122.337087,12
+324051,2502-09,Blue Ox Bistro,602 Main Street Suite B,Susanville,CA,96130,T,$49 ,40.418657,-120.662952,0
+211150,2502-09,TNS Trucking ,702045 Johnstonville Rd,Susanville,CA,96130,T,$24 ,40.402297,-120.621934,4
+241268,2502-09,Western Nevada Supply - D/S,200 Bella Way,Susanville,CA,96130-9166,T,$0 ,40.406761,-120.625191,0
+256880,2502-09,Etched In Elegance - Catering,3034 Bechelli Ln,Redding,CA,960022009,W,$0 ,40.562952,-122.362617,0
+239545,2502-09,2502 Rt 09 Cash Account,1481 Beltline Rd,Redding,CA,96003-1409,R,$0 ,40.627926,-122.388998,26
+265871,2502-09,Rich's Mobile Auto,70 Alexander Ct,Susanville,CA,961304581,T,$13 ,40.415225,-120.65108,0
+274083,2502-09,Alpine Beverage,795 Alexander Ave,Susanville,CA,961304678,T,$27 ,40.40791,-120.65667,0
+280974,2502-09,Salon 705,615 Main St,Susanville,CA,96130,T,$30 ,40.41371,-120.6368,0
+288140,2502-09,Holiday Mkt #64 Grocery,1301 Main Street,Weaverville,CA,96093,R,$84 ,40.72117,-122.92823,0
+301009,2502-09,Bureau of Reclamation - Keswick, 16515 Keswick Dam Road,Redding,CA,96001-0960,R,$217 ,40.6195,-122.42701,225
+304339,2502-09,Susanville Grocery Outlet,1616 Main Street,Susanville,CA,96130,T,$58 ,40.41525,-120.64969,0
+311744,2502-09,Safeway - 1218,2970 Main Street,Susanville,CA,96130,T,$75 ,40.40597,-120.63461,55
+321020,2502-09,JJ's Cafe,13385 State Highway 89,Old Station,CA,96071,T,$14 ,40.67715,-121.42815,0
+324049,2502-09,Rodeway Inn,532 North Market Street,Redding,CA,96003,F,$180 ,40.599279,-122.384858,12
+171747,2502-09,Reynolds Radiator Repair,702-365 Johnstonville Rd,Susanville,CA,96130-8788,T,$25 ,40.399763,-120.617985,17
+266660,2502-09,Aaron Bjarnason DMD Inc,400 Hartnell Ave,Redding,CA,960021848,W,$9 ,40.56422,-122.367012,0
+272039,2502-09,Team Perio,384 Hartnell Ave,Redding,CA,960021846,W,$140 ,40.565029,-122.368202,36
+276771,2502-09,Labcorp - CAB050,1850 Spring Ridge Dr. #A,Susanville,CA,96130,T,$27 ,40.43767,-120.62591,3
+294475,2502-09,Umpqua Bank,3455 Placer St,Redding,CA,96001,F,$20 ,40.57388,-122.417,0
+300480,2502-09,Trinity River Lumber Mats,1121 Main Street,Weaverville,CA,96093,R,$22 ,40.72673,-122.93468,0
+320179,2502-09,Sierra Cascade Office,472-715 Johnson Road,Susanville,CA,96130,T,$36 ,40.3719,-120.46382,0
+171523,2502-09,BMC-Banner Lassen Medical,1800 Spring Ridge Dr,Susanville,CA,96130-6100,T,$61 ,40.43816,-120.62498,0
+269430,2502-09,Carmona's Appliance & Mattress Center,2330 Churn Creek Road,Redding,CA,96002,W,$42 ,40.57297,-122.35331,0
+323105,2502-09,Lassen College - Maintenance Shop,478-200 CA-139,Susanville,CA,96130,T,$57 ,40.443162,-120.627166,50
+171518,2502-09,Susanville Sanitary Dist,45 S Roop St,Susanville,CA,96130-4361,T,$14 ,40.41853,-120.663361,0
+171573,2502-09,Susanville Tow,,Susanville,CA,96130,T,$68 ,40.41568,-120.64972,15
+251257,2502-09,Dills Deli,5132 Caterpillar Rd,Redding,CA,960032048,F,$72 ,40.62527,-122.370171,0
+256452,2502-09,Tri Co Bank   #361,595 Main St,Weaverville,CA,96093,R,$31 ,40.732368,-122.940369,0
+301767,2502-09,Trinity Alps Golf Course,160 Golf Course Drive,Weaverville,CA,96093,R,$96 ,40.72029,-122.93024,0
+311303,2502-09,Redding Rancheria Trinity Health,81 Arbuckle Court,Weaverville,CA,96093,R,$113 ,40.71148,-122.9265,0
+314859,2502-09,Shasta College - Trinity Campus,30 Arbuckle Court,Weaverville,CA,96093,R,$29 ,40.71097,-122.92466,0
+237384,2502-09,Patriot Gas,2750 Main St,Susanville,CA,96130-4742,T,$18 ,40.410862,-120.636658,0
+170914,2502-09,COR Foothill Water Treatrdg,3100 Foothill Blvd,Redding,CA,96001,F,$13 ,40.582796,-122.416428,0
+285029,2502-09,Auto World,105 N Spring Street,Susanville,CA,96130,T,$30 ,40.41456,-120.64255,24
+286380,2502-09,Reliable R.V.,702-345 Johnstonville Rd,Susanville,CA,96130,T,$9 ,40.39221,-120.59228,0
+295258,2502-09,Grocery Outlet,3685 Eureka Way,Redding,CA,96001,F,$49 ,40.58399,-122.4255,0
+301567,2502-09,Trinity County Brewing Co.,301 Main Street,Weaverville,CA,96093,R,$44 ,40.7359,-122.94433,0
+304262,2502-09,Valero/C-H FUEL,1480 Main Street,Weaverville,CA,96093,R,$23 ,40.71915,-122.92772,0
+306464,2502-09,Lumberjacks Restaurant,2795 Main Street,Susanville,CA,96130,T,$51 ,40.41066,-120.63609,0
+320825,2502-09,Susanville Supermarket - Bakery Dept.,50 Grand Avenue,Susanville,CA,96130,T,$43 ,40.41731,-120.65304,0
+321845,2502-09,Kopper Kettle,2535 Main Street,Susanville,CA,96130,T,$40 ,40.41262,-120.63887,0
+323104,2502-09,Shasta Lodge,1245 Pine Street,Redding,CA,96001,F,$330 ,40.58733,-122.390289,8
+323303,2502-09,Side Iron BBQ,724 Main Street,Susanville,CA,96130,T,$38 ,40.418117,-120.661042,0
+282978,2502-09,Spirit Gas,2525 Main Street,Susanville,CA,96130,T,$22 ,40.41312,-120.63921,0
+321167,2502-09,Rental Guys,1550 Chestnut Street,Susanville,CA,96130,T,$19 ,40.42349,-120.64806,1
+323106,2502-09,Lassen College Food Service,478-200 CA-139,Susanville,CA,96130,T,$82 ,40.443162,-120.627166,0
+171031,2502-09,Dudes Drive-In,1644 Hartnell Ave,Redding,CA,96002-2222,W,$35 ,40.563751,-122.340958,0
+257406,2502-09,COR Fire Station #5,955 Hartnell Ave,Redding,CA,960022103,W,$33 ,40.56382,-122.353409,0
+279032,2502-09,BLVD Body Shop,1045 Hartnell Ave,Redding,CA,96002,W,$77 ,40.56355,-122.35217,35
+309354,2502-09,Lab 24,475 Knollcrest Drive,Redding,CA,96002,W,$8 ,40.57241,-122.36317,15
+245985,2502-11,"Dr. Bergstrom, Buxa",3305 Placer St,Redding,CA,96001-2364,T,$16 ,40.57544,-122.414993,0
+282117,2502-11,Surgery Center of Northern California,950 Butte Street,Redding,CA,96001,TR,$470 ,40.58602,-122.38551,326
+285213,2502-11,Plumas Bank,1845 California Street,Redding,CA,96001,T,$21 ,40.58072,-122.39052,0
+294967,2502-11,7 Eleven,1860 Eureka Way,Redding,CA,96001,F,$48 ,40.58646,-122.39876,0
+301827,2502-11,Riverview Golf & Country Club - Mats,4200 Bechelli Lane,Redding,CA,96002,M,$37 ,40.54427,-122.36244,0
+320843,2502-11,Evergreen Roaster,2124 East Street,Redding,CA,96001,R,$16 ,40.5787,-122.38576,0
+320844,2502-11,Redding Express Stop,1220 Shasta Street,Redding,CA,96001,W,$24 ,40.58716,-122.3896,0
+299937,2502-11,Redding Rancheria Tribal Health,1441 Liberty Street,Redding,CA,96001,R,$157 ,40.58581,-122.3869,0
+313249,2502-11,DHMF - NS - Endocrinology 104,2510 Airpark Drive Suite 104,Redding,CA,96001,T,$50 ,40.57079,-122.40177,0
+206668,2502-11,Urban Retreat - D/S,"2515 Park Marina Dr, #103",Redding,CA,96001,R,$0 ,40.576836,-122.371468,0
+245341,2502-11,Mercy Surgery Center,"2175 Rosaline Ave, Ste A",Redding,CA,96001-2509,MWF,"$1,382 ",40.572899,-122.395622,682
+262451,2502-11,Nuclear Medicine Assc,1950 Court St,Redding,CA,960011823,T,$172 ,40.57898,-122.393928,0
+206029,2502-11,Frank Johnson's Uphol,1000 Locust St,Redding,CA,96001-2013,R,$15 ,40.57814,-122.38472,0
+283743,2502-11,SRMC - Dietary,1450 Liberty St,Redding,CA,96001,W,$191 ,40.58547,-122.38704,0
+291124,2502-11,SC-Facilities - Maintenance,1958 Placer Street,Redding,CA,96001,T,$70 ,40.5809,-122.39708,132
+299926,2502-11,Redding Rancheria Fitness,2000 Redding Rancheria Road,Redding,CA,96001,M,$127 ,40.5082,-122.39094,0
+312249,2502-11,DH Mercy Outpatient Oncology,310 Hartnell Avenue,Redding,CA,96002,M,$118 ,40.56664,-122.36939,0
+318788,2502-11,Centerville Community Services District,8930 Placer Road,Redding,CA,96001,W,$35 ,40.54598,-122.46421,30
+319150,2502-11,HM Development Group (BD),1320 Yuba Street,Redding,CA,96001,F,$0 ,40.58,-122.39,0
+254994,2502-11,Ramada Inn - House Account,1286 Twin View Blvd,Redding,CA,960031500,W,$0 ,40.626552,-122.366389,0
+296918,2502-11,Riverview Golf & Country Club -Kitchen,4200 Bechelli Ln,Redding,CA,96002,MR,$269 ,40.54427,-122.36244,86
+296978,2502-11,Riverview Golf & Country Club - F&B/Special Events,4200 Bechelli Lane,Redding,CA,96002,M,$213 ,40.54427,-122.36244,0
+303672,2502-11,Americana Modern Hotel,1241 Market Street,Redding,CA,96001,MWF,"$1,409 ",40.58714,-122.39201,0
+304551,2502-11,Dr. Lamb,3000 Eureka Way,Redding,CA,96001,F,$23 ,40.5856,-122.41806,0
+319580,2502-11,IROC Inc - Shasta Cancer Care Alliance,963 Butte Street,Redding,CA,96001,R,$214 ,40.58557,-122.38524,0
+324545,2502-11,Country Organics,2745 Bechelli Lane,Redding,CA,96002,R,$19 ,40.567277,-122.362384,0
+257404,2502-11,COR Fire Station #1 Rdg,1335 Shasta St,Redding,CA,960010625,T,$33 ,40.586449,-122.391319,0
+300733,2502-11,Gold Street D/S,1459 Gold Street,Redding,CA,96001,F,$0 ,40.57928,-122.38988,0
+312246,2502-11,DH Medical Foundation - 2624 Edith Ave,2624 Edith Avenue,Redding,CA,96001,T,$54 ,40.57128,-122.39828,0
+313350,2502-11,DH - Internal Medicine,2336 Court Street,Redding,CA,96001,W,$53 ,40.57507,-122.3929,0
+320947,2502-11,San Francisco Deli,2395 Athens Avenue,Redding,CA,96001,R,$0 ,40.57529,-122.37596,0
+286766,2502-11,Shasta Eye Medical Group Store # 900 D/S,900 Butte Street,Redding,CA,96001,T,$0 ,40.58608,-122.38495,0
+304550,2502-11,Dr. Lamb / Huang,3000 Eureka Way,Redding,CA,96001,F,$24 ,40.5856,-122.41806,0
+171009,2502-11,Redding Urologic Asn,2626 Edith Ave Suite C,Redding,CA,96001-3043,T,$23 ,40.571442,-122.397499,0
+242462,2502-11,Dr Randy Tate,2888 Eureka Way,Redding,CA,96001-0221,M,$69 ,40.585541,-122.415871,0
+287627,2502-11,Grant School DS,8835 Swasey Dr,Redding,CA,96001,M,$0 ,40.54093,-122.47349,0
+294319,2502-11,Kiwanis House,1200 Tehama Street,Redding,CA,96001,W,$30 ,40.58615,-122.38918,0
+300580,2502-11,Redding Rancheria D/S,2000 Redding Rancheria Road,Redding,CA,96001,M,$0 ,40.5082,-122.39094,0
+312250,2502-11,DH Nuclear Medicince Clinic,2780 Eureka Way,Redding,CA,96001,M,$70 ,40.58609,-122.41243,0
+317650,2502-11,Win River Mini Mart,2415 South Bonnyview Road,Redding,CA,96001,R,$90 ,40.5293,-122.38067,0
+210370,2502-11,Dr Nilges,2400 Washington Ave,Redding,CA,96001-2802,R,$33 ,40.577591,-122.371437,5
+274936,2502-11,OBSIDIAN ,2770 Eureka Way,Redding,CA,960010223,M,$16 ,40.58587,-122.41203,0
+285028,2502-11,Surgery Center of Northern Ca - D/S,950 Butte Street,Redding,CA,96001,TR,$0 ,40.58602,-122.38551,0
+285331,2502-11,Dr. Parvin Carter DDS,1548 East Street,Redding,CA,96001,W,$45 ,40.58434,-122.38844,12
+312248,2502-11,DH Mercy Medical Foundation,2510 Airpark Drive #301,Redding,CA,96001,T,$65 ,40.57079,-122.40177,0
+232978,2502-11,Dr. Kahn,2415 Sonoma St - Suite A,Redding,CA,960012704,M,$0 ,40.57336,-122.40491,0
+234254,2502-11,Dr. Huang,3000 Eureka Way,Redding,CA,96001-0184,F,$23 ,40.585381,-122.417831,0
+276959,2502-11,Munchkin University,2620 Railroad Ave,Redding,CA,96001,T,$12 ,40.57186,-122.39136,0
+277795,2502-11,Shasta Pathology Associates,1725 Gold St,Redding,CA,96001,T,$127 ,40.57804,-122.39238,0
+296977,2502-11,Riverview Golf & Country Club - Pro Shop,4200 Bechelli Lane,Redding,CA,96002,MR,$275 ,40.54427,-122.36244,0
+299939,2502-11,Redding Rancheria Medical,1441 Liberty Street,Redding,CA,96001,R,$231 ,40.58581,-122.3869,0
+307691,2502-11,Hilton Garden Inn,5050 Bechelli Lane,Redding,CA,96002,R,$150 ,40.53788,-122.35301,0
+319336,2502-11,Pourboys Tapyard,2040 Waldon Street,Redding,CA,96001,F,$15 ,40.5787,-122.39136,0
+244614,2502-11,Court St Surgery - D/S,2184 Court St,Redding,CA,96001-2530,MWF,$0 ,40.576567,-122.392902,0
+245984,2502-11,Shasta Learning Center,2200 Eureka Way,Redding,CA,96001-0337,F,$14 ,40.586558,-122.403553,0
+278815,2502-11,RCC - Maintenance ,3994 Golf Drive,Redding,CA,96002,R,$41 ,40.54894,-122.36517,0
+300757,2502-11,SRMC - Prime EVS,1450 Liberty Street,Redding,CA,96001,MWF,$476 ,40.58547,-122.38704,0
+319581,2502-11,IROC Inc - Shasta Cancer Care Alliance,310 Hartnell Avenue #B,Redding,CA,96002,M,$53 ,40.56664,-122.36939,0
+321515,2502-11,Redding Rancheria Center for Advanced Care,3305 Placer Street Suite B,Redding,CA,96001,W,$29 ,40.57514,-122.41459,0
+286767,2502-11,Shasta Eye Medical Group Store # 3190 D/S,3190 Churn Creek Rd,Redding,CA,96002,M,$0 ,40.56104,-122.3535,0
+323543,2502-11,Prestige Urgent Care,1230 East Street Suite A,Redding,CA,96001,W,$76 ,40.587662,-122.389824,0
+257330,2502-11,COR Fire Station #3 Rdg,4255 Westside Rd,Redding,CA,960013798,T,$27 ,40.553551,-122.389183,0
+170808,2502-11,Redding Dermatology,2107 Airpark Dr,Redding,CA,96001-2433,T,$93 ,40.574928,-122.404846,0
+244613,2502-11,Court St Surgery,2184 Court St,Redding,CA,96001-2530,MWF,$879 ,40.576567,-122.392902,285
+251567,2502-11,Redding Endoscopy,2179 Court Street,Redding,CA,960012519,MWF,$589 ,40.57699,-122.39269,0
+268784,2502-11,Prestige Urgent Care,3689 Eureka Way,Redding,CA,960010177,F,$59 ,40.583818,-122.426526,0
+274672,2502-11,Disappearing Act,2143 Airpark Dr,Redding,CA,960012433,T,$121 ,40.57452,-122.40491,36
+277399,2502-11,RCC - Facility Services ,4200 Bechelli Ln,Redding,CA,96002,R,$0 ,40.54427,-122.36244,0
+308074,2502-11,Northern Valley Catholic Social Services,2400 Washington Avenue,Redding,CA,96001,R,$26 ,40.57744,-122.37231,0
+317006,2502-11,Skin Solutions by Renew,1700 Market Street,Redding,CA,96001,T,$46 ,40.58211,-122.39042,0
+235213,2502-11,SRMC - Prime Health Care,1450 Liberty St,Redding,CA,96001-0838,W,$335 ,40.585118,-122.386904,0
+225431,2502-11,Tri Co. Bank   #111,1327 South St,Redding,CA,96001-1911,W,$27 ,40.580929,-122.388817,0
+215801,2502-11,SDX Shasta Regional RMC#39855001,1100 Butte St,Redding,CA,96001-0852,W,$83 ,40.58532,-122.386879,0
+267378,2502-11,Cafe Pagato,"1031 Butte St, Ste 120",Redding,CA,960010826,W,$22 ,40.585541,-122.386124,0
+295355,2502-11,Cafe Pagato At Mercy,2175 Rosaline Ave.,Redding,CA,96001,M,$45 ,40.57142,-122.39588,0
+324428,2502-11,Sunsational Tanning,2866 Park Marina Drive,Redding,CA,96001,R,$26 ,40.573318,-122.37458,0
+207519,2502-11,Shasta High Food Court,2500 Eureka Way,Redding,CA,96001-0335,F,$100 ,40.586208,-122.407944,0
+283677,2502-11,Dr. Kahn - Cardiovascular Surgical Center,2415 Sonoma St - Suite C,Redding,CA,96001,M,$0 ,40.57336,-122.40491,0
+291128,2502-11,SC-Fleet Management,1654 Court Street,Redding,CA,96001,T,$38 ,40.58134,-122.395,49
+296979,2502-11,Riverview Golf & Country Club - Locker Room,4200 Bechelli Lane,Redding,CA,96002,M,$62 ,40.54427,-122.36244,0
+299929,2502-11,Redding Rancheria Senior Nutrition,2000 Redding Rancheria Road,Redding,CA,96001,M,$20 ,40.5082,-122.39094,0
+312252,2502-11,DH Medical Foundation Redding,1755 Court Street,Redding,CA,96001,M,$51 ,40.58057,-122.39419,0
+320398,2502-11,Capturing the Essence Salt Cave,1506 Market Street,Redding,CA,96001,F,$0 ,40.58351,-122.39058,0
+264713,2502-11,"Cascade Paint Supply, Inc",1220 California St,Redding,CA,960010629,T,$30 ,40.587238,-122.393509,0
+280564,2502-11,Wellness One Chiropractic DS,2515 Park Marina Ave Ste 101,Redding,CA,96001,R,$0 ,40.57182,-122.37705,0
+290869,2502-11,Hill Country Health & Wellness Center,1401 Gold Street,Redding,CA,96001,F,$34 ,40.57962,-122.38904,0
+298434,2502-11,Larkspur Optometry -DS,2620 Larkspur Ln Suite L,Redding,CA,96002,R,$0 ,40.56905,-122.35577,0
+299944,2502-11,Redding Rancheria Head Start,2000 Redding Rancheria Road,Redding,CA,96001,M,$35 ,40.5082,-122.39094,0
+301105,2502-11,Elliott Acupuncture,1839 Sonoma St,Redding,CA,96001,W,$89 ,40.58542,-122.39805,0
+310130,2502-11,Epic Orthopaedics,2622 Edith Avenue,Redding,CA,96001,T,$34 ,40.57147,-122.39755,0
+316484,2502-11,"Redding Family Medical Group, Inc.",2510 Airpark Drive Suite 201,Redding,CA,96001,T,$101 ,40.57079,-122.40177,0
+318787,2502-11,Orchard Nutrition,221 Locust Street,Redding,CA,96001,R,$94 ,40.57331,-122.37456,0
+321728,2502-11, DH Wound Care - Mercy Medical Center,1950 Rosaline Avenue Suite A,Redding,CA,96001,MTWRF,$739 ,40.57357,-122.39463,56
+262225,2502-11,Apogee Surgery Center,1238 West St,Redding,CA,960010415,MWF,$498 ,40.585541,-122.398361,267
+244655,2502-11,Mercy Surgery Center - D/S,2175 Rosaline Ave Ste A,Redding,CA,96001-2509,MWF,$0 ,40.572899,-122.395622,0
+261258,2502-11,Kaleidoscope Coffee,2380 Athens Ave,Redding,CA,960012817,R,$30 ,40.57544,-122.376167,0
+299924,2502-11,Redding Rancheria Dental,1441 Liberty Street,Redding,CA,96001,R,$65 ,40.58581,-122.3869,0
+299928,2502-11,Redding Rancheria ,2000 Redding Rancheria Road,Redding,CA,96001,M,$130 ,40.5082,-122.39094,0
+313248,2502-11,DHMF - HS - ENT - 106,2510 Airpark Drive Suite 106,Redding,CA,96001,T,$53 ,40.57079,-122.40177,0
+270643,2502-12,Co Co Mongolian Grill & Sushi,2705 Churn Creek Rd,Redding,CA,960021124,T,$32 ,40.56813,-122.353088,0
+285938,2502-12,Post Office Saloon D/S,1636 Market Street,Redding,CA,960011021,R,$0 ,40.583,-122.39062,0
+289385,2502-12,Red Lion Hotel - Catering,1830 Hilltop Dr,Redding,CA,96002,F,$92 ,40.58087,-122.35818,0
+289386,2502-12,Red Lion Hotel,1830 Hilltop Dr,Redding,CA,96002,F,$15 ,40.58087,-122.35818,0
+294387,2502-12,Riddick's Sports Pub,200 Hartnell Ave,Redding,CA,96002,M,$45 ,40.56791,-122.36928,10
+294689,2502-12,Cinemark Redding 14,980 Old Alturas Rd.,Redding,CA,96003,T,$20 ,40.58901,-122.34757,0
+299322,2502-12,Mountain Mike's Pizza,2727 Churn Creek Road,Redding,CA,96002,T,$31 ,40.56786,-122.35276,0
+255730,2502-12,Interstate Batteries,2300 Larkspur Ln,Redding,CA,960021441,W,$42 ,40.57394,-122.35594,77
+300073,2502-12,JR Mexican Meat Market,2139 Hilltop Drive,Redding,CA,96002,T,$14 ,40.57666,-122.35784,0
+313922,2502-12,AV - Branch House DS,844 Sundial Bridge Drive,Redding,CA,96001,T,$0 ,40.58988,-122.37762,0
+325134,2502-12,Logan's Steakhouse DS,1955 Hilltop Drive,Redding,CA,96002,MWF,$0 ,40.579802,-122.35733,0
+256022,2502-12,Advance Power Redding DS,843 N Market St,Redding,CA,96003-3605,R,$0 ,40.594891,-122.38871,0
+255922,2502-12,Premiere - Catering,700 Auditorium Dr,Redding,CA,960010919,F,$16 ,40.588509,-122.37957,0
+263775,2502-12,Market Street  - D/S,1777 Market Street,Redding,CA,96001,R,$0 ,40.58158,-122.38958,0
+265609,2502-12,Einstein Bro's Bagels,"913 Dana Dr, Ste 3C",Redding,CA,960034020,W,$12 ,40.586391,-122.357132,0
+266685,2502-12,Panda Express #1253 - D/S,966 Dana Dr,Redding,CA,960034079,W,$0 ,40.585781,-122.354378,0
+288143,2502-12,Fratelli's Pizza,1774 California Street,Redding,CA,96001,R,$21 ,40.58125,-122.3916,0
+290501,2502-12,Mosaic D/S,826 Sundial Bridge Dr.,Redding,CA,96001,TF,$0 ,40.5902,-122.37828,0
+302019,2502-12,Tropics,2555 South Market Street,Redding,CA,96001,T,$13 ,40.57276,-122.38766,0
+305647,2502-12,Whiskey Bar,1747 Market Street,Redding,CA,96001,R,$23 ,40.58188,-122.38971,0
+313738,2502-12,AV - Branch House River Front Bistro,844 Sundial Bridge Drive,Redding,CA,96001,T,$59 ,40.58988,-122.37762,19
+320172,2502-12,Body Work Innovations,847 Mistletoe Ln,Redding,CA,96003,W,$12 ,40.59372,-122.35686,0
+321235,2502-12,Wing Stop,1020 East Cypress Avenue Suite A,Redding,CA,96002,F,$26 ,40.57196,-122.35254,0
+325404,2502-12,GAIA,4125 Riverside Place,Anderson,CA,96007,TF,$58 ,40.469887,-122.305262,36
+247032,2502-12,A Planned Affair,1270 Market St,Redding,CA,960010612,R,$0 ,40.586731,-122.391876,0
+273027,2502-12,Karline's,1100 Center St,Redding,CA,960010514,TR,$209 ,40.587711,-122.395142,43
+282183,2502-12,Ravizza Redding Mall LLC,1600-1636 Market Street,Redding,CA,96001,R,$21 ,40.58443,-122.39082,0
+299212,2502-12,Final Draft Brewing,1600 California Street,Redding,CA,96001,R,$67 ,40.58225,-122.3917,0
+300115,2502-12,Market Street,1777 Market Street,Redding,CA,96001,MR,$245 ,40.58158,-122.38958,89
+303338,2502-12,Holiday Inn Banquets/Spike USA LLC,1900 Hilltop Drive,Redding,CA,96002,MF,$0 ,40.57941,-122.35851,0
+309229,2502-12,Taste and See #2,930 Hilltop Drive #A,Redding,CA,96003,M,$24 ,40.59446,-122.35913,0
+311386,2502-12,Quail Crest 1 @ Oakdale,101 Quartz Hill Road,Redding,CA,96003,MR,$294 ,40.59785,-122.40209,0
+321143,2502-12,Anthony's Mediterranean Bar & Grill,1701 California Street,Redding,CA,96001,R,$55 ,40.58191,-122.39083,0
+325133,2502-12,Logan's Steakhouse #888,1955 Hilltop Drive,Redding,CA,96002,MWF,$270 ,40.579802,-122.35733,0
+170751,2502-12,Outback Steakhouse    522,910 Dana Dr,Redding,CA,960034079,MWF,$161 ,40.586189,-122.356445,0
+241769,2502-12,FTH - Collview - D/S,1292 College View Dr,Redding,CA,96003-3014,TR,$0 ,40.613331,-122.348511,0
+257408,2502-12,Smelser Massage,"983 Mission De Oro Dr, St",Redding,CA,960033822,W,$22 ,40.593441,-122.357567,0
+264305,2502-12,Shasta Cosmetology - D/S,678 N Market St,Redding,CA,960033608,R,$29 ,40.596909,-122.386948,0
+268653,2502-12,View 202 - Janitorial,202 Hemsted Dr,Redding,CA,960020912,MWF,$0 ,40.572769,-122.36882,0
+268929,2502-12,Superior Calif Investments,1824 Court St,Redding,CA,96001-1825,R,$36 ,40.58001,-122.394371,0
+293733,2502-12,Fyzical Therapy & Balance Center,2620 Larkspur Ln,Redding,CA,96002,W,$177 ,40.56905,-122.35577,0
+298037,2502-12,AV - Sheraton Club Lounge,820 Sundial Bridge Dr.,Redding,CA,96001,T,$0 ,40.58881,-122.37771,0
+307249,2502-12,Karmas House of Spirits,329 Lake Boulevard,Redding,CA,96003,R,$16 ,40.61208,-122.38224,0
+315916,2502-12,Cheesecakes Unlimited,1135 Pine Street Suite 113,Redding,CA,96001,MF,$276 ,40.58891,-122.39052,48
+322342,2502-12,Paradiso,1270 Yuba Street,Redding,CA,96001,R,$67 ,40.58398,-122.3887,5
+253801,2502-12,Lulu's Restaurant - D/S,2230 Pine St,Redding,CA,960012634,R,$0 ,40.57708,-122.386495,0
+291361,2502-12,Jersey Mike's Subs D/S,835 Browning,Redding,CA,96003,F,$0 ,40.59155,-122.3578,0
+303336,2502-12,Holiday Inn D/S/Spike USA LLC,1900 Hilltop Drive,Redding,CA,96002,MF,$0 ,40.57941,-122.35851,0
+315589,2502-12,Body & Skin Care,3462 Bechelli Lane #B,Redding,CA,96002,T,$9 ,40.55678,-122.36353,0
+322343,2502-12,The Spot Barber Lounge,2435 Athens Avenue,Redding,CA,96001,T,$26 ,40.57408,-122.37643,0
+323309,2502-12,Jersey Mike's Subs,4861 Bechelli Lane,Redding,CA,96002,T,$35 ,40.540191,-122.354866,0
+249084,2502-12,The Stirring,2250 Churn Creek Rd,Redding,CA,960020743,W,$0 ,40.57457,-122.35312,0
+255766,2502-12,Sunblockers,3504 Railroad Ave,Redding,CA,960013441,T,$5 ,40.564294,-122.389712,0
+245191,2502-12,R & R Auto Truck Repair,3165 Twin View Blvd,Shasta Lake,CA,96019,T,$42 ,40.65692,-122.35786,20
+288459,2502-12,AV - Sheraton House Keeping,820 Sundial Bridge Dr.,Redding,CA,96001,T,$17 ,40.58881,-122.37771,0
+315785,2502-12,Casino Poker Club,1885 Hilltop Drive,Redding,CA,96002,T,$64 ,40.58009,-122.35728,6
+319338,2502-12,Pete's Restaurant & Brewhouse,815 Browning Street,Redding,CA,96003,W,$135 ,40.59274,-122.3574,0
+170682,2502-12,Cattlemen's - Redding,2184 Hilltop Dr,Redding,CA,96002-0512,MWF,$388 ,40.575771,-122.357941,0
+249712,2502-12,Wilda's Grill,1712 Churn Creek rd,Redding,CA,960021715,T,$50 ,40.58125,-122.35448,0
+171271,2502-12,Lulu's Restaurant,2230 Pine St,Redding,CA,960012634,R,$314 ,40.57708,-122.386495,122
+280206,2502-12,Spectrum Prosthetics,1844 South St.,Redding,CA,96001,R,$49 ,40.57963,-122.3953,0
+282016,2502-12,Jack's Grill - D/S,1743 California Street,Redding,CA,96001,R,$0 ,40.58146,-122.39081,0
+311098,2502-12,Super Burrito's Mexican Food,2600 Churn Creek Road,Redding,CA,96002,M,$23 ,40.5697,-122.35347,0
+324286,2502-12,Redding Elks Lodge Maintenance,250 Elk Drive,Redding,CA,96003,M,$69 ,40.595205,-122.40303,0
+325157,2502-12,Mister Taco,1755 Lake Boulevard,Redding,CA,96003,W,$25 ,40.631486,-122.40486,0
+325407,2502-12,Esthetics by Jaz,2295 Hilltop Drive,Redding,CA,96002,W,$6 ,40.573911,-122.357629,0
+202491,2502-12,TYE DYE CAFE,1154 Hartnell Ave,Redding,CA,96002-2102,W,$13 ,40.563789,-122.34977,0
+285120,2502-12,Jersey Mike's Subs Store # 20111,835 Browning St Unit B,Redding,CA,96003,F,$37 ,40.59155,-122.3578,0
+305194,2502-12,Flaco's Tacos,2731 South Market Street,Redding,CA,96001,T,$23 ,40.57117,-122.38776,0
+310145,2502-12,Black Diamond Lounge,1729 California Street,Redding,CA,96001,R,$31 ,40.58168,-122.39078,0
+318444,2502-12,Court Street Eats,1718 Placer Street,Redding,CA,96001,R,$5 ,40.58157,-122.39418,0
+320741,2502-12,University Market,1292 College View Drive,Redding,CA,96003,R,$64 ,40.61367,-122.34872,0
+324289,2502-12,Redding Elks Lodge Bar,250 Elk Drive,Redding,CA,96003,M,$14 ,40.595205,-122.40303,0
+325296,2502-12,Hilltop Springs Senior Living,7 Hilltop Drive,Redding,CA,96003,W,$23 ,40.608047,-122.375245,0
+171559,2502-12,In-N-Out Burger #137,1275 Dana Dr,Redding,CA,96003-4017,MWF,$210 ,40.585651,-122.348099,524
+263995,2502-12,Azbill Parts Distribution,915 Merchant Unit #2,Redding,CA,96002,W,$14 ,40.57798,-122.38813,10
+285936,2502-12,Post Office Saloon,1636 Market Street,Redding,CA,960011021,R,$14 ,40.583,-122.39062,0
+287563,2502-12,AV - Sheraton @ Sundial Bridge,820 Sundial Bridge Dr.,Redding,CA,96001,TF,$233 ,40.58881,-122.37771,124
+292922,2502-12,Good Health Massage Healing Arts,2295 Hilltop Dr. #8,Redding,CA,96099,T,$23 ,40.57391,-122.35763,0
+310981,2502-12,Northern Roots Indoor Garden,4580 Westside Road,Redding,CA,96001,T,$8 ,40.54731,-122.38714,0
+311387,2502-12,Quail Crest 1 @ Oakdale D/S,101 Quartz Hill Road,Redding,CA,96003,MR,$0 ,40.59785,-122.40209,0
+170805,2502-12,Cold Stone Creamery,913 Dana Dr,Redding,CA,96003-4020,W,$14 ,40.586182,-122.356407,0
+220637,2502-12,Panda Express #1253,966 Dana Dr,Redding,CA,96003-4079,W,$30 ,40.585781,-122.354378,0
+306180,2502-12,Chick-Fil-A,1477 Hilltop Drive Suite H1,Redding,CA,96003,M,$47 ,40.58671,-122.35811,0
+311996,2502-12,Raw,2167 Hilltop Drive,Redding,CA,96002,MF,$626 ,40.57605,-122.3576,38
+313242,2502-12,Addendum,290 Hartnell Avenue,Redding,CA,96002,M,$21 ,40.56646,-122.36892,0
+323310,2502-12,Jersey Mike's Subs DS,4861 Bechelli Lane,Redding,CA,96002,T,$0 ,40.540191,-122.354866,0
+170661,2502-12,De Ja Vu Restaurant,1177 Shasta Street,Redding,CA,96001,R,$128 ,40.58683,-122.38875,0
+262746,2502-12,The Habit #92,"1020 E Cypress Ave, Ste C",Redding,CA,960021114,MF,$114 ,40.571041,-122.352524,0
+278132,2502-12,Nello's Place,3055 Bechelli Lane,Redding,CA,96002,TF,$196 ,40.56301,-122.36207,6
+291461,2502-12,Prestige Urgent Care Central,85 Hartnell Suite 100,Redding,CA,96002,M,$41 ,40.56997,-122.36866,0
+319708,2502-12,Hermanos,2605 South Market Street,Redding,CA,96001,T,$11 ,40.57265,-122.38793,0
+324288,2502-12,Redding Elks Lodge Events,250 Elk Drive,Redding,CA,96003,M,$120 ,40.595205,-122.40303,0
+252622,2502-12,FTH - Fuel Good,1279 Pine St,Redding,CA,96001-0605,R,$18 ,40.58691,-122.39053,0
+270498,2502-12,Chuck E Cheese,910 Hilltop Dr,Redding,CA,96003-3812,M,$20 ,40.595474,-122.361042,0
+285358,2502-12,Xtreme Cycle & Motor Sports,2918 South Markets St,Redding,CA,96001,T,$6 ,40.56989,-122.38834,10
+311095,2502-12,When Pie Meets Bread,1768 Churn Creek Road,Redding,CA,96002,T,$114 ,40.58097,-122.35423,0
+324843,2502-12,Le Testimony Organic Bistro (BD),3365 Placer Street,Redding,CA,96001,F,$0 ,40.57,-122.42,0
+223642,2502-12,Cattlemen's-Redding-D/S,2184 Hilltop Dr,Redding,CA,96002-0512,W,$0 ,40.575771,-122.357941,0
+241768,2502-12,FTH - Collview,1292 College View Dr,Redding,CA,96003-3014,R,$148 ,40.613331,-122.348511,0
+264538,2502-12,View 202,202 Hemsted Dr,Redding,CA,960020912,MWF,$270 ,40.572658,-122.369164,11
+276615,2502-12,Wienerschnitzel,1120 N Market Street,Redding,CA,96002,R,$12 ,40.60829,-122.37688,0
+309228,2502-12,Taste and See Kitchen,2055 Hilltop Drive,Redding,CA,96002,W,$26 ,40.57769,-122.35759,18
+322340,2502-12,California Soccer Park,9800 Old Oregon Trail,Redding,CA,96003,W,$0 ,40.57325,-122.30374,22
+324287,2502-12,Redding Elks Lodge Kitchen,250 Elk Drive,Redding,CA,96003,M,$74 ,40.595205,-122.40303,0
+257407,2502-12,COR Fire Station #8 Redding,131 Churn Creek Rd,Redding,CA,960033044,T,$33 ,40.611982,-122.348619,0
+254648,2502-12,Maxwell's - D/S,1344 Market St,Redding,CA,960010610,R,$0 ,40.586122,-122.391625,0
+282015,2502-12,Jack's Grill,1743 California Street,Redding,CA,96001,MR,$224 ,40.58146,-122.39081,57
+311997,2502-12,Raw D/S,2167 Hilltop Drive,Redding,CA,96002,MF,$0 ,40.57605,-122.3576,0
+314386,2502-12,Subarama,2658 Hilltop Drive,Redding,CA,96002,W,$27 ,40.56801,-122.35948,0
+261874,2502-12,Five Guys Burgers,961 Dana Dr,Redding,CA,960034020,MF,$70 ,40.585789,-122.354149,0
+254647,2502-12,Maxwell's,1344 Market St,Redding,CA,960010610,R,$65 ,40.586122,-122.391625,0
+274371,2502-12,The Dip,1730 California St,Redding,CA,960011905,R,$20 ,40.58144,-122.39106,0
+303335,2502-12,Holiday Inn/Spike USA LLC,1900 Hilltop Drive,Redding,CA,96002,MF,$0 ,40.57941,-122.35851,0
+319122,2502-12,The Rusty Nail,900 Dana Drive,Redding,CA,96003,W,$21 ,40.5868,-122.35547,0
+321012,2502-12,Mister Peri Peri's Grill,909 Dana Drive,Redding,CA,96003,W,$36 ,40.58617,-122.3566,0
+325155,2502-12,Spice Garden,1619 Hilltop Drive,Redding,CA,96002,W,$119 ,40.582911,-122.357716,31
+171178,2502-33,Holiday Mkt #40 Groc,9350 Deschutes Rd,Palo Cedro,CA,96073-9763,T,$62 ,40.559178,-122.238592,0
+171223,2502-33,Dal-Tile,3065 Crossroads Dr,Redding,CA,96003-7928,T,$54 ,40.56089,-122.297531,0
+278780,2502-33,Fusion Lounge,1545 Placer Street,Redding,CA,96001,W,$136 ,40.58203,-122.39126,35
+298364,2502-33,In-N-Out Burger # 348 ,4681 Churn Creek Rd,Redding,CA,96002,MWF,$222 ,40.54005,-122.3504,771
+311388,2502-33,Quail Crest 2 dba Sierra Oaks of Redding,1520 Collyer Drive,Redding,CA,96003,M,$223 ,40.61713,-122.34214,0
+255920,2502-33,FTH - Churncreek,2650 Churn Creek Rd,Redding,CA,960021125,F,$149 ,40.568481,-122.353088,0
+171575,2502-33,Shingletown Auto Parts,28526 CA-44,Shingletown,CA,96088,T,$20 ,40.501709,-121.992447,10
+266628,2502-33,RTA Construction,9614 Tanqueray Ct,Redding,CA,960036812,T,$15 ,40.566132,-122.29702,0
+268434,2502-33,Shingletown Medical Center,31292 Alpine Meadows Rd,Shingletown,CA,960889462,T,$96 ,40.49139,-121.885841,0
+280879,2502-33,North Cow Creek School,10619 Swede Creek Rd,Pala Cedro,CA,96073,T,$64 ,40.59312,-122.22932,0
+280882,2502-33,Junction Elementary School,9087 Deschutes Rd,Palo Cedro,CA,96073,T,$83 ,40.55032,-122.23784,25
+294605,2502-33,Shasta Orthodontics D/S,2175 Civic Center Drive,Redding,CA,96001,W,$0 ,40.57488,-122.38069,0
+297871,2502-33,Valero Eureka Way,2026 Eureka Way,Redding,CA,96001,W,$12 ,40.58681,-122.40054,0
+301741,2502-33,Sublime Cake Design,2633 Park Marina Drive,Redding,CA,96001,W,$27 ,40.57489,-122.37261,0
+305751,2502-33,Pioneer Pizza,32130 State Highway 44,Shingletown,CA,96088,T,$76 ,40.49918,-121.85157,0
+317491,2502-33,Boba Tea & Coffee - 2,2110 Eureka Way,Redding,CA,96001,W,$16 ,40.58696,-122.40219,0
+171025,2502-33,Kampai Sushi,351 North Point Dr,Redding,CA,96003-2540,M,$11 ,40.611759,-122.380707,0
+268499,2502-33,Foothill H/S Nutrition Services,9733 Deschutes Rd,Palo Cedro,CA,960738644,T,($22),40.569069,-122.238571,0
+295660,2502-33,Poppies Pizza,1072 Lake Blvd.,Redding,CA,96003,M,$16 ,40.62237,-122.40377,0
+296611,2502-33,Viking Skate Country,735 Auditorium Dr.,Redding,CA,96001,W,$7 ,40.58828,-122.38186,0
+297870,2502-33,Valero Hilltop,722 E. Cypress Ave.,Redding,CA,96002,W,$15 ,40.57152,-122.35884,0
+314090,2502-33,Mt Shasta High School,710 Everitt Memorial Highway,Mount Shasta,CA,96067,R,$73 ,41.32392,-122.30541,0
+318323,2502-33,Siskiyou Union High School Culinary,624 Everitt Memorial Highway,Mount Shasta,CA,96067,R,$30 ,41.32069,-122.3061,32
+321142,2502-33,Hill Country Health & Wellness Center,3270 Churn Creek Road,Redding,CA,96002,W,$28 ,40.56002,-122.35356,0
+323986,2502-33,FTH - Bakery,930 Hilltop Drive Suite D,Redding,CA,96003,F,$63 ,40.594459,-122.359127,19
+171682,2502-33,Reeds Market,7007 Shingle Glen Trl,Shingletown,CA,96088,T,$93 ,40.491459,-121.892647,0
+279145,2502-33,Lake Redding Golf,1795 Benton Drive,Redding,CA,96003,M,$19 ,40.59702,-122.40019,0
+280003,2502-33,Shasta Lanes,11093 Black Marble Ln,Redding,CA,96003,F,$50 ,40.60989,-122.36932,0
+290005,2502-33,"Black Rose Coffee & Tea, Inc.",9539 Old Oregon Trail,Redding,CA,96003,T,$36 ,40.5645,-122.29843,0
+293115,2502-33,California Highway Patrol,1001 I-5 South,Mt. Shasta,CA,96067,R,$267 ,41.25797,-122.27168,153
+300441,2502-33,KFC-Redding  # C750128,135 Lake Boulevard,Redding,CA,96003,M,$37 ,40.61021,-122.37992,0
+316737,2502-33,Huffs @ Bridge Bay,10300 Bridge Bay Road,Redding,CA,96003,R,$355 ,40.75537,-122.32389,54
+320234,2502-33,Mount Shasta High School - Culinary,710 Everitt Memorial Highway,Mount Shasta,CA,96067,R,$6 ,41.32392,-122.30541,5
+171176,2502-33,Holiday Mrk 40 Linen,9350 Deschutes Rd,Palo Cedro,CA,96073-9763,T,$82 ,40.559178,-122.238592,24
+278202,2502-33,Shasta Ortho Mats,1255 Liberty St,Redding,CA,96001,F,$72 ,40.58804,-122.38754,0
+294022,2502-33,Lakehead Shell,20749 Lakeshore Dr.,Lakehead,CA,96051,R,$11 ,40.88778,-122.3844,0
+294602,2502-33,Shasta Orthodontics,2175 Civic Center Drive,Redding,CA,96001,W,$41 ,40.57488,-122.38069,1
+311389,2502-33,Quail Crest 2 dba Sierra Oaks of Redding D/S,1520 Collyer Drive,Redding,CA,96003,M,$0 ,40.61713,-122.34214,0
+322942,2502-33,Woody's Brewing Company,1257 Oregon Street,Redding,CA,96001,W,$55 ,40.585921,-122.395104,0
+278200,2502-33,Shasta Ortho LPT,1255 Liberty St,Redding,CA,96001,MWF,$148 ,40.58804,-122.38754,0
+292679,2502-33,Panda Express # 3022,4660 Churn Creek,Redding,CA,96002,F,$34 ,40.53994,-122.35061,0
+295559,2502-33,Country Waffles,2300 Athens Ave,Redding,CA,96001,M,$27 ,40.57789,-122.37601,0
+295680,2502-33,It's Jerky,3094 Crossroads Dr.,Redding,CA,96003,F,$47 ,40.5603,-122.29664,0
+297114,2502-33,LOGE Mt Shasta,1612 S Mount Shasta Blvd.,Mount Shasta,CA,96067,R,"$1,509 ",41.29761,-122.30585,0
+299945,2502-33,Churn Creek Health Care Mats,3184 Churn Creek Road,Redding,CA,96002,W,$122 ,40.56142,-122.35332,0
+311253,2502-33,Lake Shasta Lodge,21417 Main Street,Lakehead,CA,96051,R,$21 ,40.90682,-122.38325,0
+318905,2502-33,Thrive Automotive,1630 Shasta Street,Redding,CA,96001,W,$135 ,40.58577,-122.39464,50
+286612,2502-33,Enterprise H.S. Kitchen - Summer Hold,3411 Churn Creek Rd,Redding,CA,96002,W,$38 ,40.55843,-122.35226,0
+295412,2502-33,Bartel's Giant Burger,18509 Lake Blvd. E,Redding,CA,96003,M,$29 ,40.61118,-122.36909,0
+313799,2502-33,Mount Shasta 76,411 West Lake Street,Mount Shasta,CA,96067,R,$40 ,41.31094,-122.31728,0
+320041,2502-33,Robin Montgomery - Massage Therapy,3609 Bechelli Ln Unit G,Redding,CA,96002,F,$0 ,40.57762,-122.37482,0
+323371,2502-33,Thrive Automotive,2693 Churn Creek Road,Redding,CA,96002,W,$90 ,40.568099,-122.351817,30
+256270,2502-33,Higher Ground,28526 State Highway 44,Shingletown,CA,960889492,T,$24 ,40.50175,-121.991813,0
+278198,2502-33,Shasta Ortho SOSM,1255 Liberty St,Redding,CA,96001,MWF,$313 ,40.58804,-122.38754,140
+293030,2502-33,Fresh Fire Grill - RDG,161 Lake Blvd.,Redding,CA,96003,M,$18 ,40.6104,-122.38022,0
+295019,2502-33,Maruti Shingletown D/S,31268 Hwy 44,Shingletown,CA,96088,T,$0 ,40.49265,-121.88884,0
+296204,2502-33,Goodtimes Pizza D/S,22049 Old 44 Drive,Palo Cedro,CA,96073,T,$0 ,40.56351,-122.23675,0
+299946,2502-33,Churn Creek Health Care,3184 Churn Creek Road,Redding,CA,96002,W,$213 ,40.56142,-122.35332,0
+305455,2502-33,Skye Beauty Co.,9461 Deschutes Road,Palo Cedro,CA,96073,T,$10 ,40.56253,-122.23816,0
+308967,2502-33,Shell Eureka Way,2110 Eureka Way,Redding,CA,96001,W,$11 ,40.58696,-122.40219,0
+311566,2502-33,Fat Daddy's BBQ,942 Hartnell Avenue,Redding,CA,96002,F,$36 ,40.56404,-122.3542,0
+314154,2502-33,Wing Spot,991 Lake Boulevard Suite B,Redding,CA,96003,M,$55 ,40.6211,-122.40032,0
+257727,2502-33,Bella Vista Ele Main,22661 Old Alturas Rd,Bella Vista,CA,960089792,M,$66 ,40.640193,-122.232034,0
+292663,2502-33,Panda Express DS # 3022,4660 Churn Creek,Redding,CA,96002,F,$0 ,40.53994,-122.35061,0
+294766,2502-33,Maruti Shingletown,31268 Hwy 44,Shingletown,CA,96088,T,$77 ,40.49265,-121.88884,0
+306462,2502-33,Lumberjacks Restaurant,501 East Cypress Avenue,Redding,CA,96002,F,$59 ,40.57076,-122.36236,0
+294790,2502-33,Las Maria's,2640 Bechelli Lane,Redding,CA,96002,F,$13 ,40.56887,-122.36306,0
+298952,2502-33,Mt Shasta Ski Park,4500 Ski Park Hwy,McCloud,CA,96057,R,$0 ,41.26857,-122.21477,0
+319123,2502-33,New Clairvaux Tasting Room,1355 Butte Street,Redding,CA,96001,W,$14 ,40.58394,-122.39033,0
+171294,2502-33,In & Out Market,9480 Cedro Ln,Palo Cedro,CA,96073-9710,T,$29 ,40.562691,-122.235092,0
+301994,2502-33,California Highway Patrol,618 West Jessie Street,Mount Shasta,CA,96067,R,$64 ,41.31149,-122.32248,11
+305240,2502-33,Goodtimes Pizza,22049 Old Highway 44,Palo Cedro,CA,96073,T,$104 ,40.55407,-122.22825,0
+311673,2502-33,Luna Restaurant,2914 Churn Creek Road,Redding,CA,96002,F,$54 ,40.565,-122.35334,0
+320040,2502-33,Weed High School,909 Hillside Drive,Weed,CA,96094,R,$94 ,41.42731,-122.37341,0
+320632,2502-33,Redding Adventure Hub,862 North Market Street,Redding,CA,96003,W,$19 ,40.59478,-122.38916,0
+267501,2502-33,Buds Garage,8975 Silver Bridge Rd,Palo Cedro,CA,960738769,T,$26 ,40.54858,-122.220413,10
+269499,2502-33,Hillside Church,621 Twin View Blvd,Redding,CA,960032001,M,$59 ,40.61768,-122.372597,0
+279814,2502-33,Rocky Point Charter School,3500 Tamarack Dr,Redding,CA,96003,M,$37 ,40.6192,-122.40252,0
+280880,2502-33,North Cow Creek School - D/S,10619 Swede Creek Rd,Palo Cedro,CA,96073,T,$0 ,40.59312,-122.22932,0
+284610,2502-33,Fast Track Food & Fuel,9539 Old Oregon Trail,Redding,CA,96003,T,$50 ,40.5645,-122.29843,0
+290893,2502-33,Bella Vista School / Supplies,22661 Old Alturas Rd.,Bella Vista,CA,96008,M,$0 ,40.63831,-122.23295,0
+298953,2502-33,Mt Shasta Ski Park D/S,4500 Ski Park Hwy,McCloud,CA,96057,R,$0 ,41.26857,-122.21477,0
+314092,2502-33,Mt Shasta High School - DS,710 Everitt Memorial Highway,Mount Shasta,CA,96067,R,$0 ,41.32392,-122.30541,0
+319189,2502-33,Tri Counties Bank,303 Main Street,Weed,CA,96094,R,$15 ,41.42523,-122.38395,0
+322234,2502-33,MJB Welding Supply,2610 Churn Creek Road,Redding,CA,96002,M,$78 ,40.56949,-122.35331,0
+257728,2502-33,Bella Vista Elem Kitchen,22661 Old Alturas Rd,Bella Vista,CA,960089792,M,$27 ,40.640193,-122.232034,0
+319797,2502-33,Chic Salon,2948 Churn Creek Road,Redding,CA,96002,F,$78 ,40.5645,-122.35442,0
+290503,2502-33,Chrysalis Charter School D/S,21945 Old 44 Dr.,Palo Cedro,CA,96073,T,$0 ,40.5636,-122.24104,0
+293876,2502-33,Cinders & Taste and See,1415 Market Strret,Redding,CA,96001,W,$61 ,40.58501,-122.39074,0
+309382,2502-33,Roots Farm Educational Foundation (BD),11489 Poison Oak Lane,Redding,CA,96003,T,$0 ,40.55518,-122.23582,0
+312151,2502-33,Cedars Lodge Motel,4201 Dunsmuir Avenue,Dunsmuir,CA,96025,R,$45 ,41.23452,-122.27331,0
+315654,2502-33,Los Gordos,5200 Churn Creek Road Suite L,Redding,CA,96002,F,$55 ,40.53766,-122.34502,0
+318811,2502-33,Churn Creek Wellness & Dental,3110 Churn Creek Road,Redding,CA,96002,W,$58 ,40.56208,-122.35353,0
+325038,2502-33,Grape Ranch Golf Club,22499 Golftime Drive,Palo Cedro,CA,96073,T,$24 ,40.555489,-122.229957,0
+284916,2502-33,Boba Tea and Coffee,2999 Churn Creek Rd,Redding,CA,96002,F,$8 ,40.56384,-122.35311,0
+297833,2502-33,Balance Yoga Center,2821 Bechelli Ln.,Redding,CA,96002,F,$237 ,40.56624,-122.36159,0
+299791,2502-33,Trendy's,1730 Gold Street,Redding,CA,96001,M,$49 ,40.57925,-122.39297,0
+309425,2502-33,Evergreen Coffee,2085 Pine Street,Redding,CA,96001,W,$32 ,40.57922,-122.38696,0
+322720,2502-33,Chick-fil-A at I-5 & Bonnyview,4086 South Bonnyview Road,Redding,CA,96002,F,$27 ,40.53823,-122.34917,0
+255921,2502-33,FTH - Churncreek - D/S,2650 Churn Creek Rd,Redding,CA,960021125,F,$0 ,40.568481,-122.353088,0
+276258,2502-33,Kaleidoscope Coffee,960 Lake Blvd,Redding,CA,960034003,M,$17 ,40.58608,-122.35606,0
+279524,2502-33,Shasta Ortho LPT - COG Hot Pads,1255 Liberty St,Redding,CA,96001,F,$19 ,40.58804,-122.38754,0
+283880,2502-33,Tracy Wilder / Leo Jones Propane,11851 Hootenanny Way,Redding,CA,96003,M,$27 ,40.63221,-122.26296,3
+294024,2502-33,Lakehead Shell D/S,20749 Lakeshore Dr.,Lakehead,CA,96051,R,$0 ,40.88778,-122.3844,0
+317281,2502-33,Cedar Tree Restaurant,22020 Palo Way,Palo Cedro,CA,96073,T,$40 ,40.55533,-122.23792,0
+317707,2502-33,Sourdough Bread Company,4641 Churn Creek Road Suite 2,Redding,CA,96002,F,$35 ,40.54018,-122.35003,0
+323995,2502-33,Junction School - Kitchen,9087 Deschutes Road,Palo Cedro,CA,96073,T,$22 ,40.550319,-122.23784,0
+324517,2502-33,Integrity Medical Center,317 Lake Boulevard Suite A,Redding,CA,96003,M,$13 ,40.611748,-122.381427,0
+325496,2502-33,Rocky Point Kitchen,3500 Tamarack Drive,Redding,CA,96003,M,$0 ,40.619198,-122.402524,0
+239680,2502-75,Wheeler Logging Cat Shop,13570 State Highway 36 E,Red Bluff,CA,96080-8878,M,$68 ,40.187708,-122.185855,21
+246320,2502-75,Rio Skin Body - Deana ,656 Washington St,Red Bluff,CA,96080-3321,T,$0 ,40.176762,-122.235764,0
+214581,2502-75,Reynolds Ranch Farm,501 Madison St,Red Bluff,CA,96080-3411,T,$25 ,40.174511,-122.236649,0
+272271,2502-75,Highland Ranch Resort,41515 State Highway 36 E,Mill Creek,CA,960619716,F,$769 ,40.35881,-121.493172,44
+275540,2502-75,Golden Rule Small Engine,22835 Antelope Blvd Suite A,Red Bluff,CA,960808817,W,$49 ,40.18611,-122.20995,55
+277484,2502-75,Wings & Wheels,1760 Airport Blvd.,Red Bluff,CA,96080,W,$26 ,40.15541,-122.25083,0
+281062,2502-75,LC-POA-Maintenance,22488 Rio Alto Dr,Cottonwood,CA,96002,T,$32 ,40.35765,-122.18972,24
+292840,2502-75,Green Barn Whiskey Kitchen,5 Chestnut Ave,Red Bluff,CA,96080,M,$144 ,40.18633,-122.2091,0
+297935,2502-75,L and D Gasoline,58 Antelope Blvd,Red Bluff,CA,96080,W,$18 ,40.17932,-122.22898,0
+298794,2502-75,Braun Equipment,21260 State Highway 36,Red Bluff,CA,96080,F,$17 ,40.30283,-122.0922,3
+311363,2502-75,Francisco's Tacos,1 Sutter Street,Red Bluff,CA,96080,W,$12 ,40.1527,-122.22107,0
+312245,2502-75,DH Red Bluff Wound Care,2440 Sister Mary Columba Drive,Red Bluff,CA,96080,M,$166 ,40.14865,-122.22218,15
+316481,2502-75,Ben's Truck Repair,2060 Montgomery Road,Red Bluff,CA,96080,M,$87 ,40.15334,-122.22478,34
+270250,2502-75,Red Bluff School Office - D/S,1755 Airport Blvd,Red Bluff,CA,960804514,W,$0 ,40.156368,-122.250557,0
+287888,2502-75,Sunshine Food & Gas,22700 Antelope Blvd.,Red Bluff,CA,96080,W,$23 ,40.18597,-122.19151,0
+308514,2502-75,Sage @ Simpson Univ - Summer Hold,2211 College View Drive,Redding,CA,96003,R,$129 ,40.61809,-122.32931,40
+314964,2502-75,Tehama Wellness & Spa,356 Kimball Rd,Red Bluff,CA,96080,T,$45 ,40.1777,-122.23559,0
+319408,2502-75,City of Red Bluff - Police,555 Washington Street,Red Bluff,CA,96080,T,$12 ,40.17577,-122.23508,0
+319766,2502-75,S&S Mobile Pressure Washing,8697 Shasta Boulevard,Los Molinos,CA,96055,W,$37 ,40.04821,-122.09577,18
+320866,2502-75,Main Street Deli,20645 Gas Point Road,Cottonwood,CA,96022,T,$31 ,40.38838,-122.28813,0
+171197,2502-75,North Main Equipment,1899 Main St,Red Bluff,CA,96080-2358,T,$24 ,40.187988,-122.238922,12
+261906,2502-75,Covered Up - Catering,P.O. Box 312,Lakehead,CA,96051,W,$0 ,40.185793,-122.178336,0
+170422,2502-75,Red Bluff School Office,1755 Airport Blvd,Red Bluff,CA,96080-4514,W,$34 ,40.156368,-122.250557,0
+215590,2502-75,Jacks Restaurant,7875 Hwy 99e,Los Molinos,CA,960550000,W,$14 ,40.02528,-122.10029,0
+307872,2502-75,Mountain Mike's Pizza,905 South Main Street,Red Bluff,CA,96080,W,$58 ,40.16268,-122.22818,0
+316738,2502-75,Renstrom Trucking Inc.,9511 State Highway 99W,Gerber,CA,96035,M,$43 ,40.06942,-122.17064,5
+324893,2502-75,Capitol Helicopters,8670 Old Oregon Trail,Redding,CA,96002,R,$165 ,40.539936,-122.296588,119
+171106,2502-75,Western Hydro Corp,6705 Hooker Creek Road,Cottonwood,CA,960220000,T,$28 ,40.30154,-122.32756,0
+205202,2502-75,Action Axle & Suspension,8761 Airport Rd,Redding,CA,96002-9217,R,$17 ,40.541684,-122.3028,10
+261278,2502-75,Crossland 6 - D/S,8215 Ca-99 E,Los Molinos,CA,96055,W,$0 ,40.034222,-122.09991,0
+257410,2502-75,COR Fire Station 7 Redding,3772 Flight Ave,Redding,CA,960029387,R,$44 ,40.50941,-122.300998,0
+194151,2502-75,Simpson Events,2211 College View Dr,Redding,CA,96003-8601,R,$108 ,40.617908,-122.330139,0
+264798,2502-75,"Angelos Classic Import Serv, Inc",2668 Hartnell Ave,Redding,CA,960022317,R,$33 ,40.56378,-122.320972,30
+324050,2502-75,Eddie Axner Construction,5249 Old Oregon Trail,Redding,CA,96002,R,$31 ,40.531451,-122.295936,15
+171613,2502-75,Babcock's Equip Repair,5490 Churn Creek Rd,Redding,CA,96002-4028,R,$22 ,40.535339,-122.343368,4
+257409,2502-75,COR Redding Airport,6751 Woodrum Cir,Redding,CA,960029386,R,$35 ,40.507011,-122.300392,0
+251923,2502-75,Garden Equipped,8693 Airport Rd,Redding,CA,960029216,R,$0 ,40.539872,-122.302782,0
+295027,2502-75,California Dept. of Forestry & Fire Protection,604 Antelope Blvd.,Red Bluff,CA,96080,T,$125 ,40.18591,-122.20362,30
+273694,2502-75,FN - North Valley Services,502 Lucknow Ave,Red Bluff,CA,960802040,T,$149 ,40.19788,-122.2068,0
+279403,2502-75,The Village At Child's Meadow - Seasonal Hold,41500 Hwy 36 E,Millcreek,CA,96061,F,$322 ,36.33272,-119.26066,0
+171093,2502-75,Holiday Mkt #34 Groc,20635 Gas Point Rd,Cottonwood,CA,96022-9295,F,$80 ,40.389332,-122.287468,0
+244194,2502-75,Us Forest Service,6101 Airport Rd,Redding,CA,960029422,R,$27 ,40.519291,-122.30275,0
+170297,2502-75,Fast Track Gas,8099 CA-99 E,Los Molinos,CA,96055,W,$0 ,40.030935,-122.099937,0
+170411,2502-75,Jackson Heights School,225 Jackson St,Red Bluff,CA,96080-3956,T,$0 ,40.170448,-122.237839,0
+273693,2502-75,FN - North Valley Services,16993 McCoy Rd,Cottonwood,CA,960229393,F,$187 ,40.28741,-122.32046,0
+281066,2502-75,LC-POA-Lake Club,22431 Rio Alto Dr.,Cottonwood,CA,96002,T,$88 ,40.35758,-122.1898,11
+281067,2502-75,LC-POA-Lake Club Linen,19999 Lake California Dr,Cottonwood,CA,96002,T,$0 ,40.36976,-122.24114,0
+292921,2502-75,Tom's Automotive,20659 Walnut Street,Red Bluff,CA,96080,W,$26 ,40.1685,-122.27137,15
+306048,2502-75,Empower Tehama - Walnut St,1805 Walnut Street,Red Bluff,CA,96080,F,$36 ,40.16892,-122.25367,0
+194602,2502-75,Red Bluff Outdoor Power,490 Antelope Blvd,Red Bluff,CA,96080-2443,M,$19 ,40.1861,-122.209663,0
+244165,2502-75,Ramos Donuts,545 Main St,Red Bluff,CA,96080-3437,T,$31 ,40.176411,-122.233963,0
+251709,2502-75,PG&E Red Bluff S.C.,515 Luther Rd,Red Bluff,CA,960804256,T,$88 ,40.160842,-122.231695,0
+203296,2502-75,Golden State Farm Credit,255 Sale Ln,Red Bluff,CA,96080-2938,M,$15 ,40.179044,-122.218987,0
+264717,2502-75,Cardan Aircraft Services,1950 Airport Blvd,Red Bluff,CA,960804554,W,$53 ,40.15549,-122.25026,0
+273695,2502-75,FN - NORCAL Residential,7224 Granada Dr,Redding,CA,960029738,R,$163 ,40.49808,-122.30803,0
+310980,2502-75,Luigi's Pizza,75 Belle Mill Road,Red Bluff,CA,96080,T,$56 ,40.18613,-122.21957,0
+319999,2502-75,Taqueria Cotija,238 South Main Street,Red Bluff,CA,96080,W,$33 ,40.17019,-122.22864,0
+322191,2502-75,Smokin Joe's BBQ,8540 Airport Road,Redding,CA,96002,R,$56 ,40.53581,-122.30313,0
+323470,2502-75,DH Lassen Medical Clinic - Cottonwood,20833 Long Branch Drive,Cottonwood,CA,96022,T,$116 ,40.393718,-122.280128,0
+239679,2502-75,Wheeler Logging Shop,13570 State Highway 36 E,Red Bluff,CA,96080-8878,M,$71 ,40.187708,-122.185855,0
+170449,2502-75,F M Valero,1 Sutter St,Red Bluff,CA,96080-4355,F,$68 ,40.152962,-122.221397,0
+272957,2502-75,G&R Auto Parts LLC,11095 Hwy 99 West,Red Bluff,CA,96080,M,$72 ,40.182949,-122.232136,35
+290880,2502-75,Lassen View Elem School,10818 CA-99,Los Molinos,CA,96055,W,$0 ,40.10719,-122.1078,0
+299552,2502-75,Egg Roll King,55 Antelope Boulevard,Red Bluff,CA,96080,F,$30 ,40.17886,-122.22849,0
+308596,2502-75,Redding School of The Arts ,955 Inspiration Place,Redding,CA,96003,R,$0 ,40.59544,-122.32297,0
+312244,2502-75,DH Red Bluff Care Center,2580 Sister Mary Columba Drive Suite 200,Red Bluff,CA,96080,M,$54 ,40.1485,-122.21767,0
+288469,2502-75,Rocha's Auto Service,2506 Hartnell Ave,Redding,CA,96003,R,$110 ,40.56409,-122.32481,81
+306046,2502-75,Empower Tehama - Hickory,206 Hickory Street,Red Bluff,CA,96080,F,$13 ,40.17979,-122.23589,0
+316073,2502-75,Lassen Forest Products,22829 Casale Road,Red Bluff,CA,96080,M,$89 ,40.12898,-122.18546,21
+322600,2502-75,Dianne's Pizza & More,19632 Lake California Drive,Cottonwood,CA,96022,T,$37 ,40.36465,-122.21983,0
+186872,2502-75,Guy Rents,365 Antelope Blvd,Red Bluff,CA,96080-3057,M,$32 ,40.185108,-122.215202,7
+304600,2502-75,The Cabin Saloon,8057 State Highway 99E,Los Molinos,CA,96055,W,$41 ,40.03008,-122.09995,0
+308464,2502-75,Burger Shack,7834 State Highway 99E,Los Molinos,CA,96055,W,$28 ,40.02381,-122.09953,0
+320171,2502-75,Polished Nail Salon,19450 Live Oak Road,Red Bluff,CA,96080,W,$9 ,40.15088,-122.31521,0
+321234,2502-75,Roxie's Deli & BBQ,7810 State Highway 99E,Los Molinos,CA,96055,W,$23 ,40.02331,-122.09955,0
+169619,2502-75,Mineral Lodge - Seasonal,38348 State Highway 36 E,Mineral,CA,96063,F,$673 ,40.34778,-121.59607,0
+262786,2502-75,Roto Rooter,19960 Countryside Ln,Redding,CA,96002-9660,R,$55 ,40.49109,-122.3149,40
+248411,2502-75,Creekside Logging,19476 Gas Point Road,Cottonwood,CA,96022,R,$81 ,40.39018,-122.33197,40
+170446,2502-75,Dignity Health - St Elizabeth,2550 Sr Mary Columba Dr,Red Bluff,CA,96080-4327,M,$147 ,40.148556,-122.218116,60
+265576,2502-75,Nor-Cal Granite & Tile,3383 PACIFIC TRAIL #C,COTTONWOOD,CA,960224910,T,$42 ,40.38499,-122.27319,0
+278326,2502-75,Muse Concrete Contractors Inc,8599 Commercial Way,Redding,CA,96002,R,$40 ,40.53505,-122.34538,0
+281064,2502-75,LC-POA-Main Office,19999 Lake California Dr,Cottonwood,CA,96002,T,$28 ,40.36976,-122.24114,0
+297363,2502-75,Taco Cotija,614 Walnut Street,Red Bluff,CA,96080,T,$10 ,40.17681,-122.23886,0
+315918,2502-75,PG&E Microsite Sunriver,23400 East Sunriver Drive,Red Bluff,CA,96080,F,$73 ,40.21753,-122.18353,0
+319665,2502-75,Rocha's Advanced Automotive,20270 Charlanne Drive,Redding,CA,96002,R,$18 ,40.54602,-122.30396,0
+320399,2502-75,E's Locker Room,1075 Lakeside Drive,Red Bluff,CA,96080,T,$70 ,40.18272,-122.23353,0
+239678,2502-75,Wheeler Logging Office,13570 State Highway 36 E,Red Bluff,CA,96080-8878,M,$25 ,40.18795,-122.185822,0
+262472,2502-75,Norms Automotive,2635 Hartnell Ave,Redding,CA,960022353,R,$11 ,40.563782,-122.321823,5
+271035,2502-75,COR REU,3611 Avtech Pkwy,Redding,CA,960029241,R,$21 ,40.52113,-122.301453,0
+288480,2502-75,Kuper's Automotive Repair,425 Antelope Blvd.,Red Bluff,CA,96080,M,$96 ,40.18585,-122.21183,120
+301422,2502-75,Mill Creek Resort - Seasonal, 40271 CA-172,Mill Creek,CA,96061,F,$368 ,40.32117,-121.37552,0
+305867,2502-75,Main St. Deli,2130 South Main Street Suite A,Red Bluff,CA,96080,T,$21 ,40.15333,-122.22091,0
+315177,2502-75,Red Bluff Elks Lodge,355 Gilmore Road,Red Bluff,CA,96080,M,$151 ,40.17154,-122.22335,0
+323471,2502-75,DH Lassen Medical Clinic - Red Bluff,2450 Sister Mary Columba Drive,Red Bluff,CA,96080,MWF,$663 ,40.149453,-122.222045,0
+170903,2502-75,Waynes Truck Service,20251 Charlanne Dr,Redding,CA,960029223,R,$31 ,40.545846,-122.304687,0
+171172,2502-75,Bob's Tire,614 Walnut St,Red Bluff,CA,96080-3326,T,$267 ,40.176752,-122.238973,175
+171256,2502-75,Los Mariachi's,604 Main St,Red Bluff,CA,96080-3344,W,$37 ,40.176708,-122.234207,0
+238258,2502-75,Nu-Way Market,8049 CA-99 E,Los Molinos,CA,96055,W,$120 ,40.02931,-122.09989,1
+244842,2502-75,Cost U Less,7948 CA-99 E,Los Molinos,CA,96055,W,$21 ,40.026922,-122.099865,0
+170444,2502-75,Vista Middle School ,1770 S Jackson St,Red Bluff,CA,96080-4505,T,$0 ,40.155041,-122.237907,0
+170461,2502-75,Bidwell School ,1256 Walnut St,Red Bluff,CA,96080-3603,T,$0 ,40.173531,-122.245338,0
+272233,2502-75,Tehama County Dept of Ed - DS,1135 Lincoln St,Red Bluff,CA,960803126,W,$0 ,40.1781,-122.244633,0
+288806,2502-75,Harvey's Market,9975 Hwy 99,Proberta,CA,96078,M,$16 ,40.08251,-122.17212,0
+293300,2502-75,Cedar Creek,780 Diamond Avenue,Red Bluff,CA,96080,M,$65 ,40.15605,-122.22111,6
+301285,2502-75,Julio's Garage,20659 Walnut Street #3,Red Bluff,CA,96080,W,$16 ,40.16842,-122.27113,10
+308552,2502-75,Fire Water Supply (BD),1005 Vista Way,Red Bluff,CA,96080,W,$0 ,40.186,-122.20436,0
+308982,2502-75,PGE Fleet - Red Bluff,515 Luther Road,Red Bluff,CA,96080,T,$26 ,40.16044,-122.23025,136
+171091,2502-75,Holiday Mkt 34 Linen,20635 Gas Point Rd,Cottonwood,CA,96022-9295,F,$94 ,40.389332,-122.287468,38
+171581,2502-75,Holiday Mkt #45 Groc,2455 Hartnell Ave,Redding,CA,96002-2320,R,$76 ,40.56377,-122.32544,0
+261216,2502-75,Crossland 6 Gas Station,8215 Ca-99 E,Los Molinos,CA,96055,W,$46 ,40.034222,-122.09991,0
+257513,2502-75,Red Bluff CC - Call In Only,1500 S Jackson St,Red Bluff,CA,960804553,W,$56 ,40.156731,-122.2379,0
+170458,2502-75,Meteer School ,685 Kimball Rd,Red Bluff,CA,96080-4447,T,$0 ,40.15729,-122.235691,0
+279241,2502-75,Kirk Taylor's GM Speciality,2635 Hartnell Ave,Redding,CA,96002,R,$17 ,40.56354,-122.32172,1
+306047,2502-75,Empower Tehama - Sale Lane,151 Sale Lane,Red Bluff,CA,96080,F,$27 ,40.17994,-122.21947,0
+313443,2502-75,Paradise Tires and Wheel,215 South Main Street,Red Bluff,CA,96080,M,$78 ,40.17063,-122.22938,68
+319410,2502-75,City of Red Bluff - Corp Yard,1055 Kimball Road,Red Bluff,CA,96080,W,$15 ,40.1573,-122.24236,0
+321836,2502-75,Miller Collision Center,20303 Charlanne Drive,Redding,CA,96002,R,$103 ,40.54594,-122.30367,50
+171400,2502-75,Mchale Sign Co.,3707 Electro Way,Redding,CA,96002-9346,R,$14 ,40.53005,-122.301238,0
+237339,2502-75,Antelope Liquors,445 Antelope Blvd,Red Bluff,CA,96080-2402,M,$15 ,40.18613,-122.2108,0
+171579,2502-75,Holiday Mkt 45 Linen,2455 Hartnell Ave,Redding,CA,96002-2320,R,$176 ,40.56377,-122.32544,21
+221254,2502-75,Woolery Forest Products,13570 State Highway 36 E,Red Bluff,CA,96080-8878,M,$35 ,40.187708,-122.185855,6
+297937,2502-75,Little Country Store,21931 Chimney Rock Dr,Cottonwood,CA,96022,T,$19 ,40.36465,-122.21984,0
+310840,2502-75,Best Western Anderson Inn,2688 Gateway Drive,Anderson,CA,96007,MWF,$0 ,40.45219,-122.28962,0
+319407,2502-75,City of Red Bluff  - City Hall,555 Washington Street,Red Bluff,CA,96080,T,$23 ,40.17577,-122.23508,0

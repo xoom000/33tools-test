@@ -23,6 +23,7 @@ const debugRouter = require('./api/routes/debug');
 const morningPrepRouter = require('./api/routes/morning-prep');
 const databaseUpdateRouter = require('./api/routes/database-update');
 const devTransferRouter = require('./api/routes/dev-transfer');
+const reliefDriverRouter = require('./api/routes/relief-driver');
 
 const app = express();
 
@@ -32,8 +33,8 @@ app.use(cors({
   origin: config.cors.origins,
   credentials: config.cors.credentials
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(morgan(config.logging.format));
 
 // Health check endpoint
@@ -62,6 +63,7 @@ app.use('/api/debug', debugRouter);
 app.use('/api/morning-prep', morningPrepRouter);
 app.use('/api/admin/database-update', databaseUpdateRouter);
 app.use('/api/dev-transfer', devTransferRouter);
+app.use('/api/relief-driver', reliefDriverRouter);
 
 // 404 handler for unknown routes
 app.use(notFoundHandler);

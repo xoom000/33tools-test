@@ -1,29 +1,46 @@
 import React from 'react';
-import { Button } from '.';
+import { cn } from '../../utils/classNames';
+import Button from './Button';
+import { TOOLBAR_LAYOUTS, ACTION_GROUPS } from '../../config/buttonConfigs';
+import { BUTTON_SIZES } from '../../constants/ui';
 
-// COMPOSE, NEVER DUPLICATE - Button group with consistent styling! ⚔️
+// COMPOSE, NEVER DUPLICATE - Button group with configuration! ⚔️
 const ButtonGroup = ({ 
   buttons = [], 
-  orientation = 'vertical',
-  size = 'medium',
-  className = ''
+  layout = 'horizontal',
+  size = BUTTON_SIZES.MD,
+  className = '',
+  actionGroup,
+  onAction
 }) => {
-  const containerClass = orientation === 'vertical' 
-    ? 'space-y-2' 
-    : 'flex gap-2';
+  // Use predefined action group if provided
+  const buttonsToRender = actionGroup 
+    ? Object.entries(ACTION_GROUPS[actionGroup] || {}).map(([key, config]) => ({
+        ...config,
+        key,
+        onClick: () => onAction?.(key)
+      }))
+    : buttons;
+
+  // Get layout configuration
+  const layoutConfig = TOOLBAR_LAYOUTS[layout] || TOOLBAR_LAYOUTS.horizontal;
 
   return (
-    <div className={`${containerClass} ${className}`}>
-      {buttons.map((button, index) => (
+    <div className={cn(layoutConfig.container, className)}>
+      {buttonsToRender.map((button, index) => (
         <Button
           key={button.key || index}
-          variant={button.variant || 'primary'}
-          size={size}
-          className={`w-full ${button.className || ''}`}
+          variant={button.variant}
+          size={button.size || size}
+          className={button.className || ''}
           onClick={button.onClick}
           disabled={button.disabled}
+          loading={button.loading}
+          icon={button.icon}
+          tooltip={button.tooltip}
+          type={button.type}
         >
-          {button.text}
+          {button.label || button.text || button.children}
         </Button>
       ))}
     </div>

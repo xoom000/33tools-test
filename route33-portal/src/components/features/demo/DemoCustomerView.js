@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ItemsGrid } from '../../features/customer-portal';
 import CustomerPortalHeader from './CustomerPortalHeader';
 import { ANIMATIONS } from '../../../theme';
+import { cn } from '../../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Demo Customer Portal View! ⚔️
 const DemoCustomerView = ({
@@ -14,7 +15,7 @@ const DemoCustomerView = ({
   className = ""
 }) => {
   return (
-    <div className={`space-y-8 ${className}`}>
+    <div className={cn('space-y-8', className)}>
       {/* Customer Header */}
       <motion.div {...ANIMATIONS.slideUp}>
         <CustomerPortalHeader customer={customer} />

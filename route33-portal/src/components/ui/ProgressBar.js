@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { cn } from '../../utils/classNames';
 import { TYPOGRAPHY } from '../../theme';
+import { FLEX_LAYOUTS, SPACING_PATTERNS } from '../../config/layoutConfigs';
 
 // COMPOSE, NEVER DUPLICATE - Reusable Progress Bar! ⚔️
-const ProgressBar = ({ 
+const ProgressBar = memo(function ProgressBar({ 
   current, 
   total, 
   label = "Progress",
   showSteps = true,
   className = "" 
-}) => {
+}) {
   const progress = (current / total) * 100;
 
   return (
-    <div className={`mb-8 ${className}`}>
-      <div className="flex justify-between items-center mb-2">
-        <span className={`${TYPOGRAPHY.sizes.sm} ${TYPOGRAPHY.weights.medium} text-slate-600`}>
+    <div className={cn(SPACING_PATTERNS.margin.section, className)}>
+      <div className={cn(FLEX_LAYOUTS.header.between, 'mb-2')}>
+        <span className={cn(TYPOGRAPHY.sizes.sm, TYPOGRAPHY.weights.medium, 'text-slate-600')}>
           {label}
         </span>
         {showSteps && (
-          <span className={`${TYPOGRAPHY.sizes.sm} text-slate-500`}>
+          <span className={cn(TYPOGRAPHY.sizes.sm, 'text-slate-500')}>
             {current} of {total}
           </span>
         )}
@@ -31,6 +33,6 @@ const ProgressBar = ({
       </div>
     </div>
   );
-};
+});
 
 export default ProgressBar;

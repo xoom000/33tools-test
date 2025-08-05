@@ -1,9 +1,12 @@
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../../ui';
 import { VARIANTS } from '../../../theme';
 import { AnimatedContainer } from '../../animations';
+import { ANIMATION_PRESETS } from '../../../config/animationConfigs';
+import { cn } from '../../../utils/classNames';
 
-const ItemsGrid = ({ 
+const ItemsGrid = memo(function ItemsGrid({ 
   items = [],
   title = "Your Regular Items",
   emptyStateIcon = "📦",
@@ -13,12 +16,12 @@ const ItemsGrid = ({
   submitButtonText = "Submit Order Request",
   submitPrompt = "Ready to request these items for your next delivery?",
   className = ""
-}) => {
+}) {
   return (
     <AnimatedContainer
       variant="slideUp"
       delay={0.1}
-      className={`${VARIANTS.card.base} p-6 ${className}`}
+      className={cn(VARIANTS.card.base, 'p-6', className)}
     >
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-slate-800">{title}</h2>
@@ -63,9 +66,11 @@ const ItemsGrid = ({
       {/* Submit Order Button */}
       {items.length > 0 && onSubmitOrder && (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          {...ANIMATION_PRESETS.slideUp}
+          transition={{
+            ...ANIMATION_PRESETS.slideUp.transition,
+            delay: 0.2
+          }}
           className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200/50"
         >
           <div className="text-center">
@@ -85,6 +90,6 @@ const ItemsGrid = ({
       )}
     </AnimatedContainer>
   );
-};
+});
 
 export default ItemsGrid;

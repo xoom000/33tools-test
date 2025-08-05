@@ -3,6 +3,8 @@ import OrdersTab from './OrdersTab';
 import LoadListTab from './LoadListTab';
 import CustomersTab from './CustomersTab';
 import AdminTab from './AdminTab';
+import { TAB_CONFIGS } from '../../../config/tabConfigs';
+import { COMPONENT_ANIMATIONS } from '../../../config/animationConfigs';
 
 const TabContentRenderer = ({ 
   activeTab, 
@@ -35,17 +37,17 @@ const TabContentRenderer = ({
         return currentRoute === 33 ? <AdminTab {...adminProps} /> : null;
         
       default:
-        // Default placeholder for unimplemented tabs
+        // Default placeholder for unimplemented tabs using configuration
+        const placeholderConfig = TAB_CONFIGS.placeholder;
         return (
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="bg-white rounded-2xl shadow-sm border border-slate-100 p-12 text-center"
+            {...COMPONENT_ANIMATIONS.tab.content}
+            className={placeholderConfig.content.className}
           >
             <h3 className="text-xl font-semibold text-slate-800 mb-2">
               {tabs.find(t => t.id === activeTab)?.label}
             </h3>
-            <p className="text-slate-600">Coming soon! This section is under development.</p>
+            <p className="text-slate-600">{placeholderConfig.content.description}</p>
           </motion.div>
         );
     }

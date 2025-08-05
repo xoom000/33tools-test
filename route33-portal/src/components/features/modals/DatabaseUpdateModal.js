@@ -1,7 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Modal, Button, StateRenderer } from '../../ui';
 import { databaseUpdateService } from '../../../services/databaseUpdateService';
 import { useToast } from '../../../contexts/ToastContext';
+import { MODAL_CONFIGS } from '../../../config/modalConfigs';
+import { cn } from '../../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Ultimate Database Update Interface! ⚔️
 const DatabaseUpdateModal = ({ isOpen, onClose }) => {
@@ -9,13 +11,25 @@ const DatabaseUpdateModal = ({ isOpen, onClose }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [updateType, setUpdateType] = useState('customers');
   const [previewData, setPreviewData] = useState(null);
-  const [updateOptions, setUpdateOptions] = useState({
+  // Optimized state initialization with initializer function
+  const [updateOptions, setUpdateOptions] = useState(() => ({
     testMode: true, // Always start in test mode
     backupFirst: true,
-    validateData: true
-  });
+    validateData: true,
+    requireDriverValidation: false,
+    excludeRoutes: []
+  }));
 
   const { addToast } = useToast();
+
+  // Memoize expensive service calls
+  const updateTypeOptions = useMemo(() => {
+    return databaseUpdateService.getUpdateTypeOptions();
+  }, []);
+
+  const previewChangesSlice = useMemo(() => {
+    return previewData?.changes?.slice(0, 10) || [];
+  }, [previewData?.changes]);
 
   // FILE SELECTION HANDLER
   const handleFileSelect = useCallback((event) => {
@@ -127,7 +141,7 @@ const DatabaseUpdateModal = ({ isOpen, onClose }) => {
           onChange={(e) => setUpdateType(e.target.value)}
           className="w-full border border-slate-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-slate-500 focus:border-slate-500"
         >
-          {databaseUpdateService.getUpdateTypeOptions().map(option => (
+          {updateTypeOptions.map(option => (
             <option key={option.value} value={option.value}>
               {option.label} - {option.description}
             </option>
@@ -168,6 +182,35 @@ const DatabaseUpdateModal = ({ isOpen, onClose }) => {
           />
           <span className="text-sm text-slate-700">Validate data integrity</span>
         </label>
+        
+        <label className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={updateOptions.requireDriverValidation}
+            onChange={(e) => setUpdateOptions(prev => ({ ...prev, requireDriverValidation: e.target.checked }))}
+            className="rounded border-slate-300"
+          />
+          <span className="text-sm text-slate-700">Require driver validation per route</span>
+        </label>
+        
+        {(updateType === 'route_optimization' || updateType === 'customer_shells' || updateType === 'inventory_population') && (
+          <div className="mt-3">
+            <label className="block text-sm font-medium text-slate-700 mb-2">
+              Exclude Routes (comma-separated, e.g., 1,3)
+            </label>
+            <input
+              type="text"
+              value={updateOptions.excludeRoutes.join(',')}
+              onChange={(e) => setUpdateOptions(prev => ({ 
+                ...prev, 
+                excludeRoutes: e.target.value.split(',').map(r => parseInt(r.trim())).filter(r => !isNaN(r))
+              }))}
+              placeholder="1,3"
+              className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-slate-500 focus:border-slate-500"
+            />
+            <p className="text-xs text-slate-500 mt-1">Routes to exclude from comparison/updates</p>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -208,14 +251,17 @@ const DatabaseUpdateModal = ({ isOpen, onClose }) => {
               </tr>
             </thead>
             <tbody>
-              {previewData.changes.slice(0, 10).map((change, index) => (
+              {previewChangesSlice.map((change, index) => (
                 <tr key={index} className="border-t border-slate-200">
                   <td className="px-3 py-2">
-                    <span className={`px-2 py-1 rounded text-xs font-semibold ${
-                      change.action === 'create' ? 'bg-green-100 text-green-800' :
-                      change.action === 'update' ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-red-100 text-red-800'
-                    }`}>
+                    <span className={cn(
+                      'px-2 py-1 rounded text-xs font-semibold',
+                      {
+                        'bg-green-100 text-green-800': change.action === 'create',
+                        'bg-yellow-100 text-yellow-800': change.action === 'update',
+                        'bg-red-100 text-red-800': change.action !== 'create' && change.action !== 'update'
+                      }
+                    )}>
                       {change.action}
                     </span>
                   </td>
@@ -235,46 +281,51 @@ const DatabaseUpdateModal = ({ isOpen, onClose }) => {
     </div>
   );
 
-  // RENDER MODAL ACTIONS
+  // RENDER MODAL ACTIONS - Using configuration
   const renderActions = () => {
-    if (uploadState === 'idle') {
-      return (
-        <div className="flex gap-2">
-          <Button variant="secondary" onClick={onClose}>
-            Cancel
-          </Button>
+    const stateConfig = MODAL_CONFIGS.databaseUpdate.states[uploadState];
+    if (!stateConfig?.actions) return null;
+
+    const actions = stateConfig.actions;
+    
+    return (
+      <div className="flex gap-2">
+        {actions.back && (
           <Button 
-            variant="primary" 
+            variant={actions.back.variant}
+            onClick={handleReset}
+          >
+            {actions.back.text}
+          </Button>
+        )}
+        {actions.cancel && (
+          <Button 
+            variant={actions.cancel.variant}
+            onClick={onClose}
+          >
+            {actions.cancel.text}
+          </Button>
+        )}
+        {actions.preview && (
+          <Button 
+            variant={actions.preview.variant}
             onClick={handlePreview}
             disabled={!selectedFile}
           >
-            Preview Changes
+            {actions.preview.text}
           </Button>
-        </div>
-      );
-    }
-
-    if (uploadState === 'preview') {
-      return (
-        <div className="flex gap-2">
-          <Button variant="secondary" onClick={handleReset}>
-            Start Over
-          </Button>
-          <Button variant="outline" onClick={onClose}>
-            Cancel
-          </Button>
+        )}
+        {actions.apply && (
           <Button 
-            variant="primary" 
+            variant={actions.apply.variant}
             onClick={handleApply}
             disabled={!previewData || previewData.conflicts > 0}
           >
-            Apply Updates
+            {actions.apply.text}
           </Button>
-        </div>
-      );
-    }
-
-    return null;
+        )}
+      </div>
+    );
   };
 
   return (

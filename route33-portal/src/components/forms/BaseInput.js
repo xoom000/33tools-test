@@ -1,6 +1,7 @@
-import { VARIANTS } from '../../theme';
+import { INPUT_STYLES } from '../../config';
+import { cn } from '../../utils/classNames';
 
-// COMPOSE, NEVER DUPLICATE - Simple base input without complexity!
+// COMPOSE, NEVER DUPLICATE - Simple base input with configuration! ⚔️
 const BaseInput = ({
   label,
   type = 'text',
@@ -10,19 +11,25 @@ const BaseInput = ({
   error,
   required = false,
   disabled = false,
+  helperText,
   className = '',
   ...extraProps
 }) => {
-  const inputClasses = error 
-    ? VARIANTS.input.error 
-    : VARIANTS.input.base;
+  const styles = INPUT_STYLES.base;
+  const inputClasses = cn(
+    styles.input,
+    {
+      'border-red-500 focus:ring-red-500': error,
+      'border-slate-300 focus:ring-primary-500': !error
+    }
+  );
 
   return (
-    <div className={`space-y-2 ${className}`}>
+    <div className={cn(styles.container, className)}>
       {label && (
-        <label className="block text-sm font-medium text-slate-700">
+        <label className={styles.label}>
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
+          {required && <span className={styles.requiredIndicator}>*</span>}
         </label>
       )}
       
@@ -32,12 +39,17 @@ const BaseInput = ({
         value={value}
         onChange={onChange}
         disabled={disabled}
+        required={required}
         className={inputClasses}
         {...extraProps}
       />
       
       {error && (
-        <p className="text-sm text-red-600">{error}</p>
+        <p className={styles.error}>{error}</p>
+      )}
+      
+      {helperText && !error && (
+        <p className={styles.helper}>{helperText}</p>
       )}
     </div>
   );

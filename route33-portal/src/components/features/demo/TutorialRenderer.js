@@ -3,6 +3,7 @@ import { AnimatedContainer } from '../../animations';
 import { Button, ProgressBar } from '../../ui';
 import { TYPOGRAPHY } from '../../../theme';
 import { DEMO_STEPS } from '../../../constants/demo';
+import { cn } from '../../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Tutorial Flow Renderer! ⚔️
 const TutorialRenderer = ({
@@ -30,14 +31,14 @@ const TutorialRenderer = ({
         variant="slideRight"
         className="text-center mb-8"
       >
-        <h1 className={`${TYPOGRAPHY.sizes['2xl']} ${TYPOGRAPHY.weights.bold} text-slate-800 mb-4`}>
+        <h1 className={cn(TYPOGRAPHY.sizes['2xl'], TYPOGRAPHY.weights.bold, 'text-slate-800 mb-4')}>
           {currentStepData.title}
         </h1>
-        <p className={`text-slate-600 ${TYPOGRAPHY.sizes.lg} leading-relaxed mb-6`}>
+        <p className={cn('text-slate-600 leading-relaxed mb-6', TYPOGRAPHY.sizes.lg)}>
           {currentStepData.content}
         </p>
         <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
-          <p className={`${TYPOGRAPHY.sizes.sm} ${TYPOGRAPHY.weights.medium} text-slate-700`}>
+          <p className={cn(TYPOGRAPHY.sizes.sm, TYPOGRAPHY.weights.medium, 'text-slate-700')}>
             {currentStepData.highlight}
           </p>
         </div>

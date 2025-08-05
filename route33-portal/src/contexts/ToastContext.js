@@ -1,5 +1,13 @@
 import React, { createContext, useContext, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { OptimizedToastProvider } from './toast/OptimizedToastProvider';
+import { 
+  TOAST_STYLES, 
+  NOTIFICATION_TYPES, 
+  NOTIFICATION_ICONS, 
+  NOTIFICATION_DURATIONS,
+  NOTIFICATION_ANIMATIONS 
+} from '../config/notificationConfigs';
 
 const ToastContext = createContext();
 
@@ -14,71 +22,43 @@ export const useToast = () => {
 // Toast Component
 const Toast = ({ toast, onRemove }) => {
   const getToastStyles = (type) => {
-    const base = "relative rounded-lg shadow-lg p-4 text-white min-w-[320px] max-w-md";
-    switch (type) {
-      case 'success': 
-        return `${base} bg-gradient-to-r from-green-500 to-green-600`;
-      case 'warning': 
-        return `${base} bg-gradient-to-r from-yellow-500 to-yellow-600`;
-      case 'info': 
-        return `${base} bg-gradient-to-r from-blue-500 to-blue-600`;
-      case 'loading':
-        return `${base} bg-gradient-to-r from-slate-500 to-slate-600`;
-      default: 
-        return `${base} bg-gradient-to-r from-red-500 to-red-600`;
-    }
+    const styles = TOAST_STYLES;
+    const variant = styles.variants[type] || styles.variants[NOTIFICATION_TYPES.ERROR];
+    return `${styles.base} ${variant}`;
   };
 
   const getIcon = (type) => {
-    switch (type) {
-      case 'success':
-        return (
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-          </svg>
-        );
-      case 'warning':
-        return (
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-          </svg>
-        );
-      case 'info':
-        return (
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-          </svg>
-        );
-      case 'loading':
-        return (
-          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-        );
-      default:
-        return (
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        );
+    const iconConfig = NOTIFICATION_ICONS[type] || NOTIFICATION_ICONS[NOTIFICATION_TYPES.ERROR];
+    
+    if (type === NOTIFICATION_TYPES.LOADING) {
+      return (
+        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+      );
     }
+    
+    // Use emoji icons for simplicity (SVGs can be added later if needed)
+    return <span className="text-lg">{iconConfig.emoji}</span>;
   };
 
   // Auto-remove timer (except for loading toasts)
   React.useEffect(() => {
     if (toast.type === 'loading') return; // Don't auto-remove loading toasts
     
+    const defaultDuration = NOTIFICATION_DURATIONS.defaults[toast.type] || NOTIFICATION_DURATIONS.normal;
     const timer = setTimeout(() => {
       onRemove(toast.id);
-    }, toast.duration || 5000);
+    }, toast.duration || defaultDuration);
 
     return () => clearTimeout(timer);
   }, [toast.id, toast.duration, toast.type, onRemove]);
 
+  const animations = NOTIFICATION_ANIMATIONS;
+  
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, x: 300, scale: 0.3 }}
-      animate={{ opacity: 1, x: 0, scale: 1 }}
-      exit={{ opacity: 0, x: 300, scale: 0.5, transition: { duration: 0.2 } }}
+      {...animations.enter.slideInRight}
+      exit={animations.exit.slideOutRight}
       className={getToastStyles(toast.type)}
     >
       <div className="flex items-start justify-between gap-3">
@@ -119,7 +99,10 @@ const Toast = ({ toast, onRemove }) => {
         <motion.div
           initial={{ width: '100%' }}
           animate={{ width: '0%' }}
-          transition={{ duration: (toast.duration || 5000) / 1000, ease: 'linear' }}
+          transition={{ 
+            duration: (toast.duration || NOTIFICATION_DURATIONS.defaults[toast.type] || NOTIFICATION_DURATIONS.normal) / 1000, 
+            ease: 'linear' 
+          }}
           className="absolute bottom-0 left-0 h-1 bg-white/30 rounded-b-lg"
         />
       )}
@@ -230,27 +213,38 @@ export const ToastProvider = ({ children }) => {
     toast
   };
 
+  // Use optimized split context provider for better performance
   return (
-    <ToastContext.Provider value={contextValue}>
-      {children}
-      
-      {/* Toast Container */}
-      <div className="fixed top-4 right-4 z-50 space-y-2 pointer-events-none">
-        <AnimatePresence mode="popLayout">
-          {toasts.map(toast => (
-            <motion.div
-              key={toast.id}
-              className="pointer-events-auto"
-              layout
-            >
-              <Toast 
-                toast={toast} 
-                onRemove={removeToast}
-              />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
-    </ToastContext.Provider>
+    <OptimizedToastProvider
+      toasts={toasts}
+      addToast={addToast}
+      removeToast={removeToast}
+      updateToast={updateToast}
+      clearAllToasts={clearAllToasts}
+      toast={toast}
+    >
+      {/* Legacy context for backward compatibility */}
+      <ToastContext.Provider value={contextValue}>
+        {children}
+        
+        {/* Toast Container */}
+        <div className="fixed top-4 right-4 z-50 space-y-2 pointer-events-none">
+          <AnimatePresence mode="popLayout">
+            {toasts.map(toast => (
+              <motion.div
+                key={toast.id}
+                className="pointer-events-auto"
+                layout
+              >
+                <Toast 
+                  toast={toast} 
+                  onRemove={removeToast}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      </ToastContext.Provider>
+    </OptimizedToastProvider>
   );
 };

@@ -2,7 +2,8 @@ import { useState } from 'react';
 
 // COMPOSE, NEVER DUPLICATE - Generic modal management hook! ⚔️
 export const useModalManager = (initialModals = {}) => {
-  const [modals, setModals] = useState({
+  // Optimized state initialization with initializer function
+  const [modals, setModals] = useState(() => ({
     // Default admin modals (for backward compatibility)
     showAddCustomer: false,
     showEditCustomer: false,
@@ -13,7 +14,7 @@ export const useModalManager = (initialModals = {}) => {
     showAddItemSearch: false,
     // Merge any custom modals
     ...initialModals
-  });
+  }));
 
   const openModal = (modalName) => {
     setModals(prev => ({ ...prev, [`show${modalName}`]: true }));

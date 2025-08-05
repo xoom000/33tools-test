@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { AnimatedContainer } from '../../animations';
 import { Button } from '../../ui';
 import CustomerCard from './CustomerCard';
 import { getDayDisplayName } from '../../../utils/adminDashboardHelpers';
+import PerformanceProfiler from '../../profiler/PerformanceProfiler';
 
 const CustomersTab = ({ 
   customers = [],
@@ -15,20 +16,31 @@ const CustomersTab = ({
   onEditCustomer,
   onAddItem
 }) => {
+  // Memoized event handlers for performance
+  const handleDayChange = useCallback((e) => {
+    onSetSelectedDay(e.target.value || null);
+  }, [onSetSelectedDay]);
+
+  const handleShowAllDays = useCallback(() => {
+    onSetSelectedDay(null);
+  }, [onSetSelectedDay]);
   
-  // Filter customers by selected day
-  const filteredCustomers = selectedDay 
-    ? customers.filter(customer => {
-        // Include customers with empty service_days or service_days that include the selected day
-        return !customer.service_days || customer.service_days === '' || customer.service_days.includes(selectedDay);
-      })
-    : customers;
+  // Filter customers by selected day (memoized for performance)
+  const filteredCustomers = useMemo(() => {
+    if (!selectedDay) return customers;
+    
+    return customers.filter(customer => {
+      // Include customers with empty service_days or service_days that include the selected day
+      return !customer.service_days || customer.service_days === '' || customer.service_days.includes(selectedDay);
+    });
+  }, [customers, selectedDay]);
 
   return (
-    <AnimatedContainer
-      variant="slideRight"
-      className="space-y-6"
-    >
+    <PerformanceProfiler id="CustomersTab">
+      <AnimatedContainer
+        variant="slideRight"
+        className="space-y-6"
+      >
       {/* Actions Bar */}
       <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-3">
         <div className="flex items-center justify-between">
@@ -71,7 +83,7 @@ const CustomersTab = ({
               </label>
               <select
                 value={selectedDay || ''}
-                onChange={(e) => onSetSelectedDay(e.target.value || null)}
+                onChange={handleDayChange}
                 className="px-3 py-1.5 text-sm border border-slate-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="">All Days</option>
@@ -118,7 +130,7 @@ const CustomersTab = ({
                   <Button
                     variant="outline"
                     size="small"
-                    onClick={() => onSetSelectedDay(null)}
+                    onClick={handleShowAllDays}
                   >
                     Show All Days
                   </Button>
@@ -135,7 +147,8 @@ const CustomersTab = ({
           )}
         </div>
       </div>
-    </AnimatedContainer>
+      </AnimatedContainer>
+    </PerformanceProfiler>
   );
 };
 

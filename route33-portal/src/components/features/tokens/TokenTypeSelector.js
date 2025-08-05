@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { cn } from '../../../utils/classNames';
 
 const TokenTypeSelector = ({ onTypeSelect }) => {
   const tokenTypes = [
@@ -41,7 +42,7 @@ const TokenTypeSelector = ({ onTypeSelect }) => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onTypeSelect(type.id)}
-            className={`p-6 border-2 border-slate-200 rounded-xl ${type.hoverColor} transition-all text-left`}
+            className={cn('p-6 border-2 border-slate-200 rounded-xl transition-all text-left', type.hoverColor)}
           >
             <div>
               <h3 className="text-lg font-semibold text-slate-800">{type.title}</h3>

@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { DashboardLayout } from '../components/layout';
 import { DashboardHeader, TabNavigation, TabContentRenderer } from '../components/features/dashboard';
 import { ModalRenderer } from '../components/features/modals';
-import { DatabaseUpdateModal } from '../components/features/database-update';
-import RouteOptimizationUpload from '../components/features/route-optimization/RouteOptimizationUpload';
+import { StagingWorkflowModal, DriverValidationModal } from '../components/features/modals';
 import { useAuth } from '../contexts/AuthContext';
+import { useToast } from '../contexts/ToastContext';
 import { useLoadList } from '../hooks/useLoadList';
 import { useModalManager } from '../hooks/useModalManager';
 import { useDriverAuth } from '../hooks/useDriverAuth';
+import PerformanceProfiler from '../components/profiler/PerformanceProfiler';
 import { useAdminData } from '../hooks/useAdminData';
 import { useServiceDays } from '../hooks/useServiceDays';
 import { useToastCleanup } from '../hooks/useToastCleanup';
@@ -34,6 +35,7 @@ const AdminDashboard = () => {
   const { selectedDay, availableServiceDays, setSelectedDay } = useServiceDays(customers);
   const { modals, openModal, closeModal } = useModalManager();
   const { toast } = useToastCleanup(); // Handles toast cleanup and keyboard shortcuts
+  const fullToastContext = useToast(); // Get full context with removeToast method
   const { generateLoginToken, saveCustomer, saveItem } = useCustomerManagement(customers, setCustomers);
   
   // Dashboard-specific hooks
@@ -58,8 +60,8 @@ const AdminDashboard = () => {
   // Remaining local state
   const [activeTab, setActiveTab] = useState('orders');
   const [selectedCustomer, setSelectedCustomer] = useState(null);
-  const [showDatabaseUpdate, setShowDatabaseUpdate] = useState(false);
-  const [showRouteOptimization, setShowRouteOptimization] = useState(false);
+  const [showStagingWorkflow, setShowStagingWorkflow] = useState(false);
+  const [showDriverValidation, setShowDriverValidation] = useState(false);
 
   // Load List custom hook - handles all Load List functionality
   const {
@@ -89,19 +91,36 @@ const AdminDashboard = () => {
     setShowAddItemSearch
   } = useLoadList(customers, selectedDay, toast);
   
-  // Component handler functions
-  const handlePrint = () => {
-    generatePrintView(loadList, customQuantities, selectedDay, currentRoute, currentUser, toast, logger);
-  };
+  // Component handler functions (memoized for performance)
+  const handlePrint = useCallback(() => {
+    generatePrintView(loadList, customQuantities, selectedDay, currentRoute, currentUser, fullToastContext, logger);
+  }, [loadList, customQuantities, selectedDay, currentRoute, currentUser, fullToastContext]);
 
-  const handleSaveCustomer = async (customerData) => {
+  const handleSaveCustomer = useCallback(async (customerData) => {
     await saveCustomer(customerData);
     await loadCustomers(); // Refresh list
-  };
+  }, [saveCustomer, loadCustomers]);
 
-  const handleSaveItem = async (itemData) => {
+  const handleSaveItem = useCallback(async (itemData) => {
     await saveItem(itemData);
-  };
+  }, [saveItem]);
+
+  // Memoized event handlers for memoized components
+  const handleShowConfigureOrdering = useCallback(() => openModal('configureOrdering'), [openModal]);
+  const handleShowAddCustomer = useCallback(() => openModal('addCustomer'), [openModal]);
+  const handleEditCustomer = useCallback((customer) => {
+    setSelectedCustomer(customer);
+    openModal('editCustomer');
+  }, [openModal]);
+  const handleAddItem = useCallback((customer) => {
+    setSelectedCustomer(customer);
+    openModal('addItem');
+  }, [openModal]);
+  const handleShowStagingWorkflow = useCallback(() => setShowStagingWorkflow(true), []);
+  const handleShowDriverValidation = useCallback(() => setShowDriverValidation(true), []);
+  const handleShowAddItemSearch = useCallback(() => setShowAddItemSearch(true), [setShowAddItemSearch]);
+  const handleShowTokenGenerator = useCallback(() => openModal('tokenGenerator'), [openModal]);
+  const handleLogout = useCallback(() => logout('/'), [logout]);
 
 
   // Dashboard guards - early returns for loading/auth states
@@ -112,25 +131,32 @@ const AdminDashboard = () => {
   // Render main dashboard
   return (
     <>
-      <DashboardLayout
-        header={
-          <DashboardHeader 
-            currentRoute={currentRoute}
-            currentUser={currentUser}
-            customerCount={customers.length}
-            onShowTokenGenerator={() => openModal('tokenGenerator')}
-            onLogout={() => logout('/')}
-          />
-        }
-        navigation={
-          <TabNavigation 
-            tabs={tabs}
-            activeTab={activeTab}
-            onTabChange={setActiveTab}
-          />
-        }
-      >
-        <TabContentRenderer
+      <PerformanceProfiler id="AdminDashboard">
+        <DashboardLayout
+          header={
+            <PerformanceProfiler id="DashboardHeader">
+              <DashboardHeader 
+                currentRoute={currentRoute}
+                currentUser={currentUser}
+                customerCount={customers.length}
+                onShowTokenGenerator={handleShowTokenGenerator}
+                onShowDriverValidation={handleShowDriverValidation}
+                onLogout={handleLogout}
+              />
+            </PerformanceProfiler>
+          }
+          navigation={
+            <PerformanceProfiler id="TabNavigation">
+              <TabNavigation 
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+              />
+            </PerformanceProfiler>
+          }
+        >
+          <PerformanceProfiler id="TabContentRenderer">
+            <TabContentRenderer
           activeTab={activeTab}
           tabs={tabs}
           currentRoute={currentRoute}
@@ -166,7 +192,7 @@ const AdminDashboard = () => {
             onSwipeStart: handleLoadListSwipeStart,
             onSwipeMove: handleLoadListSwipeMove,
             onSwipeEnd: handleLoadListSwipeEnd,
-            onShowAddItemSearch: () => setShowAddItemSearch(true),
+            onShowAddItemSearch: handleShowAddItemSearch,
             onPrint: handlePrint,
             onRefresh: loadLoadList,
             onSetEditingQuantity: setEditingQuantity
@@ -176,42 +202,37 @@ const AdminDashboard = () => {
             selectedDay,
             availableServiceDays,
             onSetSelectedDay: setSelectedDay,
-            onShowConfigureOrdering: () => openModal('configureOrdering'),
-            onShowAddCustomer: () => openModal('addCustomer'),
+            onShowConfigureOrdering: handleShowConfigureOrdering,
+            onShowAddCustomer: handleShowAddCustomer,
             onGenerateToken: generateLoginToken,
-            onEditCustomer: (customer) => {
-              setSelectedCustomer(customer);
-              openModal('editCustomer');
-            },
-            onAddItem: (customer) => {
-              setSelectedCustomer(customer);
-              openModal('addItem');
-            }
+            onEditCustomer: handleEditCustomer,
+            onAddItem: handleAddItem
           }}
           adminProps={{
-            onShowSyncModal: () => openModal('syncModal'),
-            onShowDatabaseUpdate: () => setShowDatabaseUpdate(true),
-            onShowRouteOptimization: () => setShowRouteOptimization(true)
+            onShowStagingWorkflow: handleShowStagingWorkflow
           }}
-        />
-      </DashboardLayout>
+            />
+          </PerformanceProfiler>
+        </DashboardLayout>
+      </PerformanceProfiler>
 
-      <ModalRenderer
-        modals={modals}
-        closeModal={closeModal}
-        currentRoute={currentRoute}
-        selectedCustomer={selectedCustomer}
-        setSelectedCustomer={setSelectedCustomer}
-        toast={toast}
-        customerModalProps={{
-          onSave: handleSaveCustomer
-        }}
-        itemModalProps={{
-          onSave: handleSaveItem
-        }}
-        tokenGeneratorProps={{}}
-        syncModalProps={{}}
-        configureOrderingProps={{
+      <PerformanceProfiler id="ModalRenderer">
+        <ModalRenderer
+          modals={modals}
+          closeModal={closeModal}
+          currentRoute={currentRoute}
+          selectedCustomer={selectedCustomer}
+          setSelectedCustomer={setSelectedCustomer}
+          toast={toast}
+          customerModalProps={{
+            onSave: handleSaveCustomer
+          }}
+          itemModalProps={{
+            onSave: handleSaveItem
+          }}
+          tokenGeneratorProps={{}}
+          syncModalProps={{}}
+          configureOrderingProps={{
           customers,
           availableServiceDays,
           onCustomersUpdated: loadCustomers
@@ -230,22 +251,26 @@ const AdminDashboard = () => {
           highlightSearchTerm
         }}
       />
+      </PerformanceProfiler>
 
-      {/* Database Update Modal */}
-      <DatabaseUpdateModal
-        isOpen={showDatabaseUpdate}
-        onClose={() => setShowDatabaseUpdate(false)}
-      />
+      {/* Staging Workflow Modal */}
+      <PerformanceProfiler id="StagingWorkflowModal">
+        <StagingWorkflowModal
+          isOpen={showStagingWorkflow}
+          onClose={() => setShowStagingWorkflow(false)}
+          routeNumber={currentRoute}
+        />
+      </PerformanceProfiler>
 
-      {/* RouteOptimization Upload Modal */}
-      <RouteOptimizationUpload
-        isOpen={showRouteOptimization}
-        onClose={() => setShowRouteOptimization(false)}
-        onSuccess={(data) => {
-          console.log('RouteOptimization comparison completed:', data);
-          // Could add toast notification here
-        }}
-      />
+      {/* Driver Validation Modal */}
+      <PerformanceProfiler id="DriverValidationModal">
+        <DriverValidationModal
+          isOpen={showDriverValidation}
+          onClose={() => setShowDriverValidation(false)}
+          routeNumber={currentRoute}
+        />
+      </PerformanceProfiler>
+
     </>
   );
 };

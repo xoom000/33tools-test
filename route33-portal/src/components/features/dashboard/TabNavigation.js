@@ -1,23 +1,27 @@
 import React from 'react';
-import { VARIANTS } from '../../../theme';
 import { AnimatedContainer } from '../../animations';
+import { TAB_STYLES } from '../../../config/tabConfigs';
+import { cn } from '../../../utils/classNames';
 
+// COMPOSE, NEVER DUPLICATE - Tab Navigation with Configuration! ⚔️
 const TabNavigation = ({ tabs, activeTab, onTabChange }) => {
   return (
     <AnimatedContainer
       variant="slideUp"
-      className={`${VARIANTS.card.base} p-1 mb-4`}
+      className={TAB_STYLES.navigation.container}
     >
-      <div className="flex space-x-1 overflow-x-auto scrollbar-hide lg:justify-center xl:justify-start">
+      <div className={TAB_STYLES.navigation.tabList}>
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`flex-shrink-0 px-3 py-2 lg:px-4 lg:py-2.5 rounded-lg text-sm lg:text-base font-medium transition-all whitespace-nowrap ${
-              activeTab === tab.id
-                ? VARIANTS.button.primary.replace('shadow-lg hover:shadow-xl', 'shadow-lg')
-                : 'text-slate-600 hover:bg-slate-50'
-            }`}
+            className={cn(
+              TAB_STYLES.navigation.tab.base,
+              {
+                [TAB_STYLES.navigation.tab.active]: activeTab === tab.id,
+                [TAB_STYLES.navigation.tab.inactive]: activeTab !== tab.id
+              }
+            )}
           >
             {tab.label}
           </button>

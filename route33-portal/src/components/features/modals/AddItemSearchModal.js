@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Modal, LoadingSkeleton } from '../../ui';
-import { ICONS } from '../../../utils/constants';
+import { MODAL_CONFIGS } from '../../../config/modalConfigs';
+import { COMPONENT_ANIMATIONS, ANIMATION_UTILS } from '../../../config/animationConfigs';
+import { cn } from '../../../utils/classNames';
+import PerformanceProfiler from '../../profiler/PerformanceProfiler';
 
 const AddItemSearchModal = ({
   isOpen,
@@ -16,14 +19,17 @@ const AddItemSearchModal = ({
   onUpdateQuantity,
   highlightSearchTerm
 }) => {
-  if (!isOpen) return null;
-
-  const filteredItems = availableItems.filter(item => 
-    searchTerm === '' || 
-    item.item_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.item_number?.toString().includes(searchTerm)
-  );
+  // Memoize expensive filtering operation for performance
+  const filteredItems = useMemo(() => {
+    if (searchTerm === '') return availableItems;
+    
+    const lowerSearchTerm = searchTerm.toLowerCase();
+    return availableItems.filter(item => 
+      item.item_name?.toLowerCase().includes(lowerSearchTerm) ||
+      item.description?.toLowerCase().includes(lowerSearchTerm) ||
+      item.item_number?.toString().includes(searchTerm)
+    );
+  }, [availableItems, searchTerm]);
 
   const handleSearchChange = (value) => {
     onSearchTermChange(value);
@@ -41,18 +47,21 @@ const AddItemSearchModal = ({
     onClose();
   };
 
+  if (!isOpen) return null;
+
   return (
-    <Modal
+    <PerformanceProfiler id="AddItemSearchModal">
+      <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title="Add Item to Load List"
-      size="medium"
+      {...MODAL_CONFIGS.addItemSearch}
+      title={MODAL_CONFIGS.addItemSearch.title}
     >
           <div className="mb-4">
             <div className="relative">
               <input 
                 type="text"
-                placeholder="Search items by name or number..."
+                placeholder={MODAL_CONFIGS.addItemSearch.search.placeholder}
                 value={searchTerm}
                 onChange={(e) => handleSearchChange(e.target.value)}
                 className="w-full px-3 py-2 pr-10 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all"
@@ -81,20 +90,23 @@ const AddItemSearchModal = ({
             {/* Search results summary */}
             {searchTerm && !isSearching && (
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...COMPONENT_ANIMATIONS.form.field}
                 className="mt-2 text-sm text-slate-600"
               >
                 {(() => {
                   const resultCount = filteredItems.length;
-                  const displayCount = Math.min(resultCount, 20);
+                  const maxResults = MODAL_CONFIGS.addItemSearch.search.maxResults;
+                  const displayCount = Math.min(resultCount, maxResults);
+                  const summary = MODAL_CONFIGS.addItemSearch.states.resultSummary;
                   
                   if (resultCount === 0) {
-                    return `No items found for "${searchTerm}"`;
-                  } else if (resultCount <= 20) {
-                    return `Found ${resultCount} item${resultCount !== 1 ? 's' : ''}`;
+                    return summary.none(searchTerm);
+                  } else if (resultCount === 1) {
+                    return summary.single(resultCount);
+                  } else if (resultCount <= maxResults) {
+                    return summary.multiple(resultCount);
                   } else {
-                    return `Showing ${displayCount} of ${resultCount} items`;
+                    return summary.limited(displayCount, resultCount);
                   }
                 })()}
               </motion.div>
@@ -108,13 +120,15 @@ const AddItemSearchModal = ({
             ) : (
               <>
                 {filteredItems
-                  .slice(0, 20) // Limit to 20 results
+                  .slice(0, MODAL_CONFIGS.addItemSearch.search.maxResults) // Configurable result limit
                   .map((item, index) => (
                     <motion.div 
                       key={item.item_number}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
+                      {...COMPONENT_ANIMATIONS.list.item}
+                      transition={{
+                        ...COMPONENT_ANIMATIONS.list.item.transition,
+                        delay: ANIMATION_UTILS.createStaggerDelay(index)
+                      }}
                       className="flex items-center justify-between p-3 hover:bg-slate-50 rounded-lg cursor-pointer border border-transparent hover:border-slate-200 transition-all"
                       onClick={() => handleItemClick(item)}
                     >
@@ -134,12 +148,14 @@ const AddItemSearchModal = ({
                       </div>
                       <div className="flex items-center gap-2">
                         {loadList.find(li => li.item_number === item.item_number) && (
-                          <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded-full">
-                            In List
+                          <span className={cn('text-xs px-2 py-1 rounded-full', MODAL_CONFIGS.addItemSearch.itemStates.inList.classes)}>
+                            {MODAL_CONFIGS.addItemSearch.itemStates.inList.text}
                           </span>
                         )}
                         <div className="text-primary-600 font-medium">
-                          {loadList.find(li => li.item_number === item.item_number) ? '+1' : 'Add'}
+                          {loadList.find(li => li.item_number === item.item_number) 
+                            ? MODAL_CONFIGS.addItemSearch.itemStates.addMore.text 
+                            : MODAL_CONFIGS.addItemSearch.itemStates.add.text}
                         </div>
                       </div>
                     </motion.div>
@@ -148,22 +164,21 @@ const AddItemSearchModal = ({
                 {/* Enhanced empty state */}
                 {searchTerm && !isSearching && filteredItems.length === 0 && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    {...COMPONENT_ANIMATIONS.card.entrance}
                     className="text-center py-8"
                   >
-                    <div className="text-slate-400 text-4xl mb-3">{ICONS.SEARCH}</div>
+                    <div className="text-slate-400 text-4xl mb-3">{MODAL_CONFIGS.addItemSearch.states.noResults.icon}</div>
                     <div className="text-slate-600 font-medium mb-1">
-                      No items found
+                      {MODAL_CONFIGS.addItemSearch.states.noResults.title}
                     </div>
                     <div className="text-slate-500 text-sm">
-                      Try searching with different keywords
+                      {MODAL_CONFIGS.addItemSearch.states.noResults.message}
                     </div>
                     <button
                       onClick={() => handleSearchChange('')}
                       className="mt-3 text-primary-600 hover:text-primary-700 text-sm font-medium"
                     >
-                      Clear search
+                      {MODAL_CONFIGS.addItemSearch.states.noResults.action.text}
                     </button>
                   </motion.div>
                 )}
@@ -171,15 +186,16 @@ const AddItemSearchModal = ({
                 {/* Default state when no search term */}
                 {!searchTerm && !isSearching && (
                   <div className="text-center py-8 text-slate-500">
-                    <div className="text-slate-400 text-4xl mb-3">{ICONS.PACKAGE}</div>
-                    <div className="font-medium mb-1">Search for items</div>
-                    <div className="text-sm">Type item name or number to find products</div>
+                    <div className="text-slate-400 text-4xl mb-3">{MODAL_CONFIGS.addItemSearch.states.empty.icon}</div>
+                    <div className="font-medium mb-1">{MODAL_CONFIGS.addItemSearch.states.empty.title}</div>
+                    <div className="text-sm">{MODAL_CONFIGS.addItemSearch.states.empty.message}</div>
                   </div>
                 )}
               </>
             )}
           </div>
-    </Modal>
+      </Modal>
+    </PerformanceProfiler>
   );
 };
 

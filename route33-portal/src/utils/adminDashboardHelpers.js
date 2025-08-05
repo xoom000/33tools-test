@@ -25,7 +25,9 @@ export const getDayDisplayName = (dayCode) => {
   return dayNames[dayCode] || dayCode;
 };
 
-export const generatePrintView = (loadList, customQuantities, selectedDay, currentRoute, currentUser, toast, logger) => {
+export const generatePrintView = (loadList, customQuantities, selectedDay, currentRoute, currentUser, toastContext, logger) => {
+  // Extract both toast methods and removeToast from the context
+  const { toast, removeToast } = toastContext;
   try {
     // Validation checks with user feedback
     if (!loadList || loadList.length === 0) {
@@ -184,7 +186,7 @@ export const generatePrintView = (loadList, customQuantities, selectedDay, curre
         const printWindow = window.open('', '_blank');
         
         if (!printWindow) {
-          toast.removeToast(loadingToastId);
+          removeToast(loadingToastId);
           toast.error('Print window blocked by browser', {
             title: 'Print Failed',
             action: {
@@ -209,7 +211,7 @@ export const generatePrintView = (loadList, customQuantities, selectedDay, curre
         // Helper function to clean up loading toast
         const clearLoadingToast = () => {
           if (!toastCleared) {
-            toast.removeToast(loadingToastId);
+            removeToast(loadingToastId);
             toastCleared = true;
           }
         };
@@ -251,12 +253,12 @@ export const generatePrintView = (loadList, customQuantities, selectedDay, curre
         }, 10000);
 
       } catch (printError) {
-        toast.removeToast(loadingToastId);
+        removeToast(loadingToastId);
         toast.error('Failed to generate print view', {
           title: 'Print Error',
           action: {
             label: 'Retry',
-            handler: () => generatePrintView(loadList, customQuantities, selectedDay, currentRoute, currentUser, toast, logger)
+            handler: () => generatePrintView(loadList, customQuantities, selectedDay, currentRoute, currentUser, toastContext, logger)
           }
         });
         logger.error('Print generation failed', { error: printError.message });
@@ -268,7 +270,7 @@ export const generatePrintView = (loadList, customQuantities, selectedDay, curre
       title: 'Print Failed',
       action: {
         label: 'Try Again',
-        handler: () => generatePrintView(loadList, customQuantities, selectedDay, currentRoute, currentUser, toast, logger)
+        handler: () => generatePrintView(loadList, customQuantities, selectedDay, currentRoute, currentUser, toastContext, logger)
       }
     });
     logger.error('Print function error', { error: error.message });

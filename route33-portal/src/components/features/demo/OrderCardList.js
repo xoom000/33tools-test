@@ -1,70 +1,73 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../../ui';
-import { VARIANTS, LAYOUT, TYPOGRAPHY, ANIMATIONS } from '../../../theme';
+import { LIST_CONFIGS, LIST_STYLES } from '../../../config/tableConfigs';
 import { ORDER_STATUS } from '../../../constants/demo';
+import { COMPONENT_ANIMATIONS } from '../../../config/animationConfigs';
+import { cn } from '../../../utils/classNames';
 
-// COMPOSE, NEVER DUPLICATE - Order Cards List Component! ⚔️
-const OrderCardList = ({
+// COMPOSE, NEVER DUPLICATE - Order Cards List with Configuration! ⚔️
+const OrderCardList = memo(function OrderCardList({
   orders = [],
   onApproveOrder,
   className = ""
-}) => {
+}) {
+  const config = LIST_CONFIGS.orderCards;
+  const styles = LIST_STYLES;
+
   return (
-    <div className={`${VARIANTS.card.base} ${className}`}>
-      <div className={LAYOUT.padding.card}>
-        <div className="flex items-center justify-between mb-6">
-          <h2 className={`${TYPOGRAPHY.sizes.lg} ${TYPOGRAPHY.weights.semibold} text-slate-800`}>
-            Order Requests ({orders.length})
-          </h2>
-          <span className={`${TYPOGRAPHY.sizes.sm} text-emerald-600 ${TYPOGRAPHY.weights.medium}`}>
-            Live Demo Data
-          </span>
-        </div>
-        
-        <div className="space-y-4">
-          {orders.map((order, index) => (
-            <motion.div
-              key={order.id}
-              {...ANIMATIONS.slideUp}
-              transition={{ delay: index * 0.1 }}
-              className="bg-slate-50 rounded-xl p-4 border border-slate-200"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className={`${TYPOGRAPHY.weights.semibold} text-slate-800`}>
-                    {order.customer}
-                  </h3>
-                  <p className={`${TYPOGRAPHY.sizes.sm} text-slate-600`}>
-                    {order.items} items • {order.time}
-                  </p>
-                </div>
-                <div className="flex gap-2">
-                  <span className={`${TYPOGRAPHY.sizes.xs} px-2 py-1 rounded-full ${
-                    order.status === ORDER_STATUS.PENDING 
-                      ? 'bg-yellow-100 text-yellow-700' 
-                      : 'bg-emerald-100 text-emerald-700'
-                  }`}>
-                    {order.status}
-                  </span>
-                  {order.status === ORDER_STATUS.PENDING && onApproveOrder && (
-                    <Button 
-                      variant="primary" 
-                      size="small" 
-                      className={`${TYPOGRAPHY.sizes.xs} px-3 py-1`}
-                      onClick={() => onApproveOrder(order.id)}
-                    >
-                      Approve
-                    </Button>
-                  )}
-                </div>
+    <div className={cn('bg-white rounded-2xl shadow-sm border border-slate-100 p-6', className)}>
+      <div className={styles.header.container}>
+        <h2 className={styles.header.title}>
+          Order Requests ({orders.length})
+        </h2>
+        <span className="text-emerald-600 font-medium text-sm">
+          Live Demo Data
+        </span>
+      </div>
+      
+      <div className={config.layout.container}>
+        {orders.map((order, index) => (
+          <motion.div
+            key={order.id}
+            {...COMPONENT_ANIMATIONS.list.item}
+            transition={{
+              ...COMPONENT_ANIMATIONS.list.item.transition,
+              delay: index * (config.animation?.stagger || 0.1)
+            }}
+            className={config.layout.item}
+          >
+            <div className={config.layout.header}>
+              <div>
+                <h3 className={config.content.title.className}>
+                  {order[config.content.title.field]}
+                </h3>
+                <p className={config.content.subtitle.className}>
+                  {order.items} items • {order.time}
+                </p>
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <div className="flex gap-2">
+                <span className={cn(
+                  config.status.className,
+                  config.status.badges[order.status] || config.status.badges.pending
+                )}>
+                  {order.status}
+                </span>
+                {order.status === ORDER_STATUS.PENDING && onApproveOrder && (
+                  <Button 
+                    {...config.actions.approve}
+                    onClick={() => onApproveOrder(order.id)}
+                  >
+                    {config.actions.approve.label}
+                  </Button>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
-};
+});
 
 export default OrderCardList;

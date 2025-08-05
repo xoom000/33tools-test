@@ -1,31 +1,35 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { cn } from '../../utils/classNames';
 import { motion } from 'framer-motion';
 import Button from './Button';
+import Badge from './Badge';
 import { getDayDisplayName } from '../../utils/adminDashboardHelpers';
+import { COMPONENT_ANIMATIONS } from '../../config/animations';
+import { LAYOUT_PRESETS } from '../../config/layoutConfigs';
 
 // COMPOSE, NEVER DUPLICATE - Reusable customer selection grid!
-const CustomerSelectionGrid = ({ 
+const CustomerSelectionGrid = memo(function CustomerSelectionGrid({ 
   customersByDay,
   selectedCustomers,
   onSelectAll,
   onClearAll,
   onCustomerToggle,
   availableServiceDays = []
-}) => {
+}) {
   return (
-    <div className="space-y-6 max-h-[60vh] overflow-y-auto">
+    <div className={LAYOUT_PRESETS.customerSelection.container}>
       {availableServiceDays.map((day) => {
         const dayCustomers = customersByDay[day] || [];
         
         if (dayCustomers.length === 0) return null;
 
         return (
-          <div key={day} className="mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-slate-800">
+          <div key={day} className={LAYOUT_PRESETS.customerSelection.section}>
+            <div className={cn(LAYOUT_PRESETS.customerSelection.sectionHeader, 'mb-4')}>
+              <h3 className={LAYOUT_PRESETS.customerSelection.sectionTitle}>
                 {getDayDisplayName(day)} ({dayCustomers.length} customers)
               </h3>
-              <div className="flex gap-2">
+              <div className={LAYOUT_PRESETS.customerSelection.buttonGroup}>
                 <Button
                   variant="outline"
                   size="xs"
@@ -43,7 +47,7 @@ const CustomerSelectionGrid = ({
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+            <div className={LAYOUT_PRESETS.customerSelection.grid}>
               {dayCustomers.map((customer) => (
                 <CustomerSelectionCard
                   key={customer.customer_number}
@@ -59,12 +63,12 @@ const CustomerSelectionGrid = ({
       
       {/* Show unassigned customers if they exist */}
       {customersByDay.unassigned && customersByDay.unassigned.length > 0 && (
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-slate-800">
+        <div className={LAYOUT_PRESETS.customerSelection.section}>
+          <div className={cn(LAYOUT_PRESETS.customerSelection.sectionHeader, 'mb-4')}>
+            <h3 className={LAYOUT_PRESETS.customerSelection.sectionTitle}>
               Unassigned ({customersByDay.unassigned.length} customers)
             </h3>
-            <div className="flex gap-2">
+            <div className={LAYOUT_PRESETS.customerSelection.buttonGroup}>
               <Button
                 variant="outline"
                 size="xs"
@@ -82,7 +86,7 @@ const CustomerSelectionGrid = ({
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+          <div className={LAYOUT_PRESETS.customerSelection.grid}>
             {customersByDay.unassigned.map((customer) => (
               <CustomerSelectionCard
                 key={customer.customer_number}
@@ -96,29 +100,32 @@ const CustomerSelectionGrid = ({
       )}
     </div>
   );
-};
+});
 
 // COMPOSE, NEVER DUPLICATE - Reusable customer selection card!
-const CustomerSelectionCard = ({ customer, isSelected, onToggle }) => {
+const CustomerSelectionCard = memo(function CustomerSelectionCard({ customer, isSelected, onToggle }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
-        isSelected
-          ? 'border-primary-500 bg-primary-50 shadow-md'
-          : 'border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-slate-100'
-      }`}
+      {...COMPONENT_ANIMATIONS.card.entrance}
+      {...COMPONENT_ANIMATIONS.card.hover}
+      className={cn(
+        'p-4 rounded-xl border-2 cursor-pointer transition-all',
+        {
+          'border-primary-500 bg-primary-50 shadow-md': isSelected,
+          'border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-slate-100': !isSelected
+        }
+      )}
       onClick={onToggle}
     >
       <div className="flex items-center gap-3">
-        <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold ${
-          isSelected
-            ? 'bg-blue-500 text-white'
-            : 'bg-slate-300 text-slate-600'
-        }`}>
+        <Badge
+          size="lg"
+          variant={isSelected ? 'primary' : 'default'}
+          shape="square"
+          className="w-8 h-8 font-bold"
+        >
           {isSelected ? '✓' : customer.account_name?.charAt(0) || '#'}
-        </div>
+        </Badge>
         <div className="flex-1">
           <h4 className="font-semibold text-slate-800 text-sm leading-tight">
             {customer.account_name}
@@ -130,6 +137,6 @@ const CustomerSelectionCard = ({ customer, isSelected, onToggle }) => {
       </div>
     </motion.div>
   );
-};
+});
 
 export default CustomerSelectionGrid;

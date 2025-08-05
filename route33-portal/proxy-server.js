@@ -6,6 +6,8 @@ const config = require('../api/config');
 
 const app = express();
 
+// NOTE: Don't parse body for proxy - let the proxy handle raw requests
+
 // CRITICAL SECURITY: Implement Content Security Policy and security headers
 app.use((req, res, next) => {
   // Content Security Policy - Prevents XSS attacks

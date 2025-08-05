@@ -1,5 +1,7 @@
 import React from 'react';
+import { cn } from '../../utils/classNames';
 import ButtonGroup from './ButtonGroup';
+import { FLEX_LAYOUTS, SPACING_PATTERNS } from '../../config/layoutConfigs';
 
 // COMPOSE, NEVER DUPLICATE - Modal footer base component! ⚔️
 const ModalFooter = ({ 
@@ -8,14 +10,14 @@ const ModalFooter = ({
   className = ''
 }) => {
   const variants = {
-    default: 'flex items-center justify-between mt-6 pt-4 border-t border-slate-200',
-    centered: 'flex items-center justify-center mt-6 pt-4 border-t border-slate-200',
-    right: 'flex items-center justify-end mt-6 pt-4 border-t border-slate-200',
-    simple: 'flex items-center justify-end mt-6 gap-3'
+    default: cn(FLEX_LAYOUTS.header.between, 'mt-6 pt-4 border-t border-slate-200'),
+    centered: cn(FLEX_LAYOUTS.header.center, 'mt-6 pt-4 border-t border-slate-200'),
+    right: cn(FLEX_LAYOUTS.header.end, 'mt-6 pt-4 border-t border-slate-200'),
+    simple: cn(FLEX_LAYOUTS.header.end, 'mt-6', SPACING_PATTERNS.gap.normal)
   };
 
   return (
-    <div className={`${variants[variant]} ${className}`}>
+    <div className={cn(variants[variant], className)}>
       {children}
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import logger from '../utils/logger';
+import { OptimizedAuthProvider } from './auth/OptimizedAuthProvider';
 
 // Create the context
 const AuthContext = createContext();
@@ -214,13 +215,62 @@ export const AuthProvider = ({ children }) => {
       logger.info('Driver logged in', { 
         driver: driverData.name,
         route: driverData.route_number,
-        role: driverData.role
+        role: driverData.role,
+        isReliefDriver: driverData.is_relief_driver
       });
       
     } catch (error) {
       console.error('🚨 DRIVER LOGIN ERROR:', error);
       logger.error('Driver login failed', { error: error.message });
       setAuthError('Failed to save login session');
+    }
+  };
+
+  // Relief driver activation function
+  const activateReliefDriver = async (token) => {
+    try {
+      console.log('🔥 RELIEF DRIVER ACTIVATION STARTED');
+      setIsLoading(true);
+      setAuthError(null);
+
+      const response = await fetch('/api/relief-driver/activate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token })
+      });
+
+      const result = await response.json();
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to activate relief driver');
+      }
+
+      const { driver, auth_token } = result.data;
+      
+      // Login the relief driver
+      loginDriver(driver, auth_token);
+      
+      console.log('✅ RELIEF DRIVER ACTIVATED:', {
+        driver: driver.name,
+        route: driver.route_number,
+        isReliefDriver: driver.is_relief_driver
+      });
+
+      logger.info('Relief driver activated', {
+        driver: driver.name,
+        route: driver.route_number
+      });
+
+      return { success: true, driver };
+    } catch (error) {
+      console.error('❌ RELIEF DRIVER ACTIVATION ERROR:', error);
+      setAuthError(error.message);
+      logger.error('Relief driver activation failed', { error: error.message });
+      return { success: false, error: error.message };
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -277,12 +327,18 @@ export const AuthProvider = ({ children }) => {
     );
   };
 
+  // Check if current user is a relief driver
+  const isReliefDriver = () => {
+    return userType === 'driver' && currentUser?.is_relief_driver === true;
+  };
+
   // Get user display name
   const getUserDisplayName = () => {
     if (!currentUser) return null;
     
     if (userType === 'driver') {
-      return `${currentUser.name} (Route ${currentUser.route_number})`;
+      const reliefBadge = currentUser.is_relief_driver ? ' - Relief Driver' : '';
+      return `${currentUser.name} (Route ${currentUser.route_number})${reliefBadge}`;
     } else if (userType === 'customer') {
       return `${currentUser.account_name} (${currentUser.customer_number})`;
     }
@@ -309,6 +365,7 @@ export const AuthProvider = ({ children }) => {
     // Functions
     loginCustomer,
     loginDriver,
+    activateReliefDriver,
     logout,
     refreshAuth,
     
@@ -316,6 +373,7 @@ export const AuthProvider = ({ children }) => {
     isCustomer,
     isDriver,
     isAdmin,
+    isReliefDriver,
     getUserDisplayName,
     
     // Legacy compatibility (for existing components)
@@ -324,10 +382,25 @@ export const AuthProvider = ({ children }) => {
     setIsLoading
   };
 
+  // Use optimized split context provider for better performance
   return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
+    <OptimizedAuthProvider
+      currentUser={currentUser}
+      userType={userType}
+      isLoggedIn={isLoggedIn}
+      isLoading={isLoading}
+      authError={authError}
+      loginCustomer={loginCustomer}
+      loginDriver={loginDriver}
+      logout={logout}
+      refreshAuth={refreshAuth}
+      setIsLoading={setIsLoading}
+    >
+      {/* Legacy context for backward compatibility */}
+      <AuthContext.Provider value={value}>
+        {children}
+      </AuthContext.Provider>
+    </OptimizedAuthProvider>
   );
 };
 

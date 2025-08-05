@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { cn } from '../../utils/classNames';
 import Button from './Button';
 import { useToast } from '../../contexts/ToastContext';
 
@@ -58,7 +59,7 @@ const DevTransferButton = ({ className = '' }) => {
         size="small"
         onClick={handleClick}
         disabled={uploading}
-        className={`${className}`}
+        className={cn(className)}
       >
         {uploading ? '📤 Uploading...' : '📁 Transfer'}
       </Button>

@@ -1,0 +1,1992 @@
+{
+  "summary": {
+    "total_changes": 148,
+    "additions": 42,
+    "removals": 60,
+    "updates": 46
+  },
+  "changes": {
+    "additions": [
+      {
+        "customer_number": 170870,
+        "account_name": "Antler's Resort - Seasonal",
+        "address": "20679 Antlers Rd",
+        "city": "Lakehead",
+        "state": "CA",
+        "zip_code": "96051",
+        "route_number": 5,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 212636,
+        "account_name": "Antler's Resort - Seasonal",
+        "address": "20679 Antlers Rd",
+        "city": "Lakehead",
+        "state": "CA",
+        "zip_code": "96051",
+        "route_number": 5,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 257624,
+        "account_name": "Lake Shasta Caverns - Seasonal hold",
+        "address": "20359 Shasta Caverns Rd",
+        "city": "Lakehead",
+        "state": "CA",
+        "zip_code": "96051",
+        "route_number": 5,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 257625,
+        "account_name": "Lake Shasta Cruise - Seasonal hold",
+        "address": "20359 Shasta Caverns Rd",
+        "city": "Lakehead",
+        "state": "CA",
+        "zip_code": "96051",
+        "route_number": 5,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 272700,
+        "account_name": "Lake Shasta FS - D/S Seasonal Hold",
+        "address": "20359 Shasta Caverns Rd",
+        "city": "Lakehead",
+        "state": "CA",
+        "zip_code": "96051",
+        "route_number": 5,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 279403,
+        "account_name": "The Village At Child's Meadow - Seasonal Hold",
+        "address": "41500 Hwy 36 E",
+        "city": "Millcreek",
+        "state": "CA",
+        "zip_code": "96061",
+        "route_number": 75,
+        "service_days": "F",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 300204,
+        "account_name": "Coburn's Asphalt",
+        "address": "6100 State Highway 273",
+        "city": "Anderson",
+        "state": "CA",
+        "zip_code": "96007",
+        "route_number": 5,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 320181,
+        "account_name": "Sierra Cascade Nursery Kitchen - SEASONAL",
+        "address": "472-715 Johnson Road",
+        "city": "Susanville",
+        "state": "CA",
+        "zip_code": "96130",
+        "route_number": 9,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 323655,
+        "account_name": "Anderson's Landscape & Irrigation Repair",
+        "address": "2648 Yana Avenue",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96002",
+        "route_number": 9,
+        "service_days": "W",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 323722,
+        "account_name": "Trinity County Department of Transportation",
+        "address": " 31820 CA-3",
+        "city": "Weaverville",
+        "state": "CA",
+        "zip_code": "96093",
+        "route_number": 9,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 323795,
+        "account_name": "Shasta College Culinary Department",
+        "address": "11555 Old Oregon Trail",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 5,
+        "service_days": "F",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 323986,
+        "account_name": "FTH - Bakery",
+        "address": "930 Hilltop Drive Suite D",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 33,
+        "service_days": "F",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 323995,
+        "account_name": "Junction School - Kitchen",
+        "address": "9087 Deschutes Road",
+        "city": "Palo Cedro",
+        "state": "CA",
+        "zip_code": "96073",
+        "route_number": 33,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324049,
+        "account_name": "Rodeway Inn",
+        "address": "532 North Market Street",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 9,
+        "service_days": "F",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324050,
+        "account_name": "Eddie Axner Construction",
+        "address": "5249 Old Oregon Trail",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96002",
+        "route_number": 75,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324051,
+        "account_name": "Blue Ox Bistro",
+        "address": "602 Main Street Suite B",
+        "city": "Susanville",
+        "state": "CA",
+        "zip_code": "96130",
+        "route_number": 9,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324133,
+        "account_name": "Lakeshore Inn Resort",
+        "address": "20483 Lakeshore Drive",
+        "city": "Lakehead",
+        "state": "CA",
+        "zip_code": "96051",
+        "route_number": 5,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324286,
+        "account_name": "Redding Elks Lodge Maintenance",
+        "address": "250 Elk Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 12,
+        "service_days": "M",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324287,
+        "account_name": "Redding Elks Lodge Kitchen",
+        "address": "250 Elk Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 12,
+        "service_days": "M",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324288,
+        "account_name": "Redding Elks Lodge Events",
+        "address": "250 Elk Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 12,
+        "service_days": "M",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324289,
+        "account_name": "Redding Elks Lodge Bar",
+        "address": "250 Elk Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 12,
+        "service_days": "M",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324428,
+        "account_name": "Sunsational Tanning",
+        "address": "2866 Park Marina Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96001",
+        "route_number": 11,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324443,
+        "account_name": "Vic Hannan Landscape Materials",
+        "address": "7086 CA-273",
+        "city": "Anderson",
+        "state": "CA",
+        "zip_code": "96007",
+        "route_number": 5,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324517,
+        "account_name": "Integrity Medical Center",
+        "address": "317 Lake Boulevard Suite A",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 33,
+        "service_days": "M",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324545,
+        "account_name": "Country Organics",
+        "address": "2745 Bechelli Lane",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96002",
+        "route_number": 11,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324843,
+        "account_name": "Le Testimony Organic Bistro (BD)",
+        "address": "3365 Placer Street",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96001",
+        "route_number": 12,
+        "service_days": "F",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324893,
+        "account_name": "Capitol Helicopters",
+        "address": "8670 Old Oregon Trail",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96002",
+        "route_number": 75,
+        "service_days": "H",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324966,
+        "account_name": "Pizza Factory",
+        "address": "2975 Main Street",
+        "city": "Susanville",
+        "state": "CA",
+        "zip_code": "96130",
+        "route_number": 9,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 324967,
+        "account_name": "Pizza Factory",
+        "address": "464-420 Church Street",
+        "city": "Janesville",
+        "state": "CA",
+        "zip_code": "96114",
+        "route_number": 9,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325038,
+        "account_name": "Grape Ranch Golf Club",
+        "address": "22499 Golftime Drive",
+        "city": "Palo Cedro",
+        "state": "CA",
+        "zip_code": "96073",
+        "route_number": 33,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325133,
+        "account_name": "Logan's Steakhouse #888",
+        "address": "1955 Hilltop Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96002",
+        "route_number": 12,
+        "service_days": "MWF",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325134,
+        "account_name": "Logan's Steakhouse DS",
+        "address": "1955 Hilltop Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96002",
+        "route_number": 12,
+        "service_days": "MWF",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325155,
+        "account_name": "Spice Garden",
+        "address": "1619 Hilltop Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96002",
+        "route_number": 12,
+        "service_days": "W",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325157,
+        "account_name": "Mister Taco",
+        "address": "1755 Lake Boulevard",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 12,
+        "service_days": "W",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325188,
+        "account_name": "Northeastern Rural Health Clinics",
+        "address": "1850 Spring Ridge Drive",
+        "city": "Susanville",
+        "state": "CA",
+        "zip_code": "96130",
+        "route_number": 9,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325240,
+        "account_name": "Cal Fire",
+        "address": "875 Cypress Avenue",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96001",
+        "route_number": 5,
+        "service_days": "M",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325296,
+        "account_name": "Hilltop Springs Senior Living",
+        "address": "7 Hilltop Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 12,
+        "service_days": "W",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325404,
+        "account_name": "GAIA",
+        "address": "4125 Riverside Place",
+        "city": "Anderson",
+        "state": "CA",
+        "zip_code": "96007",
+        "route_number": 12,
+        "service_days": "TF",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325407,
+        "account_name": "Esthetics by Jaz",
+        "address": "2295 Hilltop Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96002",
+        "route_number": 12,
+        "service_days": "W",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325439,
+        "account_name": "Happy Valley Fire Center",
+        "address": " Canyon Road",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96001",
+        "route_number": 5,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325484,
+        "account_name": "Waffle Bite",
+        "address": "6400 Westside Road",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96001",
+        "route_number": 5,
+        "service_days": "T",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 325496,
+        "account_name": "Rocky Point Kitchen",
+        "address": "3500 Tamarack Drive",
+        "city": "Redding",
+        "state": "CA",
+        "zip_code": "96003",
+        "route_number": 33,
+        "service_days": "M",
+        "action": "INSERT",
+        "risk_level": "LOW",
+        "default_checked": true
+      }
+    ],
+    "removals": [
+      {
+        "customer_number": 170617,
+        "account_name": "S.C.P.",
+        "address": "6959 Eastside Rd",
+        "city": "Redding",
+        "route_number": 5,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 170717,
+        "account_name": "Riverview Restaurant - Seasonal",
+        "address": "4422 Gover Rd",
+        "city": "Anderson",
+        "route_number": 5,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 171207,
+        "account_name": "Sav-Mor #12 Linen",
+        "address": "6536 Westside Rd",
+        "city": "Redding",
+        "route_number": 5,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 171209,
+        "account_name": "Sav-Mor #12 Groc",
+        "address": "6536 Westside Rd",
+        "city": "Redding",
+        "route_number": 5,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 207845,
+        "account_name": "CINTAS STARBUCKS #8114/340000782",
+        "address": "2980 Main St",
+        "city": "Susanville",
+        "route_number": 9,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 213537,
+        "account_name": "Save Mart #477 Meat",
+        "address": "1330 Churn Creek Rd",
+        "city": "Redding",
+        "route_number": 9,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 213538,
+        "account_name": "Save Mart #477 Grocery",
+        "address": "1330 Churn Creek Rd",
+        "city": "Redding",
+        "route_number": 9,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 213539,
+        "account_name": "Save Mart #477 Produce",
+        "address": "1330 Churn Creek Rd",
+        "city": "Redding",
+        "route_number": 9,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 213540,
+        "account_name": "Save Mart #477 Bakery",
+        "address": "1330 Churn Creek Rd",
+        "city": "Redding",
+        "route_number": 9,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 213625,
+        "account_name": "FoodMaxx #476 Meat",
+        "address": "94 Belle Mill Rd",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 213626,
+        "account_name": "FoodMaxx #476 Produce",
+        "address": "94 Belle Mill Rd",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 213627,
+        "account_name": "FoodMaxx #476 Bakery",
+        "address": "94 Belle Mill Rd",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 213628,
+        "account_name": "FoodMaxx #476 Grocery",
+        "address": "94 Belle Mill Rd",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 214014,
+        "account_name": "Save Mart #477 Deli",
+        "address": "1330 Churn Creek Rd",
+        "city": "Redding",
+        "route_number": 9,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 222747,
+        "account_name": "Singletonauman PC - Seasonal",
+        "address": "1740 Main St",
+        "city": "Susanville",
+        "route_number": 9,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 223507,
+        "account_name": "Brandy Moffat-Womens",
+        "address": "2701 Old Eureka Way Suite 1000",
+        "city": "Redding",
+        "route_number": 11,
+        "service_days": "F",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 235203,
+        "account_name": "Rogers Machinery",
+        "address": "5006 Mountain Lakes Blvd",
+        "city": "Redding",
+        "route_number": 5,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 237401,
+        "account_name": "Redding Elks Lodge 1073",
+        "address": "250 Elk Dr",
+        "city": "Redding",
+        "route_number": 12,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 255057,
+        "account_name": "Days Inn",
+        "address": "5 Sutter St",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 261699,
+        "account_name": "Bell Automotive Service",
+        "address": "2130 Balls Ferry Rd",
+        "city": "Anderson",
+        "route_number": 5,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 265008,
+        "account_name": "Taj Mahal",
+        "address": "1619 Hilltop Dr, Unit C",
+        "city": "Redding",
+        "route_number": 12,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 265377,
+        "account_name": "Geris Weddings - Catering",
+        "address": "1773 ST HWY 273",
+        "city": "Anderson",
+        "route_number": 5,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 266273,
+        "account_name": "Applebee's #9970",
+        "address": "220 Antelope Blvd",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 266275,
+        "account_name": "Logan's Steakhouse #888",
+        "address": "1955 Hilltop Dr",
+        "city": "Redding",
+        "route_number": 12,
+        "service_days": "MWF",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 266285,
+        "account_name": "Applebee's #8912",
+        "address": "1801 Hilltop Dr",
+        "city": "Redding",
+        "route_number": 12,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 268330,
+        "account_name": "Fearless 4 Wheel Drive",
+        "address": "2165 Pine St",
+        "city": "Redding",
+        "route_number": 9,
+        "service_days": "F",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 273300,
+        "account_name": "Logan's Steakhouse - D/S",
+        "address": "1955 Hilltop Dr",
+        "city": "Redding",
+        "route_number": 12,
+        "service_days": "MWF",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 278957,
+        "account_name": "Institute Of Tech - NHI",
+        "address": "1755 Hilltop Dr",
+        "city": "Redding",
+        "route_number": 5,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 279597,
+        "account_name": "Lassen Union HS District - D/S",
+        "address": "1324 Cornell Street",
+        "city": "Susanville",
+        "route_number": 9,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 280562,
+        "account_name": "MD Imaging - D/S",
+        "address": "2020 Court St",
+        "city": "Redding",
+        "route_number": 11,
+        "service_days": "MTWHF",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 283612,
+        "account_name": "Oasis Shell",
+        "address": "18850 Old Oasis Rd",
+        "city": "Redding",
+        "route_number": 5,
+        "service_days": "H",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 285666,
+        "account_name": "Tea For You",
+        "address": "1340 Churn Creek Rd",
+        "city": "Redding",
+        "route_number": 12,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 285917,
+        "account_name": "Applebee's Janitorial",
+        "address": "1801 Hilltop Drive",
+        "city": "Redding",
+        "route_number": 12,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 288482,
+        "account_name": "Kuper's Auto D/S",
+        "address": "425 Antelope Blvd.",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 294885,
+        "account_name": "Pampered Pets",
+        "address": "14421 Old Oregon Trail Suite  C",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "H",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 295449,
+        "account_name": "MPI Equipment",
+        "address": "8537 Commerical Way",
+        "city": "Redding",
+        "route_number": 75,
+        "service_days": "H",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 296403,
+        "account_name": "Afterglow Massage",
+        "address": "2345 Athens Ave.",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 298036,
+        "account_name": "Redding Sports Therapy",
+        "address": "2335 Athens Ave.",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 299508,
+        "account_name": "NORM'S",
+        "address": "9348 Deschutes Road",
+        "city": "Palo Cedro",
+        "route_number": 33,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 300457,
+        "account_name": "Save Mart # 612 Meat",
+        "address": "4631 Churn Creek Road",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "F",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 300459,
+        "account_name": "Save Mart # 612 Grocery",
+        "address": "4631 Churn Creek Road",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "F",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 300464,
+        "account_name": "Save Mart # 612 Produce",
+        "address": "4631 Churn Creek Road",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "F",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 300466,
+        "account_name": "Save Mart # 612 Bakery",
+        "address": "4631 Churn Creek Road",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "F",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 300467,
+        "account_name": "Save Mart # 612 Deli",
+        "address": "4631 Churn Creek Road",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "F",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 300944,
+        "account_name": "Palomino Room - Ramone's Kitchen",
+        "address": "723 Main Street",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 300986,
+        "account_name": "Palomino Room - Bar",
+        "address": "723 Main Street",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 301227,
+        "account_name": "Northstate Dental",
+        "address": "2787 Eureka Way",
+        "city": "Redding",
+        "route_number": 11,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 301488,
+        "account_name": "Save Mart #612 - Restaurant",
+        "address": "4631 Churn Creek Road",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "F",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 302099,
+        "account_name": "Paragon Medical Radiation Oncology Redding",
+        "address": "923 Dana Drive",
+        "city": "Redding",
+        "route_number": 12,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 303253,
+        "account_name": "Tractor Supply #1905",
+        "address": "142 Robs Way",
+        "city": "Susanville",
+        "route_number": 9,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 309736,
+        "account_name": "Shasta - Trinity Rop",
+        "address": "4659 Eastside Road",
+        "city": "Redding",
+        "route_number": 5,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 309832,
+        "account_name": "Beaton Plumbing",
+        "address": "18233 Clear Creek Rd",
+        "city": "Redding",
+        "route_number": 5,
+        "service_days": "T",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 312243,
+        "account_name": "DH Medical Group North State",
+        "address": "2528 Sister Mary Columba Drive",
+        "city": "Red Bluff",
+        "route_number": 75,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 312258,
+        "account_name": "Redding Heating & Air",
+        "address": "840 Commerce Street",
+        "city": "Redding",
+        "route_number": 9,
+        "service_days": "F",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 314385,
+        "account_name": "Nutrishop",
+        "address": "1619 Hilltop Dr",
+        "city": "Redding",
+        "route_number": 9,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 315031,
+        "account_name": "Boulder Creek RV Resort",
+        "address": "280 North Boulder Drive",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 315787,
+        "account_name": "Breslin Occupational Therapy",
+        "address": "20 Hilltop Drive Unit A",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "M",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 318468,
+        "account_name": "The Shack",
+        "address": "1325 Eureka Way",
+        "city": "Redding",
+        "route_number": 12,
+        "service_days": "H",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 319341,
+        "account_name": "Pro Trans",
+        "address": "1113 Center Street",
+        "city": "Redding",
+        "route_number": 33,
+        "service_days": "W",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      },
+      {
+        "customer_number": 323544,
+        "account_name": "Test Customer Dev Mode",
+        "address": "123 Dev Street",
+        "city": "Test City",
+        "route_number": 33,
+        "service_days": "",
+        "action": "DEACTIVATE",
+        "risk_level": "HIGH",
+        "default_checked": false,
+        "warning": "This will deactivate the customer in the database"
+      }
+    ],
+    "updates": [
+      {
+        "customer_number": 301105,
+        "account_name": "Elliott Acupuncture",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "1257 West Street",
+            "new_value": "1839 Sonoma St"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 209005,
+        "account_name": "Mountain View School ",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Mountain View School",
+            "new_value": "Mountain View School "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 321728,
+        "account_name": " DH Wound Care - Mercy Medical Center",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "DH Wound Care - Mercy Medical Center",
+            "new_value": " DH Wound Care - Mercy Medical Center"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 211150,
+        "account_name": "TNS Trucking ",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "TNS Trucking",
+            "new_value": "TNS Trucking "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 315612,
+        "account_name": "Vintage Glamour",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "1166 Hartnell Avenue",
+            "new_value": "1790 California St"
+          },
+          {
+            "field": "zip_code",
+            "old_value": "96002",
+            "new_value": "96001"
+          },
+          {
+            "field": "service_days",
+            "old_value": "W",
+            "new_value": "F"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 278815,
+        "account_name": "RCC - Maintenance ",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "RCC - Maintenance",
+            "new_value": "RCC - Maintenance "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 301422,
+        "account_name": "Mill Creek Resort - Seasonal",
+        "route_number": 75,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "40271 CA-172",
+            "new_value": " 40271 CA-172"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 170444,
+        "account_name": "Vista Middle School ",
+        "route_number": 75,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Vista Middle School",
+            "new_value": "Vista Middle School "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 170458,
+        "account_name": "Meteer School ",
+        "route_number": 75,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Meteer School",
+            "new_value": "Meteer School "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 170461,
+        "account_name": "Bidwell School ",
+        "route_number": 75,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Bidwell School",
+            "new_value": "Bidwell School "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 274936,
+        "account_name": "OBSIDIAN ",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "OBSIDIAN",
+            "new_value": "OBSIDIAN "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 285213,
+        "account_name": "Plumas Bank",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Cornerstone Community Bank",
+            "new_value": "Plumas Bank"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 203296,
+        "account_name": "Golden State Farm Credit",
+        "route_number": 75,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Golden State Farm Credit- remodel",
+            "new_value": "Golden State Farm Credit"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 246320,
+        "account_name": "Rio Skin Body - Deana ",
+        "route_number": 75,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Rio Skin Body - Deana",
+            "new_value": "Rio Skin Body - Deana "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 170657,
+        "account_name": "Columbia School Kitchen ",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Columbia School Kitchen",
+            "new_value": "Columbia School Kitchen "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 320172,
+        "account_name": "Body Work Innovations",
+        "route_number": 12,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "979 Mission de Oro Drive",
+            "new_value": "847 Mistletoe Ln"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 314094,
+        "account_name": "Plumas Bank",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Cornerstone Bank",
+            "new_value": "Plumas Bank"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 310145,
+        "account_name": "Black Diamond Lounge",
+        "route_number": 12,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Northwest Holdings - Black Diamond Lounge",
+            "new_value": "Black Diamond Lounge"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 244613,
+        "account_name": "Court St Surgery",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "service_days",
+            "old_value": "MH",
+            "new_value": "MWF"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 244614,
+        "account_name": "Court St Surgery - D/S",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "service_days",
+            "old_value": "TH",
+            "new_value": "MWF"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 320398,
+        "account_name": "Capturing the Essence Salt Cave",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "service_days",
+            "old_value": "W",
+            "new_value": "F"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 320399,
+        "account_name": "E's Locker Room",
+        "route_number": 75,
+        "changes": [
+          {
+            "field": "service_days",
+            "old_value": "M",
+            "new_value": "T"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 170898,
+        "account_name": "Shasta Lake Fires ",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Shasta Lake Fires - D/S",
+            "new_value": "Shasta Lake Fires "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 277399,
+        "account_name": "RCC - Facility Services ",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "RCC - Facility Services",
+            "new_value": "RCC - Facility Services "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 299928,
+        "account_name": "Redding Rancheria ",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Redding Rancheria",
+            "new_value": "Redding Rancheria "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 242634,
+        "account_name": " Susanville Police Department - D/S",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Susanville Police Department - D/S",
+            "new_value": " Susanville Police Department - D/S"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 257021,
+        "account_name": "Hansens Pressure Washer",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Hansen's Pressure Washer`",
+            "new_value": "Hansens Pressure Washer"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 261201,
+        "account_name": " Value Inn & Suites",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Value Inn & Suites",
+            "new_value": " Value Inn & Suites"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 171122,
+        "account_name": "Miniature Precision",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "4488 Mountain Lakes Blvd",
+            "new_value": "4488 Mountain Lakes Blvd Ste A"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 306381,
+        "account_name": "Absolute Lash and Skin",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "1670 Market Street",
+            "new_value": "2775 Ventura St"
+          },
+          {
+            "field": "zip_code",
+            "old_value": "96001",
+            "new_value": "96007"
+          },
+          {
+            "field": "service_days",
+            "old_value": "H",
+            "new_value": "T"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 290005,
+        "account_name": "Black Rose Coffee & Tea, Inc.",
+        "route_number": 33,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Black Rose Coffee & Tea",
+            "new_value": "Black Rose Coffee & Tea, Inc."
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 296187,
+        "account_name": "Plumas Bank",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Cornerstone Bank",
+            "new_value": "Plumas Bank"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 257302,
+        "account_name": "COR Solid Waste Admin ",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "COR Solid Waste Admin",
+            "new_value": "COR Solid Waste Admin "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 277795,
+        "account_name": "Shasta Pathology Associates",
+        "route_number": 11,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "2036 Railroad Ave",
+            "new_value": "1725 Gold St"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 308596,
+        "account_name": "Redding School of The Arts ",
+        "route_number": 75,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Redding School of The Arts",
+            "new_value": "Redding School of The Arts "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 298364,
+        "account_name": "In-N-Out Burger # 348 ",
+        "route_number": 33,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "In-N-Out Burger # 348",
+            "new_value": "In-N-Out Burger # 348 "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 296457,
+        "account_name": "Angelo's European Specialty",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "service_days",
+            "old_value": "M",
+            "new_value": "W"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 323107,
+        "account_name": "Lassen College - Automotive ",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Lassen College - Automotive",
+            "new_value": "Lassen College - Automotive "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 323109,
+        "account_name": "Lassen College - Custodial ",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Lassen College - Custodial",
+            "new_value": "Lassen College - Custodial "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 171573,
+        "account_name": "Susanville Tow",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "",
+            "new_value": NaN
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 272039,
+        "account_name": "Team Perio",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Dr. Holpuch",
+            "new_value": "Team Perio"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 247562,
+        "account_name": "Shasta Lake W/Water",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "Tibitts Road",
+            "new_value": " Tibitts Road"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 323471,
+        "account_name": "DH Lassen Medical Clinic - Red Bluff",
+        "route_number": 75,
+        "changes": [
+          {
+            "field": "service_days",
+            "old_value": "M",
+            "new_value": "MWF"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 313288,
+        "account_name": "Plumas Bank",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "Cornerstone Community Bank",
+            "new_value": "Plumas Bank"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 276430,
+        "account_name": "SNL Group ",
+        "route_number": 5,
+        "changes": [
+          {
+            "field": "account_name",
+            "old_value": "SNL Group",
+            "new_value": "SNL Group "
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      },
+      {
+        "customer_number": 301009,
+        "account_name": "Bureau of Reclamation - Keswick",
+        "route_number": 9,
+        "changes": [
+          {
+            "field": "address",
+            "old_value": "16515 Keswick Dam Road",
+            "new_value": " 16515 Keswick Dam Road"
+          }
+        ],
+        "action": "UPDATE",
+        "risk_level": "LOW",
+        "default_checked": true
+      }
+    ]
+  }
+}

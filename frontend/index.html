@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route 33 Delivery System</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const API_BASE = 'http://localhost:3334/api';
+        
+        const App = () => {
+            const [view, setView] = React.useState('home');
+            const [route, setRoute] = React.useState(null);
+            const [deliveries, setDeliveries] = React.useState([]);
+            const [loading, setLoading] = React.useState(false);
+            
+            // Load today's deliveries
+            const loadDeliveries = async () => {
+                setLoading(true);
+                try {
+                    const res = await fetch(`${API_BASE}/deliveries/today?route_number=33`);
+                    const data = await res.json();
+                    setDeliveries(data.stops || []);
+                } catch (err) {
+                    console.error('Failed to load deliveries:', err);
+                }
+                setLoading(false);
+            };
+            
+            // Mark delivery complete
+            const completeDelivery = async (customerId) => {
+                try {
+                    await fetch(`${API_BASE}/deliveries/${customerId}/complete`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ notes: 'Delivered' })
+                    });
+                    loadDeliveries(); // Reload
+                } catch (err) {
+                    console.error('Failed to complete delivery:', err);
+                }
+            };
+            
+            React.useEffect(() => {
+                if (view === 'driver') {
+                    loadDeliveries();
+                }
+            }, [view]);
+            
+            // Home View
+            if (view === 'home') {
+                return (
+                    <div className="min-h-screen bg-gray-100 p-4">
+                        <div className="max-w-md mx-auto">
+                            <h1 className="text-3xl font-bold text-center mb-8 mt-16">Route 33</h1>
+                            
+                            <div className="space-y-4">
+                                <button 
+                                    onClick={() => setView('driver')}
+                                    className="w-full bg-blue-600 text-white p-4 rounded-lg text-lg font-semibold"
+                                >
+                                    Driver Dashboard
+                                </button>
+                                
+                                <button 
+                                    onClick={() => setView('customer')}
+                                    className="w-full bg-green-600 text-white p-4 rounded-lg text-lg font-semibold"
+                                >
+                                    Customer Portal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+            
+            // Driver View
+            if (view === 'driver') {
+                const completed = deliveries.filter(d => d.status === 'Completed').length;
+                const remaining = deliveries.filter(d => d.status !== 'Completed').length;
+                
+                return (
+                    <div className="min-h-screen bg-gray-100">
+                        <div className="bg-blue-600 text-white p-4">
+                            <h1 className="text-xl font-bold">Route 33 - Driver</h1>
+                            <div className="text-sm mt-2">
+                                Completed: {completed} | Remaining: {remaining}
+                            </div>
+                        </div>
+                        
+                        <div className="p-4">
+                            <button 
+                                onClick={() => setView('home')}
+                                className="mb-4 text-blue-600"
+                            >
+                                ← Back
+                            </button>
+                            
+                            {loading ? (
+                                <p>Loading...</p>
+                            ) : (
+                                <div className="space-y-3">
+                                    {deliveries.map(stop => (
+                                        <div 
+                                            key={stop.customer_number}
+                                            className={`bg-white p-4 rounded-lg shadow ${
+                                                stop.status === 'Completed' ? 'opacity-50' : ''
+                                            }`}
+                                        >
+                                            <h3 className="font-semibold">{stop.account_name}</h3>
+                                            <p className="text-sm text-gray-600">{stop.address}</p>
+                                            <p className="text-sm text-gray-600">{stop.city}</p>
+                                            
+                                            {stop.status !== 'Completed' && (
+                                                <button
+                                                    onClick={() => completeDelivery(stop.customer_number)}
+                                                    className="mt-2 bg-green-600 text-white px-4 py-2 rounded text-sm"
+                                                >
+                                                    Mark Complete
+                                                </button>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                );
+            }
+            
+            // Customer View
+            if (view === 'customer') {
+                return (
+                    <div className="min-h-screen bg-gray-100">
+                        <div className="bg-green-600 text-white p-4">
+                            <h1 className="text-xl font-bold">Route 33 - Customer Portal</h1>
+                        </div>
+                        
+                        <div className="p-4">
+                            <button 
+                                onClick={() => setView('home')}
+                                className="mb-4 text-green-600"
+                            >
+                                ← Back
+                            </button>
+                            
+                            <div className="bg-white p-6 rounded-lg shadow">
+                                <h2 className="text-xl font-semibold mb-4">Coming Soon!</h2>
+                                <p className="text-gray-600">
+                                    Customer ordering and delivery tracking will be available here.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+        };
+        
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

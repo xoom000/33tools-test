@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, memo } from 'react';
 import { motion } from 'framer-motion';
+import { INPUT_STYLES, COMPONENT_ANIMATIONS } from '../../config';
+import { cn } from '../../utils/classNames';
 
 // Icons for validation feedback
 const CheckIcon = () => (
@@ -14,8 +16,8 @@ const XIcon = () => (
   </svg>
 );
 
-// Enhanced FormInput with real-time validation
-const FormInput = ({
+// Enhanced FormInput with real-time validation - Memoized for Performance ⚔️
+const FormInput = memo(({
   label,
   type = 'text',
   placeholder,
@@ -59,55 +61,52 @@ const FormInput = ({
   }, [value, validator, showValidation, hasBeenBlurred, required, validationDelay]);
 
   const getInputClasses = () => {
-    let classes = `
-      w-full px-3 py-2 border rounded-lg 
-      focus:outline-none focus:ring-2 
-      transition-all duration-200
-      ${leftIcon ? 'pl-10' : ''}
-      ${(rightIcon || (showValidation && validationState)) ? 'pr-10' : ''}
-      ${disabled ? 'bg-gray-100 cursor-not-allowed' : 'bg-white'}
-      ${className}
-    `;
+    const styles = INPUT_STYLES.enhanced;
     
-    // Validation states override error prop
-    if (validationState === 'valid') {
-      classes += ' border-green-500 focus:ring-green-500';
-    } else if (validationState === 'invalid' || error) {
-      classes += ' border-red-500 focus:ring-red-500';
-    } else if (isFocused) {
-      classes += ' border-primary-500 focus:ring-primary-500';
-    } else {
-      classes += ' border-slate-300 focus:ring-primary-500';
-    }
-    
-    return classes;
+    return cn(
+      styles.input.base,
+      {
+        [styles.input.withLeftIcon]: leftIcon,
+        [styles.input.withRightIcon]: rightIcon || (showValidation && validationState),
+        [styles.input.disabled]: disabled,
+        [styles.states.valid]: validationState === 'valid',
+        [styles.states.invalid]: validationState === 'invalid' || error,
+        [styles.states.focused]: isFocused,
+        [styles.states.default]: !isFocused && validationState !== 'valid' && validationState !== 'invalid' && !error
+      },
+      className
+    );
   };
 
-  const handleFocus = (e) => {
+  // Extract callback props for stable references
+  const { onFocus: propOnFocus, onBlur: propOnBlur, ...restExtraProps } = extraProps;
+
+  const handleFocus = useCallback((e) => {
     setIsFocused(true);
-    if (extraProps.onFocus) extraProps.onFocus(e);
-  };
+    if (propOnFocus) propOnFocus(e);
+  }, [propOnFocus]);
 
-  const handleBlur = (e) => {
+  const handleBlur = useCallback((e) => {
     setIsFocused(false);
     setHasBeenBlurred(true);
-    if (extraProps.onBlur) extraProps.onBlur(e);
-  };
+    if (propOnBlur) propOnBlur(e);
+  }, [propOnBlur]);
 
+  const styles = INPUT_STYLES.enhanced;
+  
   return (
-    <div className="mb-4">
+    <div className={styles.container}>
       {label && (
         <motion.label 
-          className="block text-sm font-medium text-slate-700 mb-2"
-          animate={isFocused ? { scale: 1.02 } : { scale: 1 }}
-          transition={{ duration: 0.1 }}
+          className={styles.label}
+          {...COMPONENT_ANIMATIONS.form.field}
         >
           {label}
           {required && <span className="text-red-500 ml-1">*</span>}
         </motion.label>
       )}
       
-      <div className="relative">
+      <div className={styles.inputWrapper}>
         {leftIcon && (
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <span className="text-slate-400">{leftIcon}</span>
@@ -125,7 +124,7 @@ const FormInput = ({
             required={required}
             rows={rows}
             className={getInputClasses()}
-            {...extraProps}
+            {...restExtraProps}
           />
         ) : (
           <input
@@ -138,15 +137,14 @@ const FormInput = ({
             disabled={disabled}
             required={required}
             className={getInputClasses()}
-            {...extraProps}
+            {...restExtraProps}
           />
         )}
         
         {/* Validation icon or custom right icon */}
         {showValidation && validationState && !rightIcon && (
           <motion.div 
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            {...COMPONENT_ANIMATIONS.form.field}
             className="absolute inset-y-0 right-0 pr-3 flex items-center"
           >
             {validationState === 'valid' ? <CheckIcon /> : <XIcon />}
@@ -163,8 +161,7 @@ const FormInput = ({
       {/* Error messages with priority: validation > prop error */}
       {validationState === 'invalid' && hasBeenBlurred && validationMessage && (
         <motion.p 
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...COMPONENT_ANIMATIONS.form.error}
           className="text-red-500 text-sm mt-1 flex items-center gap-1"
         >
           <XIcon />
@@ -174,8 +171,7 @@ const FormInput = ({
       
       {!validationMessage && error && (
         <motion.p 
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...COMPONENT_ANIMATIONS.form.error}
           className="text-red-500 text-sm mt-1"
         >
           {error}
@@ -185,8 +181,7 @@ const FormInput = ({
       {/* Success message for valid state */}
       {validationState === 'valid' && hasBeenBlurred && (
         <motion.p 
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...COMPONENT_ANIMATIONS.form.field}
           className="text-green-500 text-sm mt-1 flex items-center gap-1"
         >
           <CheckIcon />
@@ -200,6 +195,6 @@ const FormInput = ({
       )}
     </div>
   );
-};
+});
 
 export default FormInput;

@@ -138,10 +138,7 @@ class DatabaseUpdateService {
     const mappingRules = {
       customers: this.mapCustomerData.bind(this),
       routes: this.mapRouteData.bind(this),
-      items: this.mapItemData.bind(this),
-      sales: this.mapSalesData.bind(this),
-      inventory: this.mapInventoryData.bind(this),
-      mixed: this.detectAndMapMixedData.bind(this)
+      items: this.mapItemData.bind(this)
     };
 
     const mapper = mappingRules[updateType];
@@ -185,6 +182,18 @@ class DatabaseUpdateService {
       driver_name: this.findField(row, ['driver_name', 'driver', 'name']),
       is_active: this.parseBoolean(this.findField(row, ['is_active', 'active', 'status']))
     })).filter(route => route.route_number && route.driver_name);
+  }
+
+  // ITEM DATA MAPPING
+  async mapItemData(data) {
+    return data.map(row => ({
+      item_number: this.findField(row, ['item_number', 'item_num', 'id']),
+      description: this.findField(row, ['description', 'desc', 'name']),
+      category: this.findField(row, ['category', 'cat']),
+      unit_of_measure: this.findField(row, ['unit_of_measure', 'uom', 'unit']),
+      base_price: parseFloat(this.findField(row, ['base_price', 'price'])) || 0,
+      is_active: this.parseBoolean(this.findField(row, ['is_active', 'active', 'status']))
+    })).filter(item => item.item_number && item.description);
   }
 
   // CHANGE PREVIEW GENERATOR
@@ -369,6 +378,48 @@ class DatabaseUpdateService {
     // - Don't update customer if they have recent orders
     // - Don't change route if driver is currently active
     return false;
+  }
+
+  // INSERT NEW RECORD
+  async insertRecord(db, data, updateType) {
+    switch (updateType) {
+      case 'customers':
+        return await this.runQuery(db, 
+          'INSERT INTO customers (customer_number, account_name, address, city, state, zip_code, route_number, service_frequency, service_days) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+          [data.customer_number, data.account_name, data.address, data.city, data.state, data.zip_code, data.route_number, data.service_frequency, data.service_days]
+        );
+      case 'routes':
+        return await this.runQuery(db,
+          'INSERT INTO routes (route_number, driver_name, is_active) VALUES (?, ?, ?)',
+          [data.route_number, data.driver_name, data.is_active ? 1 : 0]
+        );
+      case 'items':
+        return await this.runQuery(db,
+          'INSERT INTO item_catalog (item_number, description, category, unit_of_measure, base_price, is_active) VALUES (?, ?, ?, ?, ?, ?)',
+          [data.item_number, data.description, data.category, data.unit_of_measure, data.base_price, data.is_active ? 1 : 0]
+        );
+    }
+  }
+
+  // UPDATE EXISTING RECORD
+  async updateRecord(db, data, updateType) {
+    switch (updateType) {
+      case 'customers':
+        return await this.runQuery(db,
+          'UPDATE customers SET account_name = ?, address = ?, city = ?, state = ?, zip_code = ?, route_number = ?, service_frequency = ?, service_days = ? WHERE customer_number = ?',
+          [data.account_name, data.address, data.city, data.state, data.zip_code, data.route_number, data.service_frequency, data.service_days, data.customer_number]
+        );
+      case 'routes':
+        return await this.runQuery(db,
+          'UPDATE routes SET driver_name = ?, is_active = ? WHERE route_number = ?',
+          [data.driver_name, data.is_active ? 1 : 0, data.route_number]
+        );
+      case 'items':
+        return await this.runQuery(db,
+          'UPDATE item_catalog SET description = ?, category = ?, unit_of_measure = ?, base_price = ?, is_active = ? WHERE item_number = ?',
+          [data.description, data.category, data.unit_of_measure, data.base_price, data.is_active ? 1 : 0, data.item_number]
+        );
+    }
   }
 
   generateSummary(changes, updateType) {

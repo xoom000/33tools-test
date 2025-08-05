@@ -1,6 +1,7 @@
 import React from 'react';
 import { AnimatedContainer } from '../animations';
 import { LAYOUT, VARIANTS } from '../../theme';
+import { cn } from '../../utils/classNames';
 
 // COMPOSE, NEVER DUPLICATE - Centralized page layout using theme system! ⚔️
 const PageContainer = ({ 
@@ -11,10 +12,16 @@ const PageContainer = ({
   className = ''
 }) => {
   const containerClass = LAYOUT.containers[maxWidth] || maxWidth;
-  const cardClasses = `${VARIANTS.card[variant]} ${LAYOUT.padding.card} w-full ${containerClass} ${className}`;
+  const cardClasses = cn(
+    VARIANTS.card[variant],
+    LAYOUT.padding.card,
+    'w-full',
+    containerClass,
+    className
+  );
   
   return (
-    <div className={`${LAYOUT.backgrounds.page} flex items-center justify-center p-4`}>
+    <div className={cn(LAYOUT.backgrounds.page, 'flex items-center justify-center p-4')}>
       <AnimatedContainer
         variant={animation}
         className={cardClasses}

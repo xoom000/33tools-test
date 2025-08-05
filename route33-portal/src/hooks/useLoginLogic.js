@@ -92,8 +92,12 @@ const useLoginLogic = () => {
 
   const handleButtonAction = useCallback((buttonKey) => {
     switch (buttonKey) {
+      case 'driver':
       case BUTTON_ACTIONS.DRIVER_LOGIN:
         setLoginType('driver');
+        break;
+      case 'guest':
+        navigate(ROUTES.DEMO);
         break;
       case BUTTON_ACTIONS.SETUP_TOKEN:
         openModal('TokenModal');
@@ -104,7 +108,7 @@ const useLoginLogic = () => {
       default:
         console.warn('Unknown button action:', buttonKey);
     }
-  }, []);
+  }, [navigate]);
 
   // Return everything the UI component needs - AdminDashboard pattern!
   return {

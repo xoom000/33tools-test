@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatedContainer } from '../../animations';
 import { Button, QuantityControl } from '../../ui';
 import { getDayDisplayName } from '../../../utils/adminDashboardHelpers';
 import { ICONS } from '../../../utils/constants';
+import { ANIMATION_EASINGS, ANIMATION_DURATIONS } from '../../../config/animationConfigs';
+import { cn } from '../../../utils/classNames';
+import PerformanceProfiler from '../../profiler/PerformanceProfiler';
 
 const LoadListTab = ({
   loadList = [],
@@ -27,9 +30,24 @@ const LoadListTab = ({
   onRefresh,
   onSetEditingQuantity
 }) => {
+  // Memoize expensive calculations
+  const totalQuantity = useMemo(() => {
+    return loadList.reduce((sum, item) => sum + item.total_quantity, 0);
+  }, [loadList]);
+  
+  const sortedLoadList = useMemo(() => {
+    return [...loadList].sort((a, b) => {
+      const aLoaded = loadedItems.has(a.item_number);
+      const bLoaded = loadedItems.has(b.item_number);
+      if (aLoaded === bLoaded) return 0;
+      return aLoaded ? 1 : -1; // Loaded items go to bottom
+    });
+  }, [loadList, loadedItems]);
+  
   return (
-    <AnimatedContainer
-      variant="slideRight"
+    <PerformanceProfiler id="LoadListTab">
+      <AnimatedContainer
+        variant="slideRight"
       className="space-y-6"
     >
       <div className="bg-white rounded-2xl shadow-sm border border-slate-100">
@@ -98,7 +116,7 @@ const LoadListTab = ({
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <div>
                     Total items: <strong>{loadList.length}</strong> | 
-                    Total quantity: <strong>{loadList.reduce((sum, item) => sum + item.total_quantity, 0)}</strong>
+                    Total quantity: <strong>{totalQuantity}</strong>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-gray-600 font-medium">
@@ -111,13 +129,8 @@ const LoadListTab = ({
                 </div>
               </div>
               
-              {/* Sort loaded items to bottom */}
-              {[...loadList].sort((a, b) => {
-                const aLoaded = loadedItems.has(a.item_number);
-                const bLoaded = loadedItems.has(b.item_number);
-                if (aLoaded === bLoaded) return 0;
-                return aLoaded ? 1 : -1; // Loaded items go to bottom
-              }).map((item, index) => {
+              {/* Sort loaded items to bottom (memoized) */}
+              {sortedLoadList.map((item, index) => {
                 const isExpanded = expandedItems.has(item.item_number);
                 const isLoaded = loadedItems.has(item.item_number);
                 const isAnimating = animatingItems.has(item.item_number);
@@ -133,18 +146,20 @@ const LoadListTab = ({
                       rotate: isAnimating ? (isLoaded ? 15 : -15) : 0
                     }}
                     transition={{ 
-                      duration: isAnimating ? 0.4 : 0.1, 
-                      ease: isAnimating ? "easeInOut" : "easeOut"
+                      duration: isAnimating ? ANIMATION_DURATIONS.slow : ANIMATION_DURATIONS.fast, 
+                      ease: isAnimating ? ANIMATION_EASINGS.easeInOut : ANIMATION_EASINGS.easeOut
                     }}
                     style={{
                       backgroundColor: swipeOffset[item.item_number] > 50 ? '#dcfce7' : 
                                      swipeOffset[item.item_number] < -50 ? '#fee2e2' : undefined
                     }}
-                    className={`rounded-lg border overflow-hidden transition-all duration-200 relative ${
-                      isLoaded 
-                        ? 'bg-gray-100 border-gray-200 opacity-60' 
-                        : 'bg-slate-50 border-slate-200 hover:border-slate-300'
-                    }`}
+                    className={cn(
+                      'rounded-lg border overflow-hidden transition-all duration-200 relative',
+                      {
+                        'bg-gray-100 border-gray-200 opacity-60': isLoaded,
+                        'bg-slate-50 border-slate-200 hover:border-slate-300': !isLoaded
+                      }
+                    )}
                   >
                     {/* Compact header with swipe functionality */}
                     <div 
@@ -161,7 +176,13 @@ const LoadListTab = ({
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex-1 min-w-0">
-                          <h4 className={`font-semibold truncate ${isLoaded ? 'text-gray-500 line-through' : 'text-slate-800'}`}>
+                          <h4 className={cn(
+                            'font-semibold truncate',
+                            {
+                              'text-gray-500 line-through': isLoaded,
+                              'text-slate-800': !isLoaded
+                            }
+                          )}>
                             {isLoaded && `${ICONS.SUCCESS} `}{item.item_name}
                           </h4>
                           <p className="text-sm text-slate-600">Item #{item.item_number}</p>
@@ -175,7 +196,7 @@ const LoadListTab = ({
                               min={0}
                               max={999}
                               size="medium"
-                              className={isLoaded ? 'opacity-60' : ''}
+                              className={cn({ 'opacity-60': isLoaded })}
                             />
                             <div className="text-xs text-slate-500">
                               quantity
@@ -199,15 +220,21 @@ const LoadListTab = ({
                         <motion.div
                           initial={{ opacity: 0, scale: 0.5 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          className={`absolute inset-y-0 flex items-center pointer-events-none ${
-                            swipeOffset[item.item_number] > 0 ? 'left-4' : 'right-4'
-                          }`}
+                          className={cn(
+                            'absolute inset-y-0 flex items-center pointer-events-none',
+                            {
+                              'left-4': swipeOffset[item.item_number] > 0,
+                              'right-4': swipeOffset[item.item_number] <= 0
+                            }
+                          )}
                         >
-                          <div className={`flex items-center gap-2 px-3 py-2 rounded-lg text-white font-semibold ${
-                            swipeOffset[item.item_number] > 0 
-                              ? 'bg-green-500 shadow-green-500/30' 
-                              : 'bg-red-500 shadow-red-500/30'
-                          } shadow-lg`}>
+                          <div className={cn(
+                            'flex items-center gap-2 px-3 py-2 rounded-lg text-white font-semibold shadow-lg',
+                            {
+                              'bg-green-500 shadow-green-500/30': swipeOffset[item.item_number] > 0,
+                              'bg-red-500 shadow-red-500/30': swipeOffset[item.item_number] <= 0
+                            }
+                          )}>
                             {swipeOffset[item.item_number] > 0 ? (
                               <>
                                 <span className="text-lg">{ICONS.SUCCESS}</span>
@@ -257,7 +284,8 @@ const LoadListTab = ({
           )}
         </div>
       </div>
-    </AnimatedContainer>
+      </AnimatedContainer>
+    </PerformanceProfiler>
   );
 };
 
